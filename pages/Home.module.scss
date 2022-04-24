@@ -1,0 +1,45 @@
+.wrapper {
+  @apply h-screen w-screen flex flex-col justify-center items-center;
+  background-color: var(--dark);
+  .midLogoWrapper {
+    width: 42vw;
+    user-select: none;
+    @media screen and (max-width: 992px) {
+      width: 60vw;
+    }
+    @media screen and (max-width: 600px) {
+      width: 70vw;
+    }
+    @media screen and (max-width: 400px) {
+      width: 100vw;
+    }
+    .midLogobg {
+      background-image: url("/assets/images/bg.jpg");
+      background-repeat: repeat-x;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      opacity: 0.8;
+      img {
+        @apply w-full h-auto;
+        background-color: var(--dark);
+        &.dark_logo {
+          mix-blend-mode: darken;
+        }
+        &.light_logo {
+          mix-blend-mode: lighten;
+        }
+      }
+    }
+  }
+  .socialMedias {
+    @apply flex justify-center items-center list-none;
+    margin-bottom: 1rem;
+    li {
+      margin: 0 7px;
+    }
+  }
+  #scrollGif {
+    width: 50px;
+  }
+}

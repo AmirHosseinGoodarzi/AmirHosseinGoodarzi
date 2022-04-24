@@ -1,0 +1,67 @@
+.desktop {
+  @apply w-full fixed top-0 flex justify-between items-center p-5 pt-10;
+  background-color: var(--dark);
+  z-index: 1000;
+  .brand {
+    @apply flex justify-center items-end;
+    color: var(--light);
+    small {
+      font-size: 12px;
+    }
+    img {
+      width: 25px;
+      height: auto;
+      margin-bottom: 3px;
+    }
+  }
+  ul {
+    li {
+      margin: 0 1rem;
+      font-size: 1.2em;
+      a {
+        color: var(--light);
+        transition: all 0.3s;
+        &:hover {
+          text-shadow: 2px 2px 2px var(--main);
+        }
+      }
+      // &.active {
+      //   border-bottom: 2px solid var(--main);
+      // }
+    }
+    @media screen and (max-width: 768px) {
+      @apply invisible hidden;
+    }
+  }
+  .navOptions {
+    @apply hidden;
+    @media screen and (max-width: 768px) {
+      @apply block;
+    }
+  }
+}
+.mobile {
+  @apply fixed w-screen h-screen hidden justify-center items-center bg-opacity-0;
+  background-color: var(--dark);
+  right: -125%;
+  top: -125%;
+  z-index: 999;
+  transition: all 1s;
+  @media screen and (max-width: 768px) {
+    @apply flex;
+  }
+  &.mobileMenuActive {
+    @apply right-0 top-0 bg-opacity-90;
+    ul {
+      li {
+        margin: 1rem 0;
+        a {
+          color: var(--light);
+        }
+        // &.active {
+        //   border-bottom: 2px solid var(--main);
+        // }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.button {
+  background: linear-gradient(
+      to right,
+      var(--main) 50%,
+      var(--dark) 50%
+    )
+    repeat scroll right bottom/200% 100% transparent;
+  text-align: center;
+  color: var(--light);
+  transition: all 350ms ease-in-out;
+  border: 1px solid var(--main);
+  // opacity: 0.75;
+  font-size: 1.1em;
+  padding: 0.3em 1.5em;
+  border-radius: 1px;
+  white-space: nowrap;
+  @media screen and(max-width:600px) {
+    font-size: 1em;
+  }
+  &:hover {
+    background-position: left bottom;
+    color: var(--dark);
+    opacity: 1;
+  }
+  &:disabled {
+    background: grey;
+    border: 1px dashed var(--light);
+  }
+}
+.buttonFill {
+  background: linear-gradient(
+      to right,
+      var(--dark) 50%,
+      var(--main) 50%
+    )
+    repeat scroll right bottom/200% 100% transparent;
+  text-align: center;
+  color: var(--dark);
+  transition: all 350ms ease-in-out;
+  border: 1px solid var(--main);
+  // opacity: 0.75;
+  font-size: 1em;
+  padding: 0.3em 1.2em;
+  margin: 20px 0;
+  border-radius: 1px;
+  white-space: nowrap;
+  @media screen and(max-width:600px) {
+    font-size: 1em;
+  }
+  &:hover {
+    background-position: left bottom;
+    color: var(--light);
+    opacity: 1;
+  }
+  &:disabled {
+    background: grey;
+    border: 1px dashed var(--dark);
+  }
+}

@@ -1,0 +1,41 @@
+.wrapper {
+  @apply min-h-screen w-screen flex justify-center items-center;
+  background-color: var(--dark);
+  .clouderWrapper {
+    @apply h-screen flex flex-col justify-center items-center;
+    @media screen and (max-width: 991px) {
+      height: 50vh;
+    }
+    .clouder {
+      @apply relative m-auto;
+      width: 380px;
+      height: 380px;
+      @media screen and (max-width: 991px) {
+        width: 280px;
+        height: 280px;
+      }
+      img {
+        @apply absolute;
+        width: 55px;
+        height: 55px;
+      }
+    }
+  }
+  .descriptionWrapper {
+    @apply h-screen flex flex-col justify-center items-center;
+    @media screen and (max-width: 991px) {
+      @apply justify-start p-10 md:p-24;
+      height: 50vh;
+    }
+    .description {
+      padding: 2rem 6rem 2rem 1rem;
+      @media screen and (max-width: 991px) {
+        padding: 0 1rem;
+      }
+      p {
+        @apply text-justify;
+        color: var(--light);
+      }
+    }
+  }
+}

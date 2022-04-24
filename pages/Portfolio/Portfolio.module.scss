@@ -1,0 +1,93 @@
+.portfolio_wrapper {
+  @apply min-h-screen p-10 flex justify-center items-center;
+  background-color: var(--dark);
+  .laptop,
+  .mobile {
+    @apply relative w-full lg:w-1/2;
+    animation: slideIn 1s ease 0s 1 normal forwards;
+    user-select: none;
+  }
+  .laptop {
+    height: 50vh;
+    @media screen and (max-width: 1023px) {
+      height: 45vh;
+    }
+    @media screen and (max-width: 600px) {
+      height: 30vh;
+    }
+    img {
+      @apply absolute top-0 w-full h-full cursor-grab;
+      z-index: 50;
+      overflow: hidden;
+      &:hover {
+        & + .screen {
+          background-position: 100% 100%;
+        }
+      }
+    }
+    .screen {
+      @apply absolute top-6;
+      background-position: top center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: all 3s;
+      width: 75%;
+      height: 70%;
+      max-height: 70%;
+      left: 13%;
+      z-index: 10;
+    }
+  }
+  .mobile {
+    height: 53vh;
+    @media screen and (max-width: 1023px) {
+      height: 39vh;
+    }
+    @media screen and (max-width: 600px) {
+      height: 23vh;
+    }
+    img {
+      @apply absolute w-auto h-full cursor-grab m-auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 50;
+      overflow: hidden;
+    }
+    .screen {
+      @apply absolute top-6;
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 27%;
+      height: 95%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+  }
+  .description {
+    @apply relative flex flex-col justify-between items-start 
+    p-0 md:p-12 lg:p-16 pt-16 mt-5 w-full lg:w-1/2;
+    color: var(--light);
+    .back_to_all {
+      @apply w-10 h-10 bg-main;
+    }
+    .tech_item {
+      @apply w-fit m-2 py-1 px-2 border-2 border-main rounded-sm text-sm;
+      color: var(--light);
+    }
+  }
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-250px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

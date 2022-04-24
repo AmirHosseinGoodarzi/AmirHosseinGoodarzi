@@ -1,0 +1,18 @@
+.heading {
+  @apply relative;
+  padding-bottom: 48px;
+  .titleBack {
+    @apply w-full text-center text-secondary text-4xl md:text-6xl opacity-80 uppercase;
+  }
+  .title {
+    @apply absolute w-full text-center text-3xl md:text-5xl uppercase font-semibold;
+    font-family: AndresFont;
+    letter-spacing: 3px;
+    top: 40%;
+    transform: translate(0, -50%);
+    color: var(--light);
+    span {
+      @apply text-main;
+    }
+  }
+}

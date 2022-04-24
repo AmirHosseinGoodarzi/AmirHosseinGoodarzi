@@ -1,0 +1,26 @@
+<svg fill="none" viewBox="0 0 500 50" width="500" height="50" xmlns="http://www.w3.org/2000/svg">
+	<foreignObject width="100%" height="100%">
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<style>
+      @font-face {
+        font-family: AndresFont;
+        src: url("./Andres.ttf");
+      }
+        strong {
+          font-family: "Comic Sans", "Comic Sans MS", Chalkboard, ChalkboardSE-Regular, "Marker Felt", Purisa, "URW Chancery L", cursive, sans-serif;
+          color: #ffb400;
+          font-size: 1.5em;
+        }
+        .blink {
+          animation: blink-animation 1s steps(5, start) infinite;
+        }
+        @keyframes blink-animation {
+          to {
+            visibility: hidden;
+          }
+        }
+      </style>
+      <strong><span class="blink">Welcome to my Github Profile</span></strong>
+		</div>
+	</foreignObject>
+</svg>
