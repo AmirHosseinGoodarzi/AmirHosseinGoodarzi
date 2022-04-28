@@ -80,7 +80,7 @@ function Portfolio() {
                     <a
                       href={worksList[actived].link}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noreferrer"
                     >
                       {worksList[actived].link}
                     </a>

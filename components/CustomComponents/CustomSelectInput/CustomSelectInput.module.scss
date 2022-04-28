@@ -1,0 +1,67 @@
+.wrapper {
+  @apply relative;
+  width: 250px;
+  .label {
+    @apply mb-2;
+  }
+  .select_btn {
+    @apply flex justify-between items-center py-2 px-4 rounded-md cursor-pointer;
+    background: var(--light);
+    color: var(--dark);
+    user-select: none;
+  }
+  .content {
+    @apply absolute w-full invisible mt-1 p-2 overflow-y-auto rounded-b-md;
+    background: var(--light);
+    color: var(--dark);
+    user-select: none;
+    max-height: 200px;
+    &::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 3px;
+      background-color: var(--light2);
+    }
+    &::-webkit-scrollbar-thumb {
+      @apply bg-main bg-opacity-70;
+      border-radius: 3px;
+    }
+    &.active{
+      @apply visible;
+      animation: swingInFwd 500ms ease 0s 1 normal forwards;
+      @keyframes swingInFwd {
+        0% {
+          opacity: 0;
+          transform: rotateX(-100deg);
+          transform-origin: top;
+        }
+        100% {
+          opacity: 1;
+          transform: rotateX(0deg);
+          transform-origin: top;
+        }
+      }
+    }
+    .search  {
+      @apply relative;
+      .search_icon{
+        @apply absolute left-2 top-2;
+      }
+      input {
+        @apply w-full rounded-md p-1 pl-8 border-2 border-transparent transition-all;
+        transition-property: border;
+        &:focus{
+          @apply outline-none border-2 border-main;
+        }
+      }
+    }
+    .options {
+      @apply p-1;
+      li{
+        @apply cursor-pointer hover:bg-main hover:bg-opacity-40 rounded-md py-1 px-3 my-1;
+        &.active {
+          @apply bg-main;
+        }
+      }
+    }
+  }
+}

@@ -6,47 +6,39 @@ import { useRouter } from "next/router";
 import { List, XLg } from "react-bootstrap-icons";
 //============== images & icons ==============
 //============== in components ===============
+import Inputs from "components/CustomComponents/pages/Inputs";
 //============== ex components ===============
 //================= redux ====================
 //============================================
 function Components() {
-  const list = [
-    "Accordion",
-    "Alerts",
-    "Badge",
-    "Breadcrumb",
-    "Buttons",
-    "Button group",
-    "Card",
-    "Carousel_Slider",
-    "List group",
-    "Modal",
-    "Navs_tabs",
-    "Navbar",
-    "Offcanvas",
-    "Pagination",
-    "Placeholders",
-    "Popovers",
-    "Progress",
-    "Scrollspy",
-    "Spinners",
-    "Toasts",
-    "Tooltips",
-  ];
+  const router = useRouter();
+  const pagesList = [{ title: "inputs", page: <Inputs /> }];
   const [componentsType, setComponentsType] = useState("");
   const [openSidebar, setOpenSidebar] = useState(true);
-  const router = useRouter();
   useEffect(() => {
     let type = decodeURIComponent(router.query.type);
     if (router.query.type) {
-      if (list.includes(type)) {
-        setComponentsType(type);
-      } else {
-        router.push("/Components");
-      }
+      findPageComponent(type)
+        ? setComponentsType(type)
+        : router.push("/Components");
     }
   }, [router.query]);
-
+  const findPageComponent = (type) => {
+    let isExist = false;
+    let selectedPage = {};
+    pagesList.forEach((page) => {
+      if (page.title === type) {
+        isExist = true;
+        selectedPage = page;
+        return;
+      }
+    });
+    if (isExist) {
+      return selectedPage;
+    } else {
+      return null;
+    }
+  };
   return (
     <>
       <Head>
@@ -57,15 +49,16 @@ function Components() {
           className={`${styles.side_bar} ${openSidebar ? styles.active : ""}`}
         >
           <ul>
-            {list.map((item, index) => {
+            {pagesList.map((item, index) => {
               return (
                 <li
+                  className={componentsType === item.title ? styles.active:""}
                   key={index}
                   onClick={() => {
-                    router.push(`/Components?type=${item}`);
+                    router.push(`/Components?type=${item.title}`);
                   }}
                 >
-                  {item}
+                  {item.title}
                 </li>
               );
             })}
@@ -91,7 +84,11 @@ function Components() {
           </div>
           <div className="flex flex-col items-center justify-center w-full">
             {componentsType ? (
-              componentsType
+              findPageComponent(componentsType) ? (
+                findPageComponent(componentsType)?.page
+              ) : (
+                <></>
+              )
             ) : (
               <img
                 src="/assets/images/Empty.svg"

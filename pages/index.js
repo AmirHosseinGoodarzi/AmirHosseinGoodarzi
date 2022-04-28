@@ -46,12 +46,13 @@ function Home() {
             <a
               href="https://www.linkedin.com/in/amirhossein-goodarzi-6569551ba"
               target="_blank"
+              rel="noreferrer"
             >
               <Linkedin size="1.5rem" color="#0077b5" />
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/sektowr" target="_blank">
+            <a href="https://www.instagram.com/sektowr" target="_blank" rel="noreferrer">
               <img
                 src="/assets/images/instagram.svg"
                 alt="instagram"
@@ -60,17 +61,17 @@ function Home() {
             </a>
           </li>
           <li>
-            <a href="https://t.me/sektowr" target="_blank">
+            <a href="https://t.me/sektowr" target="_blank" rel="noreferrer">
               <Telegram size="1.5rem" color="#30A7DA" />
             </a>
           </li>
           <li>
-            <a href="https://wa.me/989167943707" target="_blank">
+            <a href="https://wa.me/989167943707" target="_blank" rel="noreferrer">
               <Whatsapp size="1.5rem" color="#48C155" />
             </a>
           </li>
           <li>
-            <a href="https://github.com/AmirHosseinGoodarzi" target="_blank">
+            <a href="https://github.com/AmirHosseinGoodarzi" target="_blank" rel="noreferrer">
               <Github size="1.5rem" color={
                 theme === THEMES.DARK ? "#FFF" : "#111"
               } />
@@ -80,6 +81,7 @@ function Home() {
             <a
               href="https://stackoverflow.com/users/13922873/sektowr"
               target="_blank"
+              rel="noreferrer"
             >
               <img
                 src="/assets/images/stackoverflow.svg"

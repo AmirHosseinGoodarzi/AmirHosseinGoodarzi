@@ -4,9 +4,9 @@
   color: var(--light);
   margin-top: 93px;
   .side_bar {
-    @apply fixed p-5 rounded-sm max-h-screen overflow-y-auto overflow-x-hidden;
+    @apply fixed p-5 rounded-sm h-screen overflow-y-auto overflow-x-hidden;
     transform: translateX(-100%);
-    transition: all 0.5s;
+    transition: transform 0.5s;
     background: var(--dark2);
     border-right: 2px var(--dark) solid;
     top: 93px;
@@ -26,11 +26,11 @@
     ul {
       @apply list-none;
       li {
-        @apply px-1 py-2 rounded-sm hover:bg-main 
+        @apply px-3 py-2 my-2 rounded-sm hover:bg-main 
         hover:bg-opacity-30 cursor-pointer;
         transition: all 0.3s;
         &.active {
-          @apply bg-main bg-opacity-30;
+          @apply bg-main text-dark font-bold;
         }
       }
     }
@@ -48,7 +48,7 @@
         bg-transparent bg-main bg-opacity-60 rounded-full;
         top: 95px;
         left: 233px;
-        transition: all 0.5s;
+        transition: left 0.5s;
       }
     }
     &.sidebar_closed {
