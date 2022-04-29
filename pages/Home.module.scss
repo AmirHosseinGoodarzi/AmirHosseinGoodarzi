@@ -39,7 +39,29 @@
       margin: 0 7px;
     }
   }
-  #scrollGif {
-    width: 50px;
+  .mouse {
+    @apply flex mt-5;
+    width: 23px;
+    height: 40px;
+    border: 2px solid var(--light);
+    border-radius: 20px;
+    .mouse_wheel {
+      @apply block m-auto rounded-full;
+      width: 2px;
+      height: 7px;
+      background-color: var(--light);
+      animation: move-wheel 1.7s linear infinite;
+      @keyframes move-wheel {
+        0% {
+          transform: translateY(-1.6rem);
+        }
+        50% {
+          transform: translateY(-.6rem);
+        }
+        100% {
+          transform: translateY(-1.6rem);
+        }
+      }
+    }
   }
 }

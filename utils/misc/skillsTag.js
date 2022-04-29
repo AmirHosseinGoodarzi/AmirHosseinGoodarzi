@@ -42,4 +42,9 @@ export const skillsTag = [
     id: "17",
     weight: 1,
   },
+  {
+    text: "/assets/images/technologies/react-query.svg",
+    id: "18",
+    weight: 1,
+  },
 ];

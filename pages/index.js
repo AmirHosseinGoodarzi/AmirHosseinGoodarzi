@@ -94,11 +94,9 @@ function Home() {
         <Link href="/ContactMe">
           <Button type="OUTLINE" text="Let’s make something special." />
         </Link>
-        <img
-          id={styles.scrollGif}
-          src="/assets/images/scroll.gif"
-          alt="scroll"
-        />
+        <span className={styles.mouse}>
+          <span className={styles.mouse_wheel}></span>
+        </span>
       </div>
       <AboutMe />
     </>

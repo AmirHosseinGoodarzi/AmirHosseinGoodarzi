@@ -6,13 +6,19 @@ import { useRouter } from "next/router";
 import { List, XLg } from "react-bootstrap-icons";
 //============== images & icons ==============
 //============== in components ===============
-import Inputs from "components/CustomComponents/pages/Inputs";
+import Inputs from "customComponents/pages/Inputs";
+import Buttons from "customComponents/pages/Buttons";
+import Tools from "customComponents/pages/Tools/Tools";
 //============== ex components ===============
 //================= redux ====================
 //============================================
 function Components() {
   const router = useRouter();
-  const pagesList = [{ title: "inputs", page: <Inputs /> }];
+  const pagesList = [
+    { title: "inputs", page: <Inputs /> },
+    { title: "buttons", page: <Buttons /> },
+    { title: "tools", page: <Tools /> },
+  ];
   const [componentsType, setComponentsType] = useState("");
   const [openSidebar, setOpenSidebar] = useState(true);
   useEffect(() => {
@@ -52,7 +58,7 @@ function Components() {
             {pagesList.map((item, index) => {
               return (
                 <li
-                  className={componentsType === item.title ? styles.active:""}
+                  className={componentsType === item.title ? styles.active : ""}
                   key={index}
                   onClick={() => {
                     router.push(`/Components?type=${item.title}`);
