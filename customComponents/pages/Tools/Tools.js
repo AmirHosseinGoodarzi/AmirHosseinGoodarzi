@@ -85,6 +85,7 @@ function Tools() {
     "Tailwind CSS IntelliSense",
     "XML Tools",
     "ESLint",
+    "live server"
   ];
   const [accordions, setAccordions] = useState({
     react: false,

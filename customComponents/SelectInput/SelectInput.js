@@ -1,13 +1,13 @@
 //============== React & Next ================
 import React, { useEffect, useState, useRef } from "react";
 import { ArrowDown, ArrowUp, Search, XLg } from "react-bootstrap-icons";
-import styles from "./CustomSelectInput.module.scss";
+import styles from "./SelectInput.module.scss";
 //============== images & icons ==============
 //============== in Components ===============
 //============== ex Components ===============
 //================= redux ====================
 //============================================
-function CustomSelectInput({
+function SelectInput({
   label,
   placeholder,
   items,
@@ -88,4 +88,4 @@ function CustomSelectInput({
   );
 }
 
-export default CustomSelectInput;
+export default SelectInput;
