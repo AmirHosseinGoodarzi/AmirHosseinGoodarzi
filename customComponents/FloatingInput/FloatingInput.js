@@ -6,13 +6,9 @@ import styles from "./FloatingInput.module.scss";
 //============== ex Components ===============
 //================= redux ====================
 //============================================
-export const inputTypes = Object.freeze({
-  NORMAL: "NORMAL",
-  BORDERED: "BORDERED",
-});
 function FloatingInput(props) {
   const _id = useId();
-  const { error, label, type, wrapperClassNames, ...otherProps } = props;
+  const { error, label, wrapperClassNames, ...otherProps } = props;
   return (
     <div
       className={`${styles.FloatingInput_wrapper} ${
@@ -22,14 +18,13 @@ function FloatingInput(props) {
       <input
         id={_id}
         {...otherProps}
-        className={`${error ? styles.invalid : ""} ${
-          type === inputTypes.BORDERED ? styles.bordered : ""
-        }`}
+        autoComplete="off"
+        className={error ? styles.invalid : ""}
       />
-      <label htmlFor={_id} className={otherProps.value ? styles.focused : ""}>
-        {label}
-      </label>
-      <p className={styles.error}>{error}</p>
+      <label htmlFor={_id} className={
+          otherProps.value ? styles.filled : ""
+        }>{label}</label>
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 }

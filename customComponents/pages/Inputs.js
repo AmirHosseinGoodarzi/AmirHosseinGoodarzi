@@ -3,7 +3,8 @@ import React, { useState } from "react";
 //============== images & icons ==============
 //============== in Components ===============
 import SelectInput from "../SelectInput/SelectInput";
-import FloatingInput, { inputTypes } from "../FloatingInput/FloatingInput";
+import FloatingInput from "../FloatingInput/FloatingInput";
+import CheckBox from "../CheckBox/CheckBox";
 import Code from "components/Code/Code";
 //============== ex Components ===============
 //================= redux ====================
@@ -14,6 +15,7 @@ function Inputs() {
     value: "",
     error: "",
   });
+  const [checkbox, setCheckbox] = useState(false);
   const finputOnchange = (e) => {
     setFinput({
       ...finput,
@@ -69,9 +71,8 @@ const finputOnchange = (e) => {
 //---------------------------------------
 <FloatingInput
   label="Name"
-  placeholder=""
+  placeholder="Enter your name"
   wrapperClassNames=""
-  type={inputTypes.NORMAL} // import {types}
   value={finput.value}
   error={finput.error}
   onChange={finputOnchange}
@@ -93,21 +94,33 @@ const finputOnchange = (e) => {
           <div className="flex justify-center items-center">
             <FloatingInput
               label="Name"
-              placeholder=""
+              placeholder="Enter your name"
               wrapperClassNames=""
-              type={inputTypes.NORMAL}
-              value={finput.value}
-              error={finput.error}
-              onChange={finputOnchange}
-            />
-            <FloatingInput
-              label="Name"
-              type={inputTypes.BORDERED}
               value={finput.value}
               error={finput.error}
               onChange={finputOnchange}
             />
           </div>
+        </div>
+        <div className="flex justify-center items-center">
+          <CheckBox
+            checked={checkbox}
+            onChange={(e) => {
+              setCheckbox(e.target.checked);
+            }}
+          />
+        </div>
+        <div className="flex justify-center items-center">
+          <Code>
+            {`const [checkbox, setCheckbox] = useState(false);
+//---------------------------------------            
+<CheckBox
+  checked={checkbox}
+  onChange={(e) => {
+    setCheckbox(e.target.checked);
+  }}
+/>`}
+          </Code>
         </div>
       </div>
     </>

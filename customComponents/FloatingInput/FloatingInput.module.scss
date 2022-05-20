@@ -1,39 +1,75 @@
 .FloatingInput_wrapper {
   @apply relative m-2;
-  max-width: 300px;
+  width: 280px;
   input {
-    @apply w-full bg-transparent border-b rounded-sm py-1 px-2;
-    border-color: var(--light);
-    transition: all 0.2s;
-    margin-bottom: 1px;
+    @apply w-full h-full;
+    padding: 0.8rem;
+    border: 1px solid var(--light);
+    background: transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    transition: all 0.3s;
+    color: var(--light);
+    &::placeholder {
+      font-size: 16px;
+      opacity: 0;
+      transition: all 0.3s;
+    }
     &:focus {
-      @apply border-b-2 mb-0;
-      outline: none;
-      & + label {
-        @apply -top-4;
-        background-color: var(--dark);
+      @apply border-main;
+      + label {
+        @apply text-main;
+        top: -10px;
+        font-size: 14px;
+      }
+      &::placeholder {
+        opacity: 1;
       }
     }
     &.invalid {
       @apply border-error;
-    }
-    &.bordered {
-      @apply border;
-      margin: 1px;
-      &:focus {
-        @apply border-2 m-0;
+      + label {
+        @apply text-error;
       }
     }
   }
   label {
-    @apply absolute top-0.5 left-2 font-bold cursor-text;
+    @apply absolute;
+    left: 10px;
+    top: 14px;
     transition: all 0.2s;
-    &.focused {
-      @apply -top-4;
-      background-color: var(--dark);
+    padding: 0 2px;
+    z-index: 1;
+    color: #b3b3b3;
+    &::before {
+      @apply absolute w-full;
+      content: "";
+      height: 5px;
+      background: var(--dark);
+      left: 0px;
+      top: 10px;
+      z-index: -1;
+    }
+    &.filled {
+      @apply text-main;
+      top: -10px;
+      font-size: 14px;
     }
   }
   .error {
     @apply text-error;
+    animation: slideInRight 1s ease 0s 1 normal forwards;
+    @keyframes slideInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(250px);
+      }
+    
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
   }
 }

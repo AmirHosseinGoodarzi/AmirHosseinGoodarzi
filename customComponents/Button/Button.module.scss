@@ -1,0 +1,88 @@
+.Button_wrapper {
+  @apply relative;
+  .Button_container {
+    @apply absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    button {
+      @apply relative inline-block bg-transparent cursor-pointer 
+      overflow-hidden text-main border-2 border-main whitespace-nowrap disabled:opacity-60 disabled:cursor-wait;
+      border-radius: 3px;
+      padding: 10px 45px;
+      transition: all 250ms ease;
+      box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.2);
+      width: 160px;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 150%;
+        height: 100%;
+        background-color: var(--main);
+        z-index: -1;
+        transform: skew(-45deg) translateX(-(150%));
+        animation: buttonOut 500ms ease-in;
+      }
+      &:not(:disabled):hover {
+        color: var(--dark);
+        box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.6);
+
+        &:before {
+          animation: buttonIn 500ms ease-out forwards;
+        }
+      }
+    }
+    @keyframes buttonIn {
+      0% {
+        transform: skew(-45deg) translateX(-(150%));
+      }
+      100% {
+        transform: skew(-45deg) translateX(-50%);
+      }
+    }
+    @keyframes buttonOut {
+      0% {
+        transform: skew(-45deg) translateX(-50%);
+      }
+      100% {
+        transform: skew(-45deg) translateX(150%);
+      }
+    }
+    .button_loading {
+      // @apply w-fit;
+      > .line {
+        @apply inline-block rounded-full bg-main;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin: 2px;
+        animation: loadingC 0.7s linear infinite;
+        &:nth-last-child(1) {
+          animation-delay: 0.1s;
+        }
+        &:nth-last-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        &:nth-last-child(3) {
+          animation-delay: 0.3s;
+        }
+      }
+      @keyframes loadingC {
+        0% {
+          transform: translate(0, -3px);
+        }
+
+        50% {
+          transform: translate(0, 3px);
+        }
+
+        100% {
+          transform: translate(0, -3px);
+        }
+      }
+    }
+  }
+}
