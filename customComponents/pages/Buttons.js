@@ -27,7 +27,7 @@ function Buttons() {
           </Button>
         </div>
         <div className="w-1/2 flex justify-center items-center">
-          <Code>
+          <Code file={"Button"}>
             {`const [btnLoading, setBtnLoading] = useState(false);
 //---------------------------------------            
 <Button

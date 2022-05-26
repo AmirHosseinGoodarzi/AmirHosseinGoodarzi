@@ -39,7 +39,7 @@ function Inputs() {
           />
         </div>
         <div className="flex justify-center items-center">
-          <Code>
+          <Code file={"SelectInput"}>
             {`const [selectedItem, setSelectedItem] = useState({});
 //---------------------------------------            
 <SelectInput
@@ -56,7 +56,7 @@ function Inputs() {
           </Code>
         </div>
         <div className="flex justify-center items-center">
-          <Code>
+          <Code file={"FloatingInput"}>
             {`const [finput, setFinput] = useState({
     value: "",
     error: "",
@@ -111,7 +111,7 @@ const finputOnchange = (e) => {
           />
         </div>
         <div className="flex justify-center items-center">
-          <Code>
+          <Code file={"CheckBox"}>
             {`const [checkbox, setCheckbox] = useState(false);
 //---------------------------------------            
 <CheckBox
