@@ -44,7 +44,7 @@ function Navbar() {
         <span
           className={styles.navOptions}
           onClick={() => {
-            setIsOpen((prev) => !prev);
+            setIsOpen(!isOpen);
           }}
         >
           {isOpen ? (
@@ -65,7 +65,14 @@ function Navbar() {
         <ul className="flex flex-col justify-center items-center list-none h-full p-0 m-0">
           {NavList.map((navItem, index) => {
             return (
-              <NavLink name={navItem} pathname={router.pathname} key={index} />
+              <NavLink
+                name={navItem}
+                pathname={router.pathname}
+                key={index}
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              />
             );
           })}
         </ul>
