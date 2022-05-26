@@ -6,8 +6,9 @@ import Head from "next/head";
 //============== in components ===============
 import Button from "components/Button/Button";
 import Title from "components/Title/Title";
+import client from "utils/AxiosInterceptor";
 //============== ex components ===============
-import axios from "axios";
+import Swal from "sweetalert2";
 //================= redux ====================
 //============================================
 function ContactMe() {
@@ -79,6 +80,64 @@ function ContactMe() {
     if (!hasErr) {
       e.target.disabled = true;
       e.target.style.cursor = "wait";
+      const token = "2142005737:AAE7_yyXDyopPVEZT2d9dPUpyZYOyKdOUx0";
+      const chatId = "1262429671"; // myPv chatId with bot
+      const text = `👋🏻 Amir 👋🏻
+      \nYou Have Messave from Your Porfolio 💪🏻 
+      \n✍🏼 Sender's Name is :${inputs.name} 
+      \n✉️ Sender's Email is : ${inputs.email}  
+      \n🧧 message : ${inputs.message} `;
+      client
+        .post(`https://api.telegram.org/bot${token}/sendMessage`, {
+          chat_id: chatId,
+          text: text,
+        })
+        .then(({ data }) => {
+          //   {
+          //     "ok": true,
+          //     "result": {
+          //         "message_id": 76,
+          //         "from": {
+          //             "id": 2142005737,
+          //             "is_bot": true,
+          //             "first_name": "MyPortfolio",
+          //             "username": "AmirGoodarziPortfolio_bot"
+          //         },
+          //         "chat": {
+          //             "id": 1262429671,
+          //             "first_name": "Sektowr",
+          //             "username": "Sektowr",
+          //             "type": "private"
+          //         },
+          //         "date": 1653589934,
+          //         "text": "👋🏻 Amir 👋🏻\n      \nYou Have Messave from Your Porfolio 💪🏻 \n      \n✍🏼 Sender's Name is :123 \n      \n✉️ Sender's Email is : 3123  \n      \n🧧 message : 123"
+          //     }
+          // }
+          e.target.disabled = false;
+          e.target.style.cursor = "pointer";
+          if (data.ok) {
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Your message was successfully sent to me on Telegram.",
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Error in send Message from Telegram server.",
+            });
+          }
+        });
+      // client
+      //   .post(`/api/telegramSendMessage`,{
+      //     name: inputs.name,
+      //     email: inputs.email,
+      //     message: inputs.message,
+      //   })
+      //   .then(({ data }) => {
+      //     console.log("data::",data);
+      //   });
     }
   };
   const onBlurHandle = (e) => {
