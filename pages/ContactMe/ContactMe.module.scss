@@ -1,12 +1,10 @@
 .wrapper {
   @apply w-full h-screen;
-  background-image: url("../../public/assets/images/map.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   .cContainer {
     @apply w-full h-full flex justify-center items-center;
-    background: rgba(17, 17, 17, 0.5);
   }
   .formRow {
     margin: -20px 0;

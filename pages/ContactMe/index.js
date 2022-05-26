@@ -7,11 +7,14 @@ import Head from "next/head";
 import Button from "components/Button/Button";
 import Title from "components/Title/Title";
 import client from "utils/AxiosInterceptor";
+import { THEMES } from "utils/Constants";
 //============== ex components ===============
 import Swal from "sweetalert2";
 //================= redux ====================
+import { useSelector } from "react-redux";
 //============================================
 function ContactMe() {
+  const theme = useSelector((state) => state.theme.type);
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -82,11 +85,7 @@ function ContactMe() {
       e.target.style.cursor = "wait";
       const token = "2142005737:AAE7_yyXDyopPVEZT2d9dPUpyZYOyKdOUx0";
       const chatId = "1262429671"; // myPv chatId with bot
-      const text = `👋🏻 Amir 👋🏻
-      \nYou Have Messave from Your Porfolio 💪🏻 
-      \n✍🏼 Sender's Name is :${inputs.name} 
-      \n✉️ Sender's Email is : ${inputs.email}  
-      \n🧧 message : ${inputs.message} `;
+      const text = `👋🏻 Amir 👋🏻\nYou Have Messave from Your Porfolio 💪🏻\n✍🏼 Sender's Name is :${inputs.name}\n✉️ Sender's Email is : ${inputs.email}\n🧧 message : ${inputs.message} `;
       client
         .post(`https://api.telegram.org/bot${token}/sendMessage`, {
           chat_id: chatId,
@@ -129,15 +128,6 @@ function ContactMe() {
             });
           }
         });
-      // client
-      //   .post(`/api/telegramSendMessage`,{
-      //     name: inputs.name,
-      //     email: inputs.email,
-      //     message: inputs.message,
-      //   })
-      //   .then(({ data }) => {
-      //     console.log("data::",data);
-      //   });
     }
   };
   const onBlurHandle = (e) => {
@@ -160,8 +150,22 @@ function ContactMe() {
       <Head>
         <title>ContactMe</title>
       </Head>
-      <div className={styles.wrapper}>
-        <div className={styles.cContainer}>
+      <div
+        className={styles.wrapper}
+        style={
+          theme === THEMES.DARK
+            ? { backgroundImage: "url(/assets/images/map.jpg)" }
+            : { background: "var(--dark)" }
+        }
+      >
+        <div
+          className={styles.cContainer}
+          style={
+            theme === THEMES.DARK
+              ? { background: "rgba(17, 17, 17, 0.5)" }
+              : { background: "transparent" }
+          }
+        >
           <section className={styles.getInTocuh}>
             <Title
               back="Get in touch"
