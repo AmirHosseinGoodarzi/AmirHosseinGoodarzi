@@ -2,7 +2,8 @@
   @apply relative;
   padding-bottom: 48px;
   .titleBack {
-    @apply w-full text-center text-secondary text-4xl md:text-6xl opacity-80 uppercase;
+    @apply w-full text-center text-4xl md:text-6xl opacity-80 uppercase;
+    color: var(--titleBack);
   }
   .title {
     @apply absolute w-full text-center text-3xl md:text-5xl uppercase font-semibold;

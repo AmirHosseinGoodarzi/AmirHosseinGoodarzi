@@ -3,25 +3,27 @@
 @tailwind utilities;
 :root {
   --dark: #121212;
-  --dark2: #1E1E1E;
+  --dark2: #1e1e1e;
   --light: #eeefef;
   --light2: #fff;
-  --darkGlass :rgba(0,0,0,.8);
+  --darkGlass: rgba(0, 0, 0, 0.8);
+  --titleBack: rgb(69, 69, 69);
   --error: #df4759;
   --success: #28a745;
   --main: #ffb400;
   --secondary: #454545;
-  --scrollbar:rgb(51, 51, 51);
-  --scrollbar-thumb:rgb(85, 85, 85);
+  --scrollbar: rgb(51, 51, 51);
+  --scrollbar-thumb: rgb(85, 85, 85);
 }
 [data-theme="LIGHT"] {
   --dark: #eeefef;
   --dark2: #f9f9f9;
   --light: #111;
-  --light2: #1E1E1E;
-  --darkGlass :rgba(255,255,255,.8);
-  --scrollbar:#FFF;
-  --scrollbar-thumb:rgb(202, 202, 202);
+  --light2: #1e1e1e;
+  --darkGlass: rgba(255, 255, 255, 0.8);
+  --titleBack: rgb(222, 222, 222);
+  --scrollbar: #fff;
+  --scrollbar-thumb: rgb(202, 202, 202);
 }
 html {
   scroll-behavior: smooth;
@@ -32,8 +34,7 @@ html {
 }
 @font-face {
   font-family: "ZenKakuGothicAntique";
-  src: url("/assets/fonts/ZenKakuGothicAntique-Regular.ttf")
-    format("truetype");
+  src: url("/assets/fonts/ZenKakuGothicAntique-Regular.ttf") format("truetype");
 }
 body {
   background-color: var(--dark);
@@ -82,7 +83,7 @@ a {
     transform: translateX(-8px);
   }
 }
-.max_width_rule{
+.max_width_rule {
   max-width: 1500px;
   margin: auto;
 }
