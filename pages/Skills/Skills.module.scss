@@ -5,26 +5,27 @@
     @apply h-screen flex flex-col justify-center items-center;
     @media screen and (max-width: 991px) {
       height: 50vh;
+      margin-top: 70px;
     }
     .clouder {
       @apply relative m-auto;
       width: 380px;
       height: 380px;
       @media screen and (max-width: 991px) {
-        width: 280px;
-        height: 280px;
+        width: 300px;
+        height: 300px;
       }
       img {
         @apply absolute;
-        width: 55px;
-        height: 55px;
+        width: 50px;
+        height: 50px;
       }
     }
   }
   .descriptionWrapper {
     @apply h-screen flex flex-col justify-center items-center;
     @media screen and (max-width: 991px) {
-      @apply justify-start p-10 md:p-24;
+      @apply justify-start p-5 md:p-24;
       height: 50vh;
     }
     .description {

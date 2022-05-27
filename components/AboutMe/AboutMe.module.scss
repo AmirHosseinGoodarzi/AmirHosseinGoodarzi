@@ -1,8 +1,8 @@
 .wrapper {
-  @apply w-full pb-52 m-auto;
+  @apply w-full pb-52 m-auto flex flex-wrap;
   background-color: var(--dark);
   .aboutMeImage {
-    @apply flex flex-col items-center justify-center w-full lg:w-1/2;
+    @apply flex flex-col items-center justify-center w-full md:w-1/2;
     img {
       width: 50%;
       height: auto;
@@ -12,14 +12,14 @@
     }
   }
   .descriptionWrapper {
-    @apply flex flex-col items-center justify-center w-full lg:w-1/2;
+    @apply flex flex-col items-center justify-center w-full md:w-1/2;
     @media screen and (max-width: 991px) {
       @apply h-full items-start;
     }
     .description {
       padding: 2rem 1rem 2rem 6rem;
       @media screen and (max-width: 991px) {
-        padding: 0 1rem;
+        padding: 0 2rem;
       }
       p {
         text-align: justify;
