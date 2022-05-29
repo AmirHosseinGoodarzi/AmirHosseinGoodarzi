@@ -148,7 +148,6 @@ function Inputs() {
           }}
         />
       </ComponentViewer>
-
       <ComponentViewer
         code={`const [toggle, setToggle] = useState(false);
 //---------------------------------------            
@@ -169,7 +168,6 @@ function Inputs() {
           }}
         />
       </ComponentViewer>
-
       <ComponentViewer
         code={`const [selectedRadio, setSelectedRadio] = useState(0);
 //---------------------------------------            
