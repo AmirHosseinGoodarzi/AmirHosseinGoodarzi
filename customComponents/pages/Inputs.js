@@ -7,6 +7,7 @@ import FloatingInput from "../FloatingInput/FloatingInput";
 import CheckBox from "../CheckBox/CheckBox";
 import ComponentViewer from "components/ComponentViewer/ComponentViewer";
 import Radio from "customComponents/Radio/Radio";
+import ToggleSwitch from "customComponents/ToggleSwitch/ToggleSwitch";
 //============== ex Components ===============
 //================= redux ====================
 //============================================
@@ -17,6 +18,7 @@ function Inputs() {
     error: "",
   });
   const [checkbox, setCheckbox] = useState(false);
+  const [toggle, setToggle] = useState(false);
   const finputOnchange = (e) => {
     setFinput({
       ...finput,
@@ -146,7 +148,30 @@ function Inputs() {
           }}
         />
       </ComponentViewer>
-      <ComponentViewer code={`const [selectedRadio, setSelectedRadio] = useState(0);
+
+      <ComponentViewer
+        code={`const [toggle, setToggle] = useState(false);
+//---------------------------------------            
+<ToggleSwitch
+  label={"label"}
+  checked={toggle}
+  onChange={(e) => {
+    setToggle(e.target.checked);
+  }}
+/>`}
+        file={"Radio"}
+      >
+        <ToggleSwitch
+          label={"Toggle switch"}
+          checked={toggle}
+          onChange={(e) => {
+            setToggle(e.target.checked);
+          }}
+        />
+      </ComponentViewer>
+
+      <ComponentViewer
+        code={`const [selectedRadio, setSelectedRadio] = useState(0);
 //---------------------------------------            
 <Radio
   name={"RadioButton"}
@@ -158,7 +183,9 @@ function Inputs() {
   onChange={(value) => {
     setSelectedRadio(value);
   }}
-/>`} file={"Radio"}>
+/>`}
+        file={"Radio"}
+      >
         <Radio
           name={"RadioButton"}
           items={[

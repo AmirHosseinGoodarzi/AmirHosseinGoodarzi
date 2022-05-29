@@ -1,0 +1,8 @@
+.ToggleSwitch_wrapper {
+  label {
+    @apply inline-flex relative items-center mr-5 cursor-pointer;
+    span {
+      @apply mx-3 text-sm font-medium text-light;
+    }
+  }
+}
