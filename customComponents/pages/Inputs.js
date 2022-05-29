@@ -78,12 +78,25 @@ function Inputs() {
     label="Country :"
     placeholder="Select Country"
     items={[
-    { id: 1, title: "iran" },
-    { id: 2, title: "Usa" },
-    { id: 3, title: "Germany" },
+      {
+        id: 1,
+        title: "iran",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
+      {
+        id: 2,
+        title: "Usa",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
+      {
+        id: 3,
+        title: "Germany",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
     ]}
     selectedItem={selectedItem}
     setSelectedItem={setSelectedItem}
+    showSearchInput={true}
   />`}
         file={"SelectInput"}
       >
@@ -91,12 +104,25 @@ function Inputs() {
           label="Country :"
           placeholder="Select Country"
           items={[
-            { id: 1, title: "iran" },
-            { id: 2, title: "Usa" },
-            { id: 3, title: "Germany" },
+            {
+              id: 1,
+              title: "iran",
+              icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+            },
+            {
+              id: 2,
+              title: "Usa",
+              icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+            },
+            {
+              id: 3,
+              title: "Germany",
+              icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+            },
           ]}
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}
+          showSearchInput={true}
         />
       </ComponentViewer>
       <ComponentViewer

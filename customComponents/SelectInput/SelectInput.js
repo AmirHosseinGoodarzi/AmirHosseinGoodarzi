@@ -13,6 +13,7 @@ function SelectInput({
   items,
   selectedItem,
   setSelectedItem,
+  showSearchInput,
 }) {
   const selectRef = useRef();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -52,15 +53,18 @@ function SelectInput({
         </span>
       </div>
       <div className={`${styles.content} ${showDropdown ? styles.active : ""}`}>
-        <div className={styles.search}>
-          <Search className={styles.search_icon} />
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        </div>
+        {showSearchInput && (
+          <div className={styles.search}>
+            <Search className={styles.search_icon} />
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+          </div>
+        )}
+
         <ul className={styles.options}>
           {items
             ?.filter((item) =>
@@ -78,6 +82,7 @@ function SelectInput({
                     setShowDropdown(false);
                   }}
                 >
+                  <span className="mr-1">{item.icon}</span>
                   <span>{item.title}</span>
                 </li>
               );

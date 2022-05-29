@@ -5,15 +5,15 @@
     @apply mb-2;
   }
   .select_btn {
-    @apply flex justify-between items-center py-2 px-4 rounded-md cursor-pointer;
-    background: var(--light);
-    color: var(--dark);
+    @apply flex justify-between items-center py-2 px-4 rounded-md cursor-pointer bg-transparent;
+    border: 1px solid var(--light);
+    color: var(--light);
     user-select: none;
   }
   .content {
     @apply absolute w-full invisible mt-1 p-2 overflow-y-auto rounded-b-md;
-    background: var(--light);
-    color: var(--dark);
+    background: var(--dark2);
+    color: var(--light);
     user-select: none;
     max-height: 200px;
     &::-webkit-scrollbar {
@@ -45,10 +45,12 @@
       @apply relative;
       .search_icon{
         @apply absolute left-2 top-2;
+        color: var(--dark2);
       }
       input {
         @apply w-full rounded-md p-1 pl-8 border-2 border-transparent transition-all;
         transition-property: border;
+        color: var(--dark2);
         &:focus{
           @apply outline-none border-2 border-main;
         }
@@ -57,7 +59,7 @@
     .options {
       @apply p-1;
       li{
-        @apply cursor-pointer hover:bg-main hover:bg-opacity-40 rounded-md py-1 px-3 my-1;
+        @apply flex items-center justify-start cursor-pointer hover:bg-main hover:bg-opacity-40 rounded-md py-1 px-3 my-1;
         &.active {
           @apply bg-main;
         }
