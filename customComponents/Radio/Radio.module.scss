@@ -1,0 +1,53 @@
+.Radio_wrapper {
+  @apply flex justify-center items-center my-24;
+  > div {
+    @apply m-2 flex items-center justify-center;
+    span {
+      margin-right: 10px;
+    }
+    .radio_input {
+      display: none;
+    }
+
+    .radio {
+      @apply flex items-center justify-center relative rounded-full cursor-pointer border-2;
+      width: 25px;
+      height: 25px;
+      border-color: var(--light);
+      &::before,
+      &::after {
+        content: "";
+        @apply block absolute rounded-full;
+        transform: scale(0);
+        transition: all 0.1s;
+      }
+      &::before {
+        @apply bg-main;
+        width: 17px;
+        height: 17px;
+      }
+      &::after {
+        width: 50px;
+        height: 50px;
+        background: #f7faff4d;
+      }
+    }
+
+    .radio_input:checked + .radio {
+      @apply border-main;
+      &::after {
+        animation: ripple 0.2s;
+      }
+
+      &::before {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(1);
+      }
+    }
+  }
+}

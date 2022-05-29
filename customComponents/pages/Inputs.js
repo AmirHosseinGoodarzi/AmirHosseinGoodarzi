@@ -6,6 +6,7 @@ import SelectInput from "../SelectInput/SelectInput";
 import FloatingInput from "../FloatingInput/FloatingInput";
 import CheckBox from "../CheckBox/CheckBox";
 import ComponentViewer from "components/ComponentViewer/ComponentViewer";
+import Radio from "customComponents/Radio/Radio";
 //============== ex Components ===============
 //================= redux ====================
 //============================================
@@ -22,6 +23,8 @@ function Inputs() {
       value: e.target.value,
     });
   };
+  const [selectedRadio, setSelectedRadio] = useState(0);
+
   return (
     <>
       <ComponentViewer
@@ -140,6 +143,31 @@ function Inputs() {
           checked={checkbox}
           onChange={(e) => {
             setCheckbox(e.target.checked);
+          }}
+        />
+      </ComponentViewer>
+      <ComponentViewer code={`const [selectedRadio, setSelectedRadio] = useState(0);
+//---------------------------------------            
+<Radio
+  name={"RadioButton"}
+  items={[
+    { label: "Female", value: 0 },
+    { label: "Male", value: 1 },
+  ]}
+  selectedValue={selectedRadio}
+  onChange={(value) => {
+    setSelectedRadio(value);
+  }}
+/>`} file={"Radio"}>
+        <Radio
+          name={"RadioButton"}
+          items={[
+            { label: "Female", value: 0 },
+            { label: "Male", value: 1 },
+          ]}
+          selectedValue={selectedRadio}
+          onChange={(value) => {
+            setSelectedRadio(value);
           }}
         />
       </ComponentViewer>
