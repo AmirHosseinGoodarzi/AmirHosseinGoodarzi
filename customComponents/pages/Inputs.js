@@ -51,9 +51,9 @@ function Inputs() {
   />`}
         file={"FloatingInput"}
       >
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center relative w-full">
           <button
-            className="p-2 m-5 bg-main text-dark rounded-md font-bold"
+            className="p-2 m-5 bg-main text-dark rounded-md font-bold absolute -top-7 -right-7"
             onClick={() => {
               setFinput({
                 ...finput,
