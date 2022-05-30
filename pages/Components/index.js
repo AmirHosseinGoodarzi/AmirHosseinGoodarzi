@@ -15,20 +15,12 @@ import Tools from "customComponents/pages/Tools/Tools";
 function Components() {
   const router = useRouter();
   const pagesList = [
-    { title: "inputs", page: <Inputs /> },
-    { title: "buttons", page: <Buttons /> },
-    { title: "tools", page: <Tools /> },
+    { title: "Inputs", page: <Inputs /> },
+    { title: "Buttons", page: <Buttons /> },
+    { title: "Tools", page: <Tools /> },
   ];
-  const [componentsType, setComponentsType] = useState("");
+  const [selectedPage, setSelectedPage] = useState({});
   const [openSidebar, setOpenSidebar] = useState(true);
-  useEffect(() => {
-    let type = decodeURIComponent(router.query.type);
-    if (router.query.type) {
-      findPageComponent(type)
-        ? setComponentsType(type)
-        : router.push("/Components");
-    }
-  }, [router.query]);
   const findPageComponent = (type) => {
     let isExist = false;
     let selectedPage = {};
@@ -45,6 +37,13 @@ function Components() {
       return null;
     }
   };
+  useEffect(() => {
+    let type = decodeURIComponent(router.query.type);
+    if (router.query.type) {
+      let findedPage = findPageComponent(type);
+      findedPage ? setSelectedPage(findedPage) : router.push("/Components");
+    }
+  }, [router.query]);
   return (
     <>
       <Head>
@@ -58,7 +57,9 @@ function Components() {
             {pagesList.map((item, index) => {
               return (
                 <li
-                  className={componentsType === item.title ? styles.active : ""}
+                  className={
+                    selectedPage.title === item.title ? styles.active : ""
+                  }
                   key={index}
                   onClick={() => {
                     router.push(`/Components?type=${item.title}`);
@@ -83,18 +84,14 @@ function Components() {
               {openSidebar ? <XLg /> : <List />}
             </button>
             <h1 className="text-xl md:text-2xl font-bold text-center">
-              {componentsType
-                ? componentsType
+              {selectedPage.title
+                ? selectedPage.title
                 : "Please select an option from Menu"}
             </h1>
           </div>
           <div className="flex flex-col items-center justify-center w-full">
-            {componentsType ? (
-              findPageComponent(componentsType) ? (
-                findPageComponent(componentsType)?.page
-              ) : (
-                <></>
-              )
+            {selectedPage.page ? (
+              selectedPage.page
             ) : (
               <img
                 src="/assets/images/Empty.svg"
