@@ -1,21 +1,47 @@
-.wrapper {
+.Select_wrapper {
   @apply relative;
   width: 250px;
   .label {
     @apply mb-2;
+    &.invalid{
+      @apply text-error;
+    }
   }
   .select_btn {
     @apply flex justify-between items-center py-2 px-4 rounded-md cursor-pointer bg-transparent;
     border: 1px solid var(--light);
     color: var(--light);
     user-select: none;
-    &:focus {
-      @apply border-main;
-    }
     .arrow {
       transition: all 0.3s;
       &.rotate_arrow {
         transform: rotate(180deg);
+      }
+    }
+    &.invalid{
+      @apply border-error;
+      animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      @keyframes shake {
+        10%,
+        90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+        20%,
+        80% {
+          transform: translate3d(2px, 0, 0);
+        }
+        30%,
+        50%,
+        70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+        40%,
+        60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+      span {
+        @apply text-error;
       }
     }
   }
@@ -73,6 +99,21 @@
           @apply bg-main;
           color: var(--dark);
         }
+      }
+    }
+  }
+  .error {
+    @apply text-error text-sm mt-1 ml-2;
+    animation: slideInRight 1s ease 0s 1 normal forwards;
+    @keyframes slideInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(250px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
       }
     }
   }

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 //============== images & icons ==============
 //============== in Components ===============
-import SelectInput from "../SelectInput/SelectInput";
+import Select from "../Select/Select";
 import FloatingInput from "../FloatingInput/FloatingInput";
 import CheckBox from "../CheckBox/CheckBox";
 import ComponentViewer from "components/ComponentViewer/ComponentViewer";
@@ -14,7 +14,27 @@ import MultiSelect from "customComponents/MultiSelect/MultiSelect";
 //================= redux ====================
 //============================================
 function Inputs() {
-  const [selectedItem, setSelectedItem] = useState({});
+  const [select, setSelect] = useState({
+    selectedItem: {},
+    items: [
+      {
+        id: 1,
+        title: "iran",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
+      {
+        id: 2,
+        title: "Usa",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
+      {
+        id: 3,
+        title: "Germany",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
+    ],
+    error: "",
+  });
   const [multipleSelect, setMultipleSelect] = useState({
     selectedItems: [],
     nonSelectedItems: [
@@ -172,56 +192,68 @@ function Inputs() {
         />
       </ComponentViewer>
       <ComponentViewer
-        code={`const [selectedItem, setSelectedItem] = useState({});
+        code={`const [select, setSelect] = useState({
+  selectedItem: {},
+  items: [
+    {
+      id: 1,
+      title: "iran",
+      icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+    },
+    {
+      id: 2,
+      title: "Usa",
+      icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+    },
+    {
+      id: 3,
+      title: "Germany",
+      icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+    },
+  ],
+  error: "",
+});
 //---------------------------------------            
-  <SelectInput
-    label="Country :"
-    placeholder="Select Country"
-    items={[
-      {
-        id: 1,
-        title: "iran",
-        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
-      },
-      {
-        id: 2,
-        title: "Usa",
-        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
-      },
-      {
-        id: 3,
-        title: "Germany",
-        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
-      },
-    ]}
-    selectedItem={selectedItem}
-    setSelectedItem={setSelectedItem}
-    showSearchInput={true}
-  />`}
-        file={"SelectInput"}
+<Select
+  label="Country :"
+  placeholder="Select Country"
+  items={select.items}
+  error={select.error}
+  selectedItem={select.selectedItem}
+  onAddItem={(item) => {
+    setSelect({
+      ...select,
+      selectedItem: item,
+    });
+  }}
+  onRemoveItem={() => {
+    setSelect({
+      ...select,
+      selectedItem: {},
+    });
+  }}
+  showSearchInput={true}
+/>`}
+        file={"Select"}
       >
-        <SelectInput
+        <Select
           label="Country :"
           placeholder="Select Country"
-          items={[
-            {
-              id: 1,
-              title: "iran",
-              icon: <img src="/assets/images/iran.svg" width={"20px"} />,
-            },
-            {
-              id: 2,
-              title: "Usa",
-              icon: <img src="/assets/images/iran.svg" width={"20px"} />,
-            },
-            {
-              id: 3,
-              title: "Germany",
-              icon: <img src="/assets/images/iran.svg" width={"20px"} />,
-            },
-          ]}
-          selectedItem={selectedItem}
-          setSelectedItem={setSelectedItem}
+          items={select.items}
+          error={select.error}
+          selectedItem={select.selectedItem}
+          onAddItem={(item) => {
+            setSelect({
+              ...select,
+              selectedItem: item,
+            });
+          }}
+          onRemoveItem={() => {
+            setSelect({
+              ...select,
+              selectedItem: {},
+            });
+          }}
           showSearchInput={true}
         />
       </ComponentViewer>

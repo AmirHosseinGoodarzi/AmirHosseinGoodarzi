@@ -1,18 +1,20 @@
 //============== React & Next ================
 import React, { useEffect, useState, useRef } from "react";
-import { ArrowDown, ArrowUp, Search, XLg } from "react-bootstrap-icons";
-import styles from "./SelectInput.module.scss";
+import { ArrowDown, Search, XLg } from "react-bootstrap-icons";
+import styles from "./Select.module.scss";
 //============== images & icons ==============
 //============== in Components ===============
 //============== ex Components ===============
 //================= redux ====================
 //============================================
-function SelectInput({
+function Select({
   label,
   placeholder,
   items,
   selectedItem,
-  setSelectedItem,
+  error,
+  onAddItem,
+  onRemoveItem,
   showSearchInput,
 }) {
   const selectRef = useRef();
@@ -29,10 +31,12 @@ function SelectInput({
     return () => window.removeEventListener("click", handler);
   }, []);
   return (
-    <div className={styles.wrapper} ref={selectRef}>
-      <p className={styles.label}>{label}</p>
+    <div className={styles.Select_wrapper} ref={selectRef}>
+      <p className={`${styles.label} ${error ? styles.invalid : ""}`}>
+        {label}
+      </p>
       <div
-        className={styles.select_btn}
+        className={`${styles.select_btn} ${error ? styles.invalid : ""}`}
         onClick={() => setShowDropdown(!showDropdown)}
       >
         {selectedItem?.title ? (
@@ -40,7 +44,7 @@ function SelectInput({
             <i className="mr-1 mt-1">{selectedItem.icon}</i>
             <span>{selectedItem.title} </span>
           </div>
-        ) : <span>{placeholder}</span> ? (
+        ) : placeholder ? (
           <span>{placeholder}</span>
         ) : (
           <span>Select an option</span>
@@ -48,10 +52,7 @@ function SelectInput({
 
         <span className="flex">
           {selectedItem.title && (
-            <XLg
-              className="mr-2 text-error"
-              onClick={() => setSelectedItem("")}
-            />
+            <XLg className="mr-2 text-error" onClick={onRemoveItem} />
           )}
           <ArrowDown
             className={`${styles.arrow} ${
@@ -60,6 +61,7 @@ function SelectInput({
           />
         </span>
       </div>
+      {error && <p className={styles.error}>{error}</p>}
       <div className={`${styles.content} ${showDropdown ? styles.active : ""}`}>
         {showSearchInput && (
           <div className={styles.search}>
@@ -72,7 +74,6 @@ function SelectInput({
             />
           </div>
         )}
-
         <ul className={styles.options}>
           {items
             ?.filter((item) =>
@@ -86,7 +87,7 @@ function SelectInput({
                   key={index}
                   className={selectedItem.id === item.id ? styles.active : ""}
                   onClick={() => {
-                    setSelectedItem(item);
+                    onAddItem(item);
                     setShowDropdown(false);
                   }}
                 >
@@ -101,4 +102,4 @@ function SelectInput({
   );
 }
 
-export default SelectInput;
+export default Select;
