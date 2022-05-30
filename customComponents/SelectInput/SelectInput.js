@@ -35,13 +35,17 @@ function SelectInput({
         className={styles.select_btn}
         onClick={() => setShowDropdown(!showDropdown)}
       >
-        <span>
-          {selectedItem?.title
-            ? selectedItem?.title
-            : placeholder
-            ? placeholder
-            : "Select an option"}
-        </span>
+        {selectedItem?.title ? (
+          <div className="flex items-center justify-center">
+            <i className="mr-1 mt-1">{selectedItem.icon}</i>
+            <span>{selectedItem.title} </span>
+          </div>
+        ) : <span>{placeholder}</span> ? (
+          <span>{placeholder}</span>
+        ) : (
+          <span>Select an option</span>
+        )}
+
         <span className="flex">
           {selectedItem.title && (
             <XLg
@@ -49,7 +53,11 @@ function SelectInput({
               onClick={() => setSelectedItem("")}
             />
           )}
-          {showDropdown ? <ArrowUp /> : <ArrowDown />}
+          <ArrowDown
+            className={`${styles.arrow} ${
+              showDropdown ? styles.rotate_arrow : ""
+            }`}
+          />
         </span>
       </div>
       <div className={`${styles.content} ${showDropdown ? styles.active : ""}`}>
@@ -82,7 +90,7 @@ function SelectInput({
                     setShowDropdown(false);
                   }}
                 >
-                  <span className="mr-1">{item.icon}</span>
+                  <i className="mr-1 mt-1">{item.icon}</i>
                   <span>{item.title}</span>
                 </li>
               );

@@ -10,20 +10,16 @@ function FloatingInput(props) {
   const _id = useId();
   const { error, label, wrapperClassNames, ...otherProps } = props;
   return (
-    <div
-      className={`${styles.FloatingInput_wrapper} ${
-        wrapperClassNames ? wrapperClassNames : ""
-      }`}
-    >
+    <div className={`${styles.FloatingInput_wrapper} ${wrapperClassNames ? wrapperClassNames : ""}`}>
       <input
         id={_id}
         {...otherProps}
         autoComplete="off"
         className={error ? styles.invalid : ""}
       />
-      <label htmlFor={_id} className={
-          otherProps.value ? styles.filled : ""
-        }>{label}</label>
+      <label htmlFor={_id} className={otherProps.value ? styles.filled : ""}>
+        {label}
+      </label>
       {error && <p className={styles.error}>{error}</p>}
     </div>
   );

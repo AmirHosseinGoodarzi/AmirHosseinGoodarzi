@@ -9,6 +9,15 @@
     border: 1px solid var(--light);
     color: var(--light);
     user-select: none;
+    &:focus {
+      @apply border-main;
+    }
+    .arrow {
+      transition: all 0.3s;
+      &.rotate_arrow {
+        transform: rotate(180deg);
+      }
+    }
   }
   .content {
     @apply absolute w-full invisible mt-1 p-2 overflow-y-auto rounded-b-md;
@@ -25,9 +34,9 @@
       @apply bg-main bg-opacity-70;
       border-radius: 3px;
     }
-    &.active{
+    &.active {
       @apply visible;
-      animation: swingInFwd 500ms ease 0s 1 normal forwards;
+      animation: swingInFwd 300ms ease 0s 1 normal forwards;
       @keyframes swingInFwd {
         0% {
           opacity: 0;
@@ -41,9 +50,9 @@
         }
       }
     }
-    .search  {
+    .search {
       @apply relative;
-      .search_icon{
+      .search_icon {
         @apply absolute left-2 top-2;
         color: var(--dark2);
       }
@@ -51,17 +60,18 @@
         @apply w-full rounded-md p-1 pl-8 border-2 border-transparent transition-all;
         transition-property: border;
         color: var(--dark2);
-        &:focus{
+        &:focus {
           @apply outline-none border-2 border-main;
         }
       }
     }
     .options {
       @apply p-1;
-      li{
+      li {
         @apply flex items-center justify-start cursor-pointer hover:bg-main hover:bg-opacity-40 rounded-md py-1 px-3 my-1;
         &.active {
           @apply bg-main;
+          color: var(--dark);
         }
       }
     }

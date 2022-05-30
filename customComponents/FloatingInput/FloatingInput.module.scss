@@ -1,11 +1,10 @@
 .FloatingInput_wrapper {
   @apply relative m-2;
-  width: 280px;
+  width: 250px;
   input {
-    @apply w-full h-full;
-    padding: 0.8rem;
+    @apply w-full h-full bg-transparent;
+    padding: 0.4rem 0.8rem;
     border: 1px solid var(--light);
-    background: transparent;
     border-radius: 5px;
     font-size: 18px;
     outline: none;
@@ -24,11 +23,27 @@
         font-size: 14px;
       }
       &::placeholder {
+        font-size: 13px;
         opacity: 1;
       }
     }
     &.invalid {
-      @apply border-error;
+      @apply relative border-error;
+      animation: shake 1.00s cubic-bezier(.36,.07,.19,.97) both;
+      @keyframes shake {
+        10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+        }
+        20%, 80% {
+        transform: translate3d(2px, 0, 0);
+        }
+        30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+        }
+        40%, 60% {
+        transform: translate3d(4px, 0, 0);
+        }
+    }
       + label {
         @apply text-error;
       }
@@ -37,11 +52,12 @@
   label {
     @apply absolute;
     left: 10px;
-    top: 14px;
+    top: 6px;
     transition: all 0.2s;
     padding: 0 2px;
     z-index: 1;
     color: #b3b3b3;
+    font-size: 16px;
     &::before {
       @apply absolute w-full;
       content: "";
@@ -58,14 +74,14 @@
     }
   }
   .error {
-    @apply text-error;
+    @apply text-error text-sm;
     animation: slideInRight 1s ease 0s 1 normal forwards;
     @keyframes slideInRight {
       0% {
         opacity: 0;
         transform: translateX(250px);
       }
-    
+
       100% {
         opacity: 1;
         transform: translateX(0);

@@ -8,6 +8,7 @@ import CheckBox from "../CheckBox/CheckBox";
 import ComponentViewer from "components/ComponentViewer/ComponentViewer";
 import Radio from "customComponents/Radio/Radio";
 import ToggleSwitch from "customComponents/ToggleSwitch/ToggleSwitch";
+import TagsInput from "customComponents/TagsInput/TagsInput";
 //============== ex Components ===============
 //================= redux ====================
 //============================================
@@ -17,14 +18,13 @@ function Inputs() {
     value: "",
     error: "",
   });
+  const [tagsInput, setTagsInput] = useState({
+    data: [],
+    value: "",
+    error: "",
+  });
   const [checkbox, setCheckbox] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const finputOnchange = (e) => {
-    setFinput({
-      ...finput,
-      value: e.target.value,
-    });
-  };
   const [selectedRadio, setSelectedRadio] = useState(0);
 
   return (
@@ -35,20 +35,19 @@ function Inputs() {
     error: "",
   });
 //---------------------------------------
-  const finputOnchange = (e) => {
-      setFinput({
-        ...finput,
-        value: e.target.value,
-      });
-    };
-//---------------------------------------
   <FloatingInput
     label="Name"
     placeholder="Enter your name"
     wrapperClassNames=""
     value={finput.value}
     error={finput.error}
-    onChange={finputOnchange}
+    onChange={() => {
+      setFinput({
+        ...finput,
+        value: e.target.value,
+      });
+    }}
+    required={true}
   />`}
         file={"FloatingInput"}
       >
@@ -71,10 +70,81 @@ function Inputs() {
               wrapperClassNames=""
               value={finput.value}
               error={finput.error}
-              onChange={finputOnchange}
+              onChange={(e) => {
+                setFinput({
+                  ...finput,
+                  value: e.target.value,
+                });
+              }}
+              required={true}
             />
           </div>
         </div>
+      </ComponentViewer>
+      <ComponentViewer code={`const [tagsInput, setTagsInput] = useState({
+    data: [],
+    value: "",
+    error: "",
+  });
+//---------------------------------------            
+<TagsInput
+  label="List"
+  placeholder="Enter some key"
+  value={tagsInput.value}
+  error={tagsInput.error}
+  onChange={(e) => {
+    setTagsInput({
+      ...tagsInput,
+      value: e.target.value,
+    });
+  }}
+  onAddItem={(item) => {
+    let d = [...tagsInput.data];
+    d.push(item);
+    setTagsInput({
+      ...tagsInput,
+      data: d,
+      value: "",
+    });
+  }}
+  onRemoveItem={(item) => {
+    let d = [...tagsInput.data];
+    setTagsInput({
+      ...tagsInput,
+      data: d.filter((i) => i !== item),
+    });
+  }}
+  list={tagsInput.data}
+/>`} file={"TagsInput"}>
+        <TagsInput
+          label="List"
+          placeholder="Enter some key"
+          value={tagsInput.value}
+          error={tagsInput.error}
+          onChange={(e) => {
+            setTagsInput({
+              ...tagsInput,
+              value: e.target.value,
+            });
+          }}
+          onAddItem={(item) => {
+            let d = [...tagsInput.data];
+            d.push(item);
+            setTagsInput({
+              ...tagsInput,
+              data: d,
+              value: "",
+            });
+          }}
+          onRemoveItem={(item) => {
+            let d = [...tagsInput.data];
+            setTagsInput({
+              ...tagsInput,
+              data: d.filter((i) => i !== item),
+            });
+          }}
+          list={tagsInput.data}
+        />
       </ComponentViewer>
       <ComponentViewer
         code={`const [selectedItem, setSelectedItem] = useState({});
