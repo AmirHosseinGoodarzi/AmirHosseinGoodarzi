@@ -74,7 +74,7 @@ function ComponentViewer({ children, file, code }) {
               <svg
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 className={styles.copy_btn}
                 onClick={copy}
               >

@@ -27,7 +27,7 @@ function Installation({ title, command }) {
                 <svg
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   aria-hidden="true"
@@ -53,7 +53,7 @@ function Installation({ title, command }) {
                     d="M0 0L3 3L0 6"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   ></path>
