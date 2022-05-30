@@ -9,11 +9,33 @@ import ComponentViewer from "components/ComponentViewer/ComponentViewer";
 import Radio from "customComponents/Radio/Radio";
 import ToggleSwitch from "customComponents/ToggleSwitch/ToggleSwitch";
 import TagsInput from "customComponents/TagsInput/TagsInput";
+import MultiSelect from "customComponents/MultiSelect/MultiSelect";
 //============== ex Components ===============
 //================= redux ====================
 //============================================
 function Inputs() {
   const [selectedItem, setSelectedItem] = useState({});
+  const [multipleSelect, setMultipleSelect] = useState({
+    selectedItems: [],
+    nonSelectedItems: [
+      {
+        id: 1,
+        title: "iran",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
+      {
+        id: 2,
+        title: "Usa",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
+      {
+        id: 3,
+        title: "Germany",
+        icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+      },
+    ],
+    error: "",
+  });
   const [finput, setFinput] = useState({
     value: "",
     error: "",
@@ -81,7 +103,8 @@ function Inputs() {
           </div>
         </div>
       </ComponentViewer>
-      <ComponentViewer code={`const [tagsInput, setTagsInput] = useState({
+      <ComponentViewer
+        code={`const [tagsInput, setTagsInput] = useState({
     data: [],
     value: "",
     error: "",
@@ -115,7 +138,9 @@ function Inputs() {
     });
   }}
   list={tagsInput.data}
-/>`} file={"TagsInput"}>
+/>`}
+        file={"TagsInput"}
+      >
         <TagsInput
           label="List"
           placeholder="Enter some key"
@@ -201,6 +226,82 @@ function Inputs() {
         />
       </ComponentViewer>
       <ComponentViewer
+        code={`const [multipleSelect, setMultipleSelect] = useState({
+  selectedItems: [],
+  nonSelectedItems: [
+    {
+      id: 1,
+      title: "iran",
+      icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+    },
+    {
+      id: 2,
+      title: "Usa",
+      icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+    },
+    {
+      id: 3,
+      title: "Germany",
+      icon: <img src="/assets/images/iran.svg" width={"20px"} />,
+    },
+  ],
+  error: "",
+});
+//---------------------------------------            
+<MultiSelect
+  label="Countries :"
+  placeholder="Select multiple countries"
+  error={multipleSelect.error}
+  nonSelectedItems={multipleSelect.nonSelectedItems}
+  selectedItems={multipleSelect.selectedItems}
+  onAddItem={(item) => {
+    let nsi = [...multipleSelect.nonSelectedItems];
+    let newNsi = nsi.filter((i) => i.id !== item.id);
+    setMultipleSelect({
+      ...multipleSelect,
+      selectedItems: [...multipleSelect.selectedItems, item],
+      nonSelectedItems: newNsi,
+    });
+  }}
+  onRemoveItem={(item) => {
+    let si = [...multipleSelect.selectedItems];
+    let newSi = si.filter((i) => i.id !== item.id);
+    setMultipleSelect({
+      ...multipleSelect,
+      selectedItems: newSi,
+      nonSelectedItems: [...multipleSelect.nonSelectedItems, item],
+    });
+  }}
+/>`}
+        file={"MultiSelect"}
+      >
+        <MultiSelect
+          label="Countries :"
+          placeholder="Select multiple countries"
+          error={multipleSelect.error}
+          nonSelectedItems={multipleSelect.nonSelectedItems}
+          selectedItems={multipleSelect.selectedItems}
+          onAddItem={(item) => {
+            let nsi = [...multipleSelect.nonSelectedItems];
+            let newNsi = nsi.filter((i) => i.id !== item.id);
+            setMultipleSelect({
+              ...multipleSelect,
+              selectedItems: [...multipleSelect.selectedItems, item],
+              nonSelectedItems: newNsi,
+            });
+          }}
+          onRemoveItem={(item) => {
+            let si = [...multipleSelect.selectedItems];
+            let newSi = si.filter((i) => i.id !== item.id);
+            setMultipleSelect({
+              ...multipleSelect,
+              selectedItems: newSi,
+              nonSelectedItems: [...multipleSelect.nonSelectedItems, item],
+            });
+          }}
+        />
+      </ComponentViewer>
+      <ComponentViewer
         code={`const [checkbox, setCheckbox] = useState(false);
 //---------------------------------------            
 <CheckBox
@@ -228,7 +329,7 @@ function Inputs() {
     setToggle(e.target.checked);
   }}
 />`}
-        file={"Radio"}
+        file={"ToggleSwitch"}
       >
         <ToggleSwitch
           label={"Toggle switch"}

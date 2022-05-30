@@ -1,0 +1,125 @@
+.MultiSelect_wrapper {
+  @apply relative;
+  width: 250px;
+  .label {
+    @apply mb-2;
+    &.invalid{
+      @apply text-error;
+    }
+  }
+  .multi_select_btn {
+    @apply flex justify-between items-center py-2 px-4 rounded-md cursor-pointer bg-transparent;
+    border: 1px solid var(--light);
+    color: var(--light);
+    user-select: none;
+    &.invalid{
+      @apply border-error;
+      animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      @keyframes shake {
+        10%,
+        90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+        20%,
+        80% {
+          transform: translate3d(2px, 0, 0);
+        }
+        30%,
+        50%,
+        70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+        40%,
+        60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+      span {
+        @apply text-error;
+      }
+    }
+    ul {
+      @apply list-none flex justify-start items-center flex-wrap;
+      li {
+        @apply flex justify-center items-center bg-main p-1 m-1 rounded-md text-sm;
+        color: var(--dark);
+        animation: scaleInFwdLeft .5s ease 0s 1 normal forwards;
+        @keyframes scaleInFwdLeft {
+          0% {
+            transform: scaleX(0);
+            transform-origin: 0% 0%;
+          }
+        
+          100% {
+            transform: scaleX(1);
+            transform-origin: 0% 0%;
+          }
+        }
+        i {
+          @apply rounded-full ml-2 p-0.5 cursor-pointer;
+          color: var(--dark);
+          background-color: var(--light);
+        }
+      }
+    }
+    .arrow {
+      transition: all 0.3s;
+      &.rotate_arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .content {
+    @apply absolute w-full invisible p-2 overflow-y-auto rounded-b-md;
+    background: var(--dark2);
+    color: var(--light);
+    user-select: none;
+    max-height: 200px;
+    &::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 3px;
+      background-color: var(--light2);
+    }
+    &::-webkit-scrollbar-thumb {
+      @apply bg-main bg-opacity-70;
+      border-radius: 3px;
+    }
+    &.active {
+      @apply visible;
+      animation: swingInFwd 300ms ease 0s 1 normal forwards;
+      @keyframes swingInFwd {
+        0% {
+          opacity: 0;
+          transform: rotateX(-100deg);
+          transform-origin: top;
+        }
+        100% {
+          opacity: 1;
+          transform: rotateX(0deg);
+          transform-origin: top;
+        }
+      }
+    }
+    .options {
+      @apply p-1;
+      li {
+        @apply flex items-center justify-start cursor-pointer hover:bg-main hover:bg-opacity-40 rounded-md py-1 px-3 my-1;
+      }
+    }
+  }
+  .error {
+    @apply text-error text-sm mt-1 ml-2;
+    animation: slideInRight 1s ease 0s 1 normal forwards;
+    @keyframes slideInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(250px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+}
