@@ -1,20 +1,20 @@
 //============== React & Next ================
 import React, { useState } from "react";
-import styles from "./ComponentViewer.module.scss";
+import styles from "./HookViewer.module.scss";
 //============== images & icons ==============
 import { Activity, CodeSlash, Download } from "react-bootstrap-icons";
 //============== in components ===============
 //============== ex components ===============
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { theme } from "./SyntaxHighlighter.style";
+import { theme } from "../ComponentViewer/SyntaxHighlighter.style";
 import toast from "react-hot-toast";
 //================= redux ====================
 
-function ComponentViewer({ children, file, code }) {
-  const [showCode, setShowCode] = useState(false);
+function HookViewer({ source, usage, file }) {
+  const [showSource, setShowSource] = useState(false);
   const downloadFile = () => {
     const baseUrl =
-      "https://raw.githubusercontent.com/AmirHosseinGoodarzi/AmirHosseinGoodarzi/main/customs/components/";
+      "https://raw.githubusercontent.com/AmirHosseinGoodarzi/AmirHosseinGoodarzi/main/customs/hooks/";
     fetch(baseUrl + `${file}/${file}.js`, { method: "GET" })
       .then((response) => response.blob())
       .then((blob) => {
@@ -38,62 +38,64 @@ function ComponentViewer({ children, file, code }) {
         link.parentNode.removeChild(link);
       });
   };
-  const copy = () => {
-    navigator.clipboard.writeText(code);
-    toast.success("Code copied to clipboard!");
+  const copySource = () => {
+    navigator.clipboard.writeText(source);
+    toast.success("Source copied to clipboard!");
+  };
+  const copyUsage = () => {
+    navigator.clipboard.writeText(usage);
+    toast.success("Hook Usage copied to clipboard!");
   };
   return (
     <div className={styles.componentViewer_wrapper}>
       <ul className={styles.tab_list}>
         <li
-          className={showCode ? "" : styles.active}
+          className={showSource ? "" : styles.active}
           onClick={() => {
-            setShowCode(false);
+            setShowSource(false);
           }}
         >
           <Activity className="mr-1" />
-          <span>Preview</span>
+          <span>Usage</span>
         </li>
         <li
-          className={showCode ? styles.active : ""}
+          className={showSource ? styles.active : ""}
           onClick={() => {
-            setShowCode(true);
+            setShowSource(true);
           }}
         >
           <CodeSlash className="mr-1" />
-          <span>Code</span>
+          <span>Source</span>
         </li>
       </ul>
       <div className={styles.content_wrapper}>
-        {showCode ? (
-          <div className={styles.code_wrapper}>
-            <div className={styles.tools}>
+        <div className={styles.code_wrapper}>
+          <div className={styles.tools}>
+            {setShowSource && (
               <button className={styles.download_btn} onClick={downloadFile}>
                 <Download />
               </button>
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                className={styles.copy_btn}
-                onClick={copy}
-              >
-                <path d="M13 10.75h-1.25a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2v-8.5a2 2 0 0 0-2-2H19"></path>
-                <path d="M18 12.25h-4a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5a1 1 0 0 1-1 1ZM13.75 16.25h4.5M13.75 19.25h4.5"></path>
-              </svg>
-            </div>
-            <div className="relative w-full">
-              <SyntaxHighlighter showLineNumbers language="jsx" style={theme}>
-                {code}
-              </SyntaxHighlighter>
-            </div>
+            )}
+            <svg
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              className={styles.copy_btn}
+              onClick={showSource ? copySource : copyUsage}
+            >
+              <path d="M13 10.75h-1.25a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2v-8.5a2 2 0 0 0-2-2H19"></path>
+              <path d="M18 12.25h-4a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5a1 1 0 0 1-1 1ZM13.75 16.25h4.5M13.75 19.25h4.5"></path>
+            </svg>
           </div>
-        ) : (
-          children
-        )}
+          <div className="relative w-full">
+            <SyntaxHighlighter showLineNumbers language="jsx" style={theme}>
+              {showSource ? source : usage}
+            </SyntaxHighlighter>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-export default ComponentViewer;
+export default HookViewer;

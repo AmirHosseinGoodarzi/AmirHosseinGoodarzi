@@ -4,7 +4,7 @@ import styles from "./Tools.module.scss";
 //============== images & icons ==============
 //============== in Components ===============
 import Installation from "./Installation/Installation";
-import { DashSquare, List, PlusSquare } from "react-bootstrap-icons";
+import { DashSquare, PlusSquare } from "react-bootstrap-icons";
 //============== ex Components ===============
 //================= redux ====================
 //============================================

@@ -2,14 +2,15 @@
 import React, { useState } from "react";
 //============== images & icons ==============
 //============== in Components ===============
-import Select from "../Select/Select";
-import FloatingInput from "../FloatingInput/FloatingInput";
-import CheckBox from "../CheckBox/CheckBox";
 import ComponentViewer from "components/ComponentViewer/ComponentViewer";
-import Radio from "customComponents/Radio/Radio";
-import ToggleSwitch from "customComponents/ToggleSwitch/ToggleSwitch";
-import TagsInput from "customComponents/TagsInput/TagsInput";
-import MultiSelect from "customComponents/MultiSelect/MultiSelect";
+
+import Select from "../components/Select/Select";
+import FloatingInput from "../components/FloatingInput/FloatingInput";
+import CheckBox from "../components/CheckBox/CheckBox";
+import Radio from "../components/Radio/Radio";
+import ToggleSwitch from "../components/ToggleSwitch/ToggleSwitch";
+import TagsInput from "../components/TagsInput/TagsInput";
+import MultiSelect from "../components/MultiSelect/MultiSelect";
 //============== ex Components ===============
 //================= redux ====================
 //============================================
@@ -131,7 +132,7 @@ function Inputs() {
   });
 //---------------------------------------            
 <TagsInput
-  label="List"
+  label="tags"
   placeholder="Enter some key"
   value={tagsInput.value}
   error={tagsInput.error}
@@ -162,7 +163,7 @@ function Inputs() {
         file={"TagsInput"}
       >
         <TagsInput
-          label="List"
+          label="tags"
           placeholder="Enter some key"
           value={tagsInput.value}
           error={tagsInput.error}

@@ -6,9 +6,10 @@ import { useRouter } from "next/router";
 import { List, XLg } from "react-bootstrap-icons";
 //============== images & icons ==============
 //============== in components ===============
-import Inputs from "customComponents/pages/Inputs";
-import Buttons from "customComponents/pages/Buttons";
-import Tools from "customComponents/pages/Tools/Tools";
+import Inputs from "customs/pages/Inputs";
+import Buttons from "customs/pages/Buttons";
+import Hooks from "customs/pages/Hooks";
+import Tools from "customs/pages/Tools/Tools";
 //============== ex components ===============
 //================= redux ====================
 //============================================
@@ -17,6 +18,7 @@ function Components() {
   const pagesList = [
     { title: "Inputs", page: <Inputs /> },
     { title: "Buttons", page: <Buttons /> },
+    { title: "Custom Hooks", page: <Hooks /> },
     { title: "Tools", page: <Tools /> },
   ];
   const [selectedPage, setSelectedPage] = useState({});
