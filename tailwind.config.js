@@ -11,7 +11,7 @@ module.exports = {
         light: "#fff",
         error: "#df4759",
         success : "#28a745",
-        main: "#ffb400",
+        main: "#61DAFB",
         secondary: "#454545",
       },
     },

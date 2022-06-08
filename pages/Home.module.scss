@@ -15,18 +15,14 @@
     }
     .midLogobg {
       background-image: url("/assets/images/bg.jpg");
-      background-repeat: repeat-x;
+      background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
-      background-attachment: fixed;
       opacity: 0.8;
       img {
         @apply w-full h-auto;
-        background-color: var(--dark);
-        &.dark_logo {
-          mix-blend-mode: darken;
-        }
         &.light_logo {
+          background-color: var(--dark);
           mix-blend-mode: lighten;
         }
       }

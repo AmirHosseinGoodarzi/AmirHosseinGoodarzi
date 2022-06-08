@@ -29,7 +29,7 @@ function Home() {
                 theme === THEMES.DARK ? styles.dark_logo : styles.light_logo
               }
               src={`./assets/images/${
-                theme === THEMES.DARK ? "ALogoW" : "ALogoB2"
+                theme === THEMES.DARK ? "ALogoB" : "ALogoB2"
               }.png`}
               alt="Mask"
             />
