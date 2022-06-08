@@ -15,24 +15,13 @@ function HookViewer({ source, usage, file }) {
   const downloadFile = () => {
     const baseUrl =
       "https://raw.githubusercontent.com/AmirHosseinGoodarzi/AmirHosseinGoodarzi/main/customs/hooks/";
-    fetch(baseUrl + `${file}/${file}.js`, { method: "GET" })
+    fetch(baseUrl + `${file}.js`, { method: "GET" })
       .then((response) => response.blob())
       .then((blob) => {
         const url = window.URL.createObjectURL(new Blob([blob]));
         const link = document.createElement("a");
         link.href = url;
         link.setAttribute("download", `${file}.js`);
-        document.body.appendChild(link);
-        link.click();
-        link.parentNode.removeChild(link);
-      });
-    fetch(baseUrl + `${file}/${file}.module.scss`, { method: "GET" })
-      .then((response) => response.blob())
-      .then((blob) => {
-        const url = window.URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", `${file}.module.scss`);
         document.body.appendChild(link);
         link.click();
         link.parentNode.removeChild(link);
@@ -71,7 +60,7 @@ function HookViewer({ source, usage, file }) {
       <div className={styles.content_wrapper}>
         <div className={styles.code_wrapper}>
           <div className={styles.tools}>
-            {setShowSource && (
+            {showSource && (
               <button className={styles.download_btn} onClick={downloadFile}>
                 <Download />
               </button>
