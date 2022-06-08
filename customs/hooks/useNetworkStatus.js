@@ -1,9 +1,24 @@
-import React from 'react'
+import { useState, useEffect } from "react";
 
-function useNetworkStatus() {
+const getConnection = () => {
   return (
-    <div>felan hichi</div>
-  )
-}
+    navigator.connection ||
+    navigator.mozConnection ||
+    navigator.webkitConnection
+  );
+};
 
-export default useNetworkStatus
+export const useNetworkStatus = () => {
+  const [connection, updateConnection] = useState(getConnection());
+  const [isOnline, setIsOnline] = useState(!!getConnection().rtt);
+  useEffect(() => {
+    const updateStatus = () => {
+      updateConnection(getConnection());
+      setIsOnline(!!getConnection().rtt);
+    };
+    connection.addEventListener("change", updateStatus);
+    return () => connection.removeEventListener("change", updateStatus);
+  }, [connection]);
+
+  return [isOnline, connection];
+};
