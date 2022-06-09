@@ -1,7 +1,11 @@
-.componentViewer_wrapper {
+.componentViewer_wrapper,
+.hookViewer_wrapper {
   @apply w-full p-5 my-6 flex flex-col justify-center items-center;
   .tab_list {
     @apply w-full flex flex-wrap text-sm font-medium text-center text-gray-500;
+    div{
+      @apply px-4;
+    }
     li {
       @apply flex items-center justify-center w-fit py-2 px-4 rounded-t-lg hover:text-main cursor-pointer mr-1;
       transition: all 0.3s;
@@ -26,6 +30,13 @@
           @apply bg-main bg-opacity-60 rounded-md w-8 h-8 flex justify-center items-center cursor-pointer;
         }
       }
+    }
+  }
+}
+.hookViewer_wrapper{
+  .tab_list {
+    li {
+      @apply py-0;
     }
   }
 }
