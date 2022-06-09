@@ -8,14 +8,14 @@ import styles from "./FloatingInput.module.scss";
 //============================================
 function FloatingInput(props) {
   const _id = useId();
-  const { error, label, wrapperClassNames, ...otherProps } = props;
+  const { error, label, wrapperClassNames,className, ...otherProps } = props;
   return (
     <div className={`${styles.FloatingInput_wrapper} ${wrapperClassNames ? wrapperClassNames : ""}`}>
       <input
         id={_id}
         {...otherProps}
         autoComplete="off"
-        className={error ? styles.invalid : ""}
+        className={`${error ? styles.invalid : ""} ${className?className:""}`}
       />
       <label htmlFor={_id} className={otherProps.value ? styles.filled : ""}>
         {label}
