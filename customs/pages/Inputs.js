@@ -84,7 +84,7 @@ function Inputs() {
     wrapperClassNames=""
     value={finput.value}
     error={finput.error}
-    onChange={() => {
+    onChange={(e) => {
       setFinput({
         ...finput,
         value: e.target.value,
