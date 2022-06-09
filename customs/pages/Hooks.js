@@ -17,7 +17,7 @@ function Hooks() {
   });
 
   const [isOnline, connection] = useNetworkStatus();
-  const [theme, toggleTheme] = useToggle('dark', ['dark', 'light']);
+  const [theme, toggleTheme] = useToggle("dark", ["dark", "light"]);
 
   const hooks_list = [
     {
@@ -41,20 +41,31 @@ function Hooks() {
       ),
     },
     {
-      usage: `const [theme, toggleTheme] = useToggle('dark', ['dark', 'light']);
+      usage:
+        `const [theme, toggleTheme] = useToggle('dark', ['dark', 'light']);
 
-<h1>{`+"`Theme: ${theme}`"+`}</h1>
+<h1>{` +
+        "`Theme: ${theme}`" +
+        `}</h1>
 <button onClick={() => toggleTheme()}>Toggle!</button>`,
       description: `A hook for get user network status`,
       file: `useToggle`,
       children: (
         <>
-            <h1 className="text-2xl my-2">{`Theme: ${theme}`}</h1>
-            <button onClick={() => toggleTheme()} className="p-2 my-2 bg-main text-dark rounded-md font-bold">Toggle theme</button>
+          <h1 className="text-2xl my-2">{`Theme: ${theme}`}</h1>
+          <button
+            onClick={() => toggleTheme()}
+            className="p-2 my-2 bg-main text-dark rounded-md font-bold"
+          >
+            Toggle theme
+          </button>
         </>
       ),
     },
   ];
+  const list = hooks_list.filter((hook) =>
+    hook.file.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
   return (
     <>
       <FloatingInput
@@ -70,11 +81,8 @@ function Hooks() {
         wrapperClassNames="!w-3/4 lg:!w-1/2 !m-10"
         required={true}
       />
-      {hooks_list
-        .filter((hook) =>
-          hook.file.toLowerCase().includes(searchInput.value.toLowerCase())
-        )
-        .map((hook, index) => {
+      {list.length > 0 ? (
+        list.map((hook, index) => {
           return (
             <HookViewer
               key={index}
@@ -85,7 +93,18 @@ function Hooks() {
               {hook.children}
             </HookViewer>
           );
-        })}
+        })
+      ) : (
+        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
+          <h1 className="text-2xl">No search results found !</h1>
+          <img
+            src="/assets/images/Empty.svg"
+            alt="Empty"
+            width="40%"
+            height="auto"
+          />
+        </div>
+      )}
     </>
   );
 }

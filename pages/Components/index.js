@@ -44,6 +44,8 @@ function Components() {
     if (router.query.type) {
       let findedPage = findPageComponent(type);
       findedPage ? setSelectedPage(findedPage) : router.push("/Components");
+    }else{
+      router.push("/Components?type=Inputs")
     }
   }, [router.query]);
   return (

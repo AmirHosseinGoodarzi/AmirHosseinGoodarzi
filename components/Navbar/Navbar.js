@@ -66,7 +66,9 @@ function Navbar() {
           {NavList.map((navItem, index) => {
             return (
               <NavLink
-                name={navItem}
+                name={
+                  navItem === "Components" ? navItem + "?type=Inputs" : navItem
+                }
                 pathname={router.pathname}
                 key={index}
                 onClick={() => {
