@@ -10,7 +10,7 @@ import { theme } from "./SyntaxHighlighter.style";
 import toast from "react-hot-toast";
 //================= redux ====================
 
-function ComponentViewer({ children, file, code }) {
+function ComponentViewer({ children, file, usage }) {
   const [showCode, setShowCode] = useState(false);
   const downloadFile = () => {
     const baseUrl =
@@ -39,7 +39,7 @@ function ComponentViewer({ children, file, code }) {
       });
   };
   const copy = () => {
-    navigator.clipboard.writeText(code);
+    navigator.clipboard.writeText(usage);
     toast.success("Code copied to clipboard!");
   };
   return (
@@ -61,7 +61,7 @@ function ComponentViewer({ children, file, code }) {
           }}
         >
           <CodeSlash className="mr-1" />
-          <span>Code</span>
+          <span>Usage</span>
         </li>
       </ul>
       <div className={styles.content_wrapper}>
@@ -84,7 +84,7 @@ function ComponentViewer({ children, file, code }) {
             </div>
             <div className="relative w-full">
               <SyntaxHighlighter showLineNumbers language="jsx" style={theme}>
-                {code}
+                {usage}
               </SyntaxHighlighter>
             </div>
           </div>

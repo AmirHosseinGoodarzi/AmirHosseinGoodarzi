@@ -74,7 +74,7 @@ function Inputs() {
   return (
     <ComponentsPageLayout>
       <ComponentViewer
-        code={`const [finput, setFinput] = useState({
+        usage={`const [finput, setFinput] = useState({
     value: "",
     error: "",
   });
@@ -126,7 +126,7 @@ function Inputs() {
         </div>
       </ComponentViewer>
       <ComponentViewer
-        code={`const [tagsInput, setTagsInput] = useState({
+        usage={`const [tagsInput, setTagsInput] = useState({
     data: [],
     value: "",
     error: "",
@@ -194,7 +194,7 @@ function Inputs() {
         />
       </ComponentViewer>
       <ComponentViewer
-        code={`const [select, setSelect] = useState({
+        usage={`const [select, setSelect] = useState({
   selectedItem: {},
   items: [
     {
@@ -260,7 +260,7 @@ function Inputs() {
         />
       </ComponentViewer>
       <ComponentViewer
-        code={`const [multipleSelect, setMultipleSelect] = useState({
+        usage={`const [multipleSelect, setMultipleSelect] = useState({
   selectedItems: [],
   nonSelectedItems: [
     {
@@ -336,7 +336,7 @@ function Inputs() {
         />
       </ComponentViewer>
       <ComponentViewer
-        code={`const [checkbox, setCheckbox] = useState(false);
+        usage={`const [checkbox, setCheckbox] = useState(false);
 //---------------------------------------            
 <CheckBox
   checked={checkbox}
@@ -354,7 +354,7 @@ function Inputs() {
         />
       </ComponentViewer>
       <ComponentViewer
-        code={`const [toggle, setToggle] = useState(false);
+        usage={`const [toggle, setToggle] = useState(false);
 //---------------------------------------            
 <ToggleSwitch
   label={"label"}
@@ -374,7 +374,7 @@ function Inputs() {
         />
       </ComponentViewer>
       <ComponentViewer
-        code={`const [selectedRadio, setSelectedRadio] = useState(0);
+        usage={`const [selectedRadio, setSelectedRadio] = useState(0);
 //---------------------------------------            
 <Radio
   name={"RadioButton"}

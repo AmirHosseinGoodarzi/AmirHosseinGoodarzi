@@ -13,7 +13,7 @@ function Buttons() {
   return (
     <ComponentsPageLayout>
       <ComponentViewer
-        code={`const [btnLoading, setBtnLoading] = useState(false);
+        usage={`const [btnLoading, setBtnLoading] = useState(false);
 //---------------------------------------            
   <Button
     loading={btnLoading}
