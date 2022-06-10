@@ -2,15 +2,16 @@
 import React, { useState } from "react";
 //============== images & icons ==============
 //============== in Components ===============
+import ComponentsPageLayout from "layouts/ComponentsPageLayout/ComponentsPageLayout";
 import ComponentViewer from "components/ComponentViewer/ComponentViewer";
-import Button from "../components/Button/Button";
+import Button from "customs/components/Button/Button";
 //============== ex Components ===============
 //================= redux ====================
 //============================================
 function Buttons() {
   const [btnLoading, setBtnLoading] = useState(false);
   return (
-    <>
+    <ComponentsPageLayout>
       <ComponentViewer
         code={`const [btnLoading, setBtnLoading] = useState(false);
 //---------------------------------------            
@@ -41,7 +42,7 @@ function Buttons() {
           Click Me
         </Button>
       </ComponentViewer>
-    </>
+    </ComponentsPageLayout>
   );
 }
 

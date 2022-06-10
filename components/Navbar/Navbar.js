@@ -1,5 +1,5 @@
 //============== React & Next ================
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Navbar.module.scss";
 import { useRouter } from "next/router";
 //============== images & icons ==============
@@ -13,6 +13,9 @@ import { NavList } from "./NavList";
 function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    console.log(router.route);
+  }, [router]);
   return (
     <>
       <div
@@ -37,7 +40,16 @@ function Navbar() {
         <ul className="flex justify-center items-center list-none p-0 m-0">
           {NavList.map((navItem, index) => {
             return (
-              <NavLink name={navItem} pathname={router.pathname} key={index} />
+              <NavLink
+                key={index}
+                name={navItem.name}
+                href={navItem.href}
+                active={
+                  navItem.name === "Components"
+                    ? router.route.includes(navItem.name)
+                    : navItem.href === router.route
+                }
+              />
             );
           })}
         </ul>
@@ -66,11 +78,14 @@ function Navbar() {
           {NavList.map((navItem, index) => {
             return (
               <NavLink
-                name={
-                  navItem === "Components" ? navItem + "?type=Inputs" : navItem
-                }
-                pathname={router.pathname}
                 key={index}
+                name={navItem.name}
+                href={navItem.href}
+                active={
+                  navItem.name === "Components"
+                    ? router.route.includes(navItem.name)
+                    : navItem.href === router.route
+                }
                 onClick={() => {
                   setIsOpen(false);
                 }}

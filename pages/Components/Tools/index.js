@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./Tools.module.scss";
 //============== images & icons ==============
 //============== in Components ===============
+import ComponentsPageLayout from "layouts/ComponentsPageLayout/ComponentsPageLayout";
 import Installation from "./Installation/Installation";
 import { DashSquare, PlusSquare } from "react-bootstrap-icons";
 //============== ex Components ===============
@@ -94,7 +95,7 @@ function Tools() {
     vscode: false,
   });
   return (
-    <>
+    <ComponentsPageLayout>
       <div className="w-full p-3">
         <div className={styles.box_container}>
           <div className={styles.header}>
@@ -254,7 +255,7 @@ function Tools() {
           </div>
         </div>
       </div>
-    </>
+    </ComponentsPageLayout>
   );
 }
 

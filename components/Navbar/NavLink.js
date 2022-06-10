@@ -4,16 +4,7 @@ import Link from "next/link";
 //============== in components ===============
 //============== ex components ===============
 //================= redux ====================
-function NavLink({ name, pathname ,onClick}) {
-  const href = name === "Home" ? "/" : `/${name}`;
-  const isActive =
-    name === "Home"
-      ? pathname === "/"
-        ? "active"
-        : ""
-      : pathname === `/${name}`
-      ? "active"
-      : "";
+function NavLink({ name, href,active, onClick }) {
   return (
     <>
       <style jsx>{`
@@ -21,7 +12,7 @@ function NavLink({ name, pathname ,onClick}) {
           border-bottom: 2px solid var(--main);
         }
       `}</style>
-      <li className={isActive} onClick={onClick}>
+      <li className={active ? "active" : ""} onClick={onClick}>
         <Link href={href}>{name}</Link>
       </li>
     </>

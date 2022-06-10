@@ -2,15 +2,16 @@
 import React, { useState } from "react";
 //============== images & icons ==============
 //============== in Components ===============
+import ComponentsPageLayout from "layouts/ComponentsPageLayout/ComponentsPageLayout";
 import ComponentViewer from "components/ComponentViewer/ComponentViewer";
 
-import Select from "../components/Select/Select";
-import FloatingInput from "../components/FloatingInput/FloatingInput";
-import CheckBox from "../components/CheckBox/CheckBox";
-import Radio from "../components/Radio/Radio";
-import ToggleSwitch from "../components/ToggleSwitch/ToggleSwitch";
-import TagsInput from "../components/TagsInput/TagsInput";
-import MultiSelect from "../components/MultiSelect/MultiSelect";
+import Select from "customs/components/Select/Select";
+import FloatingInput from "customs/components/FloatingInput/FloatingInput";
+import CheckBox from "customs/components/CheckBox/CheckBox";
+import Radio from "customs/components/Radio/Radio";
+import ToggleSwitch from "customs/components/ToggleSwitch/ToggleSwitch";
+import TagsInput from "customs/components/TagsInput/TagsInput";
+import MultiSelect from "customs/components/MultiSelect/MultiSelect";
 //============== ex Components ===============
 //================= redux ====================
 //============================================
@@ -71,7 +72,7 @@ function Inputs() {
   const [selectedRadio, setSelectedRadio] = useState(0);
 
   return (
-    <>
+    <ComponentsPageLayout>
       <ComponentViewer
         code={`const [finput, setFinput] = useState({
     value: "",
@@ -400,7 +401,7 @@ function Inputs() {
           }}
         />
       </ComponentViewer>
-    </>
+    </ComponentsPageLayout>
   );
 }
 

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 //============== images & icons ==============
 //============== in Components ===============
+import ComponentsPageLayout from "layouts/ComponentsPageLayout/ComponentsPageLayout";
 import HookViewer from "components/HookViewer/HookViewer";
 import { useNetworkStatus } from "customs/hooks/useNetworkStatus";
 import { useToggle } from "customs/hooks/useToggle";
@@ -67,7 +68,7 @@ function Hooks() {
     hook.file.toLowerCase().includes(searchInput.value.toLowerCase())
   );
   return (
-    <>
+    <ComponentsPageLayout>
       <FloatingInput
         label="Search by name"
         value={searchInput.value}
@@ -105,7 +106,7 @@ function Hooks() {
           />
         </div>
       )}
-    </>
+    </ComponentsPageLayout>
   );
 }
 
