@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 
 const getConnection = () => {
   return (
-    navigator.connection ||
-    navigator.mozConnection ||
-    navigator.webkitConnection
+    navigator?.connection ||
+    navigator?.mozConnection ||
+    navigator?.webkitConnection
   );
 };
 
