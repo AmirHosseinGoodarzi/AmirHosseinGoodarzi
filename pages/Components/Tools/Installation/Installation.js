@@ -28,8 +28,8 @@ function Installation({ title, command }) {
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   aria-hidden="true"
                   className="w-8 h-8"
                 >
@@ -54,8 +54,8 @@ function Installation({ title, command }) {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></path>
                 </svg>
                 <span className="flex-auto" style={{color:"var(--light)"}}>yarn add {command}</span>
