@@ -1,10 +1,11 @@
-## Hi <img src="./public/assets/images/wave.gif" width="30px"> I'm AmirHossein! 
+## Hi <img src="./public/assets/images/wave.gif" width="30px" height="auto"> I'm AmirHossein! 
 
-... a Front-End & MobileApp Developer located in Iran. I have a serious passion for UI effects, animations and creating intuitive, dynamic user experiences. Well-organised person, problem solver, independent employee with high attention to detail.
+Full Stack developer, seeking to learn and progress in all work and personal fields ...
+I am interested in user interface effects, animations and creating visual and dynamic web applications by Front-End.
 
-Fan of Video Games, outdoor activities and Persian rap Music.
+also an organized person, a problem solver, an independent employee with great attention to detail for Back-End development.
 
-A person , Interested in the entire frontend spectrum and working on projects with positive people.
+In my opinion, the most important job aspect, is a friendly and active work environment, without dispute and full of new challenges.
 
 [![Linkedin Badge](https://img.shields.io/badge/-amirHosseinGoodarzi-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/amirhossein-goodarzi-6569551ba)](https://www.linkedin.com/in/amirhossein-goodarzi-6569551ba)
 [![Instagram Badge](https://img.shields.io/badge/-sektowr-purple?style=flat-square&logo=instagram&logoColor=white&link=https://www.instagram.com/sektowr)](https://instagram.com/sektowr)

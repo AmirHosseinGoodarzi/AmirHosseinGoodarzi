@@ -1,29 +1,24 @@
 //============== React & Next ================
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./Navbar.module.scss";
 import { useRouter } from "next/router";
 //============== images & icons ==============
 import { List, XLg } from "react-bootstrap-icons";
 //============== in components ===============
 import NavLink from "./NavLink";
-import { NavList } from "./NavList";
+import NavList from "data/NavList.json";
 //============== ex components ===============
 //================= redux ====================
 //============================================
 function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    console.log(router.route);
-  }, [router]);
   return (
     <>
       <div
         className={styles.desktop}
         style={
-          router.pathname === "/Components"
-            ? { backgroundColor: "var(--dark2)" }
-            : router.pathname === "/ContactMe"
+          router.pathname === "/ContactMe"
             ? { backgroundColor: "transparent" }
             : {}
         }
@@ -44,11 +39,7 @@ function Navbar() {
                 key={index}
                 name={navItem.name}
                 href={navItem.href}
-                active={
-                  navItem.name === "Components"
-                    ? router.route.includes(navItem.name)
-                    : navItem.href === router.route
-                }
+                active={navItem.href === router.route}
               />
             );
           })}
@@ -68,11 +59,6 @@ function Navbar() {
       </div>
       <div
         className={`${styles.mobile} ${isOpen ? styles.mobileMenuActive : ""}`}
-        style={
-          router.pathname === "/Components"
-            ? { backgroundColor: "var(--dark2)" }
-            : {}
-        }
       >
         <ul className="flex flex-col justify-center items-center list-none h-full p-0 m-0">
           {NavList.map((navItem, index) => {
@@ -81,11 +67,7 @@ function Navbar() {
                 key={index}
                 name={navItem.name}
                 href={navItem.href}
-                active={
-                  navItem.name === "Components"
-                    ? router.route.includes(navItem.name)
-                    : navItem.href === router.route
-                }
+                active={navItem.href === router.route}
                 onClick={() => {
                   setIsOpen(false);
                 }}

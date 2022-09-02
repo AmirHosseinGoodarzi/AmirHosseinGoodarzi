@@ -11,7 +11,7 @@ import Button from "components/Button/Button";
 //============== ex components ===============
 //================= redux ====================
 //============================================
-import { worksList } from "utils/misc/workList";
+import portfoliosData from "data/portfolios.json";
 
 function Portfolio() {
   const [actived, setActived] = useState(-1);
@@ -22,20 +22,24 @@ function Portfolio() {
         <title>Portfolio</title>
       </Head>
       <div className={styles.portfolio_wrapper}>
-        <div className={`w-full max_width_rule ${actived >= 0?"pt-10":"pt-52"}`}>
+        <div
+          className={`w-full max_width_rule ${
+            actived >= 0 ? "pt-10" : "pt-52"
+          }`}
+        >
           <Title back="works" front={{ normal: "My", bold: "Portfolio" }} />
           {actived >= 0 ? (
             <div className="flex flex-col lg:flex-row justify-center items-center">
               <div
                 className={
-                  worksList[actived].type === "desktop"
+                  portfoliosData[actived].type === "desktop"
                     ? styles.laptop
                     : styles.mobile
                 }
               >
                 <img
                   src={
-                    worksList[actived].type === "desktop"
+                    portfoliosData[actived].type === "desktop"
                       ? "/assets/images/laptop.png"
                       : "/assets/images/phone.png"
                   }
@@ -44,7 +48,7 @@ function Portfolio() {
                 <div
                   className={styles.screen}
                   style={{
-                    backgroundImage: `url('./assets/images/portfolios/${worksList[actived].title}.png')`,
+                    backgroundImage: `url('./assets/images/portfolios/${portfoliosData[actived].title}.png')`,
                   }}
                 ></div>
               </div>
@@ -60,35 +64,34 @@ function Portfolio() {
                     }
                   />
                 </div>
-                <h2 className="text-5xl">
-                  {worksList[actived].title}
-                </h2>
+                <h2 className="text-5xl">{portfoliosData[actived].title}</h2>
                 <hr className="mt-3 w-full" />
-                <p>{worksList[actived].desc}</p>
+                <p>{portfoliosData[actived].desc}</p>
                 <div className="flex flex-wrap">
                   <span className={styles.tech_item}>
-                    members : {worksList[actived].teamMembers}
+                    members : {portfoliosData[actived].teamMembers}
                   </span>
                   <span className={styles.tech_item}>
-                    duration (days) : {worksList[actived].projectDurationDays}
+                    duration (days) :{" "}
+                    {portfoliosData[actived].projectDurationDays}
                   </span>
                   <span className={styles.tech_item}>
-                    role : {worksList[actived].myRole}
+                    role : {portfoliosData[actived].myRole}
                   </span>
                   <span className={styles.tech_item}>
                     link :{" "}
                     <a
-                      href={worksList[actived].link}
+                      href={portfoliosData[actived].link}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      {worksList[actived].link}
+                      {portfoliosData[actived].link}
                     </a>
                   </span>
                 </div>
                 <p className="text-lg">Technologies :</p>
                 <ul className="list-none flex flex-wrap">
-                  {worksList[actived].technologies.map((tech, index) => {
+                  {portfoliosData[actived].technologies.map((tech, index) => {
                     return (
                       <li className={styles.tech_item} key={index}>
                         {tech}
@@ -100,7 +103,7 @@ function Portfolio() {
             </div>
           ) : (
             <ul className="grid grid-cols-6 grid-rows-4 gap-4 grid-flow-row mt-10">
-              {worksList.map((item, index) => {
+              {portfoliosData.map((item, index) => {
                 return (
                   <PortfolioCard
                     item={item}

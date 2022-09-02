@@ -3,7 +3,7 @@ import { useEffect } from "react";
 //============== images & icons ==============
 import { MoonFill, SunFill } from "react-bootstrap-icons";
 //============== in components ===============
-import { THEMES } from "utils/Constants";
+import { THEMES } from "data/Constants";
 //============== ex components ===============
 //================= redux ====================
 import { useDispatch, useSelector } from "react-redux";

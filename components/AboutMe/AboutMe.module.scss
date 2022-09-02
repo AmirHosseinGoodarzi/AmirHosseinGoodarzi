@@ -1,5 +1,5 @@
 .wrapper {
-  @apply w-full pb-52 m-auto flex flex-wrap;
+  @apply w-full pb-20 md:pb-52 m-auto flex flex-wrap;
   background-color: var(--dark);
   .aboutMeImage {
     @apply flex flex-col items-center justify-center w-full md:w-1/2;

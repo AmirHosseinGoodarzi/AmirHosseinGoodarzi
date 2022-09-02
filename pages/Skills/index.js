@@ -6,20 +6,22 @@ import Head from "next/head";
 //============== images & icons ==============
 //============== in components ===============
 import Title from "components/Title/Title";
-import { skillsTag } from "utils/misc/skillsTag";
-import { Clouder } from "utils/misc/Clouder";
+import skillsList from "data/skills.json";
+import { Clouder } from "utils/Clouder";
 //============== ex components ===============
 //================= redux ====================
+
 function Skills() {
   const cloaderRef = useRef(null);
   useEffect(() => {
     if (cloaderRef.current.children.length === 0) {
       window.clouder = new Clouder({
         container: cloaderRef.current,
-        tags: skillsTag,
+        tags: skillsList,
       });
     }
   }, []);
+
   return (
     <>
       <Head>

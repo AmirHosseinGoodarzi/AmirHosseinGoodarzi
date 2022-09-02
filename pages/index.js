@@ -9,7 +9,7 @@ import { Github, Linkedin, Telegram, Whatsapp } from "react-bootstrap-icons";
 import Button from "components/Button/Button";
 import AboutMe from "components/AboutMe/AboutMe";
 import Title from "components/Title/Title";
-import { THEMES } from "utils/Constants";
+import { THEMES } from "data/Constants";
 //============== ex components ===============
 //================= redux ====================
 import { useSelector } from "react-redux";
@@ -91,7 +91,7 @@ function Home() {
             </a>
           </li>
         </ul>
-        <Link href="/ContactMe">
+        <Link href="/ContactMe" passHref>
           <Button type="OUTLINE" text="Let’s make something special." />
         </Link>
         <span className={styles.mouse}>

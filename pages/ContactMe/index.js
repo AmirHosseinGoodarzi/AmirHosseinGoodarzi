@@ -7,7 +7,7 @@ import Head from "next/head";
 import Button from "components/Button/Button";
 import Title from "components/Title/Title";
 import client from "utils/AxiosInterceptor";
-import { THEMES } from "utils/Constants";
+import { THEMES } from "data/Constants";
 //============== ex components ===============
 import Swal from "sweetalert2";
 //================= redux ====================
