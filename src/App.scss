@@ -25,3 +25,25 @@ body {
   @apply bg-white text-black dark:bg-black dark:text-white;
   font-family: "Inter";
 }
+
+.bg_blue_grad {
+  @apply bg-gradient-to-r from-blueGradStart to-blueGradEnd;
+}
+.text_blue_grad {
+  @extend .bg_blue_grad;
+  @apply text-transparent bg-clip-text;
+}
+.bg_purple_grad {
+  @apply bg-gradient-to-r from-purpleGradStart to-purpleGradEnd;
+}
+.text_purple_grad {
+  @extend .bg_purple_grad;
+  @apply text-transparent bg-clip-text;
+}
+.bg_orange_grad {
+  @apply bg-gradient-to-r from-orangeGradStart to-orangeGradEnd;
+}
+.text_orange_grad {
+  @extend .bg_orange_grad;
+  @apply text-transparent bg-clip-text;
+}
