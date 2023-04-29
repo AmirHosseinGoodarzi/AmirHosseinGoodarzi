@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode:"class",
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -14,6 +14,7 @@ export default {
         purpleGradEnd: "#FF0080",
         orangeGradStart: "#FF4D4D",
         orangeGradEnd: "#F9CB28",
+        customGray: "#888"
       },
     },
   },

@@ -1,0 +1,60 @@
+.Home_warpper {
+  $blueGradEnd: #00dfd885;
+  $purpleGradEnd: #ff008085;
+  $orangeGradEnd: #f9cb2885;
+  section {
+    @apply min-h-screen flex items-center justify-center;
+  }
+  .titles {
+    @apply flex flex-col md:flex-row items-center justify-center gap-2;
+    > div {
+      font-family: "Inter-ExtraBold";
+      @apply relative text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-extrabold inline-block text-transparent bg-clip-text 
+      bg-gradient-to-r from-white to-gray-200;
+      &:nth-child(1) {
+        @apply from-blueGradStart to-blueGradEnd;
+      }
+      &:nth-child(2) {
+        @apply from-purpleGradStart to-purpleGradEnd;
+      }
+      &:nth-child(3) {
+        @apply from-orangeGradStart to-orangeGradEnd;
+      }
+      &::before {
+        @apply content-[attr(title)] absolute top-0 left-0 w-full h-full opacity-100 
+        text-white text-center;
+        transition: all 3s;
+      }
+      &.active::before {
+        @apply opacity-0;
+      }
+    }
+  }
+  .description {
+    @apply w-full md:w-[60%] mx-auto text-customGray text-xl text-center my-10 leading-8;
+  }
+  .buttons {
+    @apply w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center gap-8;
+    #glowing_button {
+      transition: all 2s;
+      &.active0 {
+        filter: drop-shadow(2px 2px 20px $blueGradEnd)
+          drop-shadow(-2px -2px 10px $blueGradEnd);
+        border: 2px solid $blueGradEnd;
+      }
+      &.active1 {
+        filter: drop-shadow(2px 2px 20px $purpleGradEnd)
+          drop-shadow(-2px -2px 10px $purpleGradEnd);
+        border: 2px solid $purpleGradEnd;
+      }
+      &.active2 {
+        filter: drop-shadow(2px 2px 20px $orangeGradEnd)
+          drop-shadow(-2px -2px 10px $orangeGradEnd);
+        border: 2px solid $orangeGradEnd;
+      }
+      button {
+        @apply border-none;
+      }
+    }
+  }
+}

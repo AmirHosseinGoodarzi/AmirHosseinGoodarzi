@@ -4,10 +4,24 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter-ExtraBold";
+  src: url("./assets/fonts/Inter-ExtraBold.ttf") format("truetype");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+  direction: ltr;
+  scroll-behavior: smooth;
+}
 body {
   @apply bg-white text-black dark:bg-black dark:text-white;
+  font-family: "Inter";
 }
