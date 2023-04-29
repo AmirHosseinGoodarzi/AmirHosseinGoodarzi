@@ -12,7 +12,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["./*"]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

@@ -1,9 +1,26 @@
 import "./App.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PublicRoutes } from "~/routes/index";
+import Err404 from "~/pages/Err404";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   return (
-    <div>
-      <h1>Welcome To My New Resume</h1>
+    <div className="App">
+      <ErrorBoundary>
+        <BrowserRouter>
+          <Routes>
+            {PublicRoutes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.element}
+              />
+            ))}
+            <Route path="*" element={<Err404 />} />
+          </Routes>
+        </BrowserRouter>
+      </ErrorBoundary>
     </div>
   );
 }
