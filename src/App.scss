@@ -21,7 +21,26 @@ html {
   direction: ltr;
   scroll-behavior: smooth;
 }
+.scroll_styles {
+  &::-webkit-scrollbar {
+    @apply w-3.5 h-3.5;
+    color-scheme: dark;
+  }
+  &::-webkit-scrollbar-track {
+    @apply bg-[#424242];
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply bg-[#686868];
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#7B7B7B];
+  }
+  &::-webkit-scrollbar-thumb:active {
+    @apply bg-[#A1A1A1];
+  }
+}
 body {
+  @extend .scroll_styles;
   @apply bg-white text-black dark:bg-black dark:text-white;
   font-family: "Inter";
 }
