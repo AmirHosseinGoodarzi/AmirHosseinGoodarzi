@@ -1,0 +1,18 @@
+.Button_wrapper {
+  @apply flex items-center justify-center transition-all;
+  &.Small{
+    @apply py-1 px-4 gap-2 rounded-sm;
+  }
+  &.Medium{
+    @apply py-3 px-6 gap-3 rounded-md;
+  }
+  &.Outline {
+    @apply border bg-white text-black dark:bg-black dark:text-white;
+  }
+  &.Fill {
+    @apply border bg-black border-black text-white dark:bg-white dark:border-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white;
+  }
+  .icon {
+    @apply w-5 h-auto;
+  }
+}
