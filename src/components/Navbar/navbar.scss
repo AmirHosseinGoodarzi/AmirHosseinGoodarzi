@@ -1,0 +1,28 @@
+nav {
+  @apply sticky top-0 flex items-center justify-center gap-24 py-5 transition-all z-50;
+  backdrop-filter: blur(10px) saturate(200%);
+  -webkit-backdrop-filter: blur(10px) saturate(200%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid transparent;
+  &.isSticky {
+    border-color: rgba(255, 255, 255, 0.125);
+  }
+  .logo {
+    @apply flex items-center justify-center;
+    img {
+      @apply w-10 h-auto -mr-2 -mt-1.5;
+    }
+    div {
+      @apply text-xl font-bold;
+    }
+  }
+  ul {
+    @apply flex items-center justify-center gap-8;
+    li {
+      @apply px-2 py-1 text-customGray hover:text-gray-200 transition-all cursor-pointer;
+      a.acitve {
+        @apply text-white bg-customGray rounded-lg;
+      }
+    }
+  }
+}

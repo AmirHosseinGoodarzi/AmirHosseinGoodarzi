@@ -1,0 +1,7 @@
+[
+  { "name": "Home", "href": "/" },
+  { "name": "Skills", "href": "/Skills" },
+  { "name": "Portfolio", "href": "/Portfolio" },
+  { "name": "Certificates", "href": "/Certificates" },
+  { "name": "ContactMe", "href": "/ContactMe" }
+]
