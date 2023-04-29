@@ -1,33 +1,35 @@
 {
-  "name": "amirhosseingoodarzi",
-  "version": "0.1.0",
+  "name": "amirhossein_goodarzi",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.8.1",
-    "@tanem/react-nprogress": "^5.0.0",
-    "axios": "^0.26.1",
-    "next": "12.1.5",
-    "react": "18.0.0",
-    "react-bootstrap-icons": "^1.8.1",
-    "react-dom": "18.0.0",
-    "react-hot-toast": "^2.2.0",
-    "react-redux": "^8.0.1",
-    "react-syntax-highlighter": "^15.5.0",
-    "sass": "^1.50.1",
-    "sweetalert2": "^11.4.9",
-    "validator": "^13.7.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-router-dom": "^6.11.0",
+    "sass": "^1.62.1",
+    "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
-    "eslint": "8.14.0",
-    "eslint-config-next": "12.1.5",
-    "postcss": "^8.4.12",
-    "tailwindcss": "^3.0.24"
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2"
   }
 }

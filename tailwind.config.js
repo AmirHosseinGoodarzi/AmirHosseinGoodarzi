@@ -1,21 +1,21 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode:"class",
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./customs/**/*.{js,ts,jsx,tsx}",
-    "./customs/**/**/*.{js,ts,jsx,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        dark: "#111",
-        light: "#fff",
-        error: "#df4759",
-        success : "#28a745",
-        main: "#61DAFB",
-        secondary: "#454545",
+        blueGradStart: "#007CF0",
+        blueGradEnd: "#00DFD8",
+        purpleGradStart: "#7928CA",
+        purpleGradEnd: "#FF0080",
+        orangeGradStart: "#FF4D4D",
+        orangeGradEnd: "#F9CB28",
       },
     },
   },
   plugins: [],
-};
+}
