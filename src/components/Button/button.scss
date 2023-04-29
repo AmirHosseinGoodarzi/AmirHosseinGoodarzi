@@ -1,7 +1,7 @@
 .Button_wrapper {
-  @apply flex items-center justify-center transition-all;
+  @apply w-full lg:w-fit flex items-center justify-center transition-all;
   &.Small{
-    @apply py-1 px-4 gap-2 rounded-sm;
+    @apply py-1 px-4 gap-2 rounded-sm text-sm;
   }
   &.Medium{
     @apply py-3 px-6 gap-3 rounded-md;

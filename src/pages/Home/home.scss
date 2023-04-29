@@ -1,12 +1,12 @@
 .Home_warpper {
   section {
-    @apply min-h-screen;
+    @apply min-h-screen p-10;
   }
   .titles {
     @apply flex flex-col md:flex-row items-center justify-center gap-2;
     > div {
       font-family: "Inter-ExtraBold";
-      @apply relative text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-extrabold inline-block;
+      @apply relative text-6xl xl:text-7xl 2xl:text-8xl font-extrabold inline-block;
       &::before {
         @apply content-[attr(title)] absolute top-0 left-0 w-full h-full opacity-100 text-white text-center;
         transition: all 3s;
@@ -20,9 +20,9 @@
     @apply w-full md:w-[60%] mx-auto text-customGray text-xl text-center my-10 leading-8;
   }
   .buttons {
-    @apply w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center gap-8;
+    @apply w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center gap-10;
     #glowing_button {
-      @apply rounded-md;
+      @apply rounded-md w-full lg:w-fit;
       transition: all 2s;
       button {
         @apply border-none;

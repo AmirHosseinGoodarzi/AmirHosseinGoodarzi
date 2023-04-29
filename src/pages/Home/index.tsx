@@ -74,19 +74,19 @@ const Home = () => {
       <section>
         <div className="section_title">
           <div className="bg_blue_grad">1</div>
-          <h2 className="text_blue_grad">ONE</h2>
+          <h2 className="text_blue_grad">About Me</h2>
         </div>
       </section>
       <section>
         <div className="section_title">
           <div className="bg_purple_grad">2</div>
-          <h2 className="text_purple_grad">TWO</h2>
+          <h2 className="text_purple_grad">Expriences</h2>
         </div>
       </section>
       <section>
         <div className="section_title">
           <div className="bg_orange_grad">3</div>
-          <h2 className="text_orange_grad">THREE</h2>
+          <h2 className="text_orange_grad">Educations</h2>
         </div>
       </section>
     </div>

@@ -5,7 +5,7 @@ nav {
   background-color: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid transparent;
   > div {
-    @apply w-[70%] flex items-center justify-between gap-24 py-5 mx-auto;
+    @apply w-[90%] xl:w-[70%] flex items-center justify-between gap-24 py-5 mx-auto;
   }
   &.isSticky {
     border-color: rgba(255, 255, 255, 0.125);
@@ -13,18 +13,27 @@ nav {
   .logo {
     @apply flex items-center justify-center;
     img {
-      @apply w-10 h-auto -mr-2 -mt-1.5;
+      @apply w-10 h-auto -mr-2 -mt-2;
     }
     div {
       @apply text-xl font-bold;
     }
   }
-  ul {
-    @apply flex items-center justify-center gap-8;
-    li {
+  .menu_toggler {
+    @apply lg:hidden text-4xl;
+  }
+  .menu {
+    @apply hidden lg:flex items-center justify-center gap-8;
+    a {
       @apply px-2 py-1 text-customGray hover:text-gray-200 transition-all cursor-pointer;
-      a.acitve {
-        @apply text-white bg-customGray rounded-lg;
+    }
+  }
+  @media (max-width: 1024px) {
+    .menu.isOpen {
+      @apply fixed flex flex-col w-full left-0 top-16 h-[calc(100vh-4rem)] p-5 bg-black;
+      background-color: rgba(0, 0, 0, 0.96);
+      li {
+        @apply border-b border-gray-500 py-2;
       }
     }
   }
