@@ -3,8 +3,7 @@ import "./navbar.scss";
 import NavList from "~/data/NavList";
 import Button from "../Button";
 import logoW from "~/assets/images/LogoW.png";
-import githubLogo from "~/assets/images/technologies/github.svg";
-
+import { ReactComponent as IconMenu } from "~/assets/images/technologies/apple.svg";
 import { ButtonSizes } from "~/utils/enums";
 import { Link } from "react-router-dom";
 
@@ -71,6 +70,15 @@ const Navbar = () => {
               </Link>
             );
           })}
+          <a href="" target="_blank">
+            <Button
+              className="!w-fit mt-10 lg:m-0"
+              icon={<IconMenu width="1rem" />}
+              size={ButtonSizes.Small}
+            >
+              Geist
+            </Button>
+          </a>
           <a href="" target="_blank">
             <Button
               className="!w-fit mt-10 lg:m-0"
