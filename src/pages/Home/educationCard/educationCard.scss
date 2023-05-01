@@ -1,0 +1,28 @@
+.education_card {
+    @apply w-full mx-auto md:w-[300px] h-[350px] border bg-[#111] border-[#444] rounded-lg overflow-hidden;
+    .card_thumbnail {
+      @apply h-[40%] flex items-center justify-center;
+      >.image{
+        @apply h-24 w-24 bg-[url('~/assets/images/uniLogos.png')];
+        background-size: 200%;
+      }
+    }
+    .card_body {
+      @apply flex flex-col justify-between h-[60%] rounded-t-3xl p-5 bg-black;
+      .card_footer {
+        @apply flex items-center justify-between;
+        > div:nth-child(1) {
+          @apply text-sm;
+          p:nth-child(2) {
+            @apply text-customGray;
+          }
+        }
+        > div:nth-child(2) button {
+          @apply w-10 h-10 text-xl border border-[#444] rounded-full hover:bg-[#111] hover:-rotate-45 transition-all;
+        }
+      }
+    }
+    &:hover .card_footer > div:nth-child(2) button {
+      @apply bg-[#111] -rotate-45;
+    }
+  }

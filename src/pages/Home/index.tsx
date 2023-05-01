@@ -4,6 +4,7 @@ import Button from "~/components/Button";
 import { ButtonTypes } from "~/utils/enums";
 import { Link } from "react-router-dom";
 import ROUTES_OBJECT from "~/routes/RoutesObject";
+import EducationCard from "./educationCard";
 
 const Home = () => {
   const [activedTitleIndex, setActivedTitleIndex] = useState(0);
@@ -95,7 +96,7 @@ const Home = () => {
           <div className="section_title">
             <div className="bg_purple_grad">2</div>
             <h2 className="text_purple_grad">Expriences</h2>
-            <h3>Building my hopes up</h3>
+            <h3>... Building my hopes up</h3>
           </div>
           <div className="description">
             <p>
@@ -192,57 +193,25 @@ const Home = () => {
           <div className="section_title">
             <div className="bg_orange_grad">3</div>
             <h2 className="text_orange_grad">Educations</h2>
-            <h3>Building my hopes up</h3>
+            <h3>... working hard</h3>
           </div>
           <div className="educations_wrapper">
-            <a href="https://abru.ac.ir" target="_blank">
-              <div className="education_card">
-                <div className="card_thumbnail">
-                  <img
-                    src="https://th.bing.com/th/id/OIP.vepMGnBK_WNpQpirvkKujwAAAA?pid=ImgDet&rs=1"
-                    alt=""
-                  />
-                </div>
-                <div className="card_body">
-                  <div className="card_desc">
-                    <p>Bachelor of Computer Engineering --- from 2017 - 2021</p>
-                  </div>
-                  <div className="card_footer">
-                    <div>
-                      <p>ABRU University</p>
-                      <p>Iran, Borujerd</p>
-                    </div>
-                    <div>
-                      <button>&rarr;</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a href="http://www.pnu.ac.ir/" target="_blank">
-              <div className="education_card">
-                <div className="card_thumbnail">
-                  <img
-                    src="https://th.bing.com/th/id/R.f856d5ea56a24a88e41fab821637c791?rik=v5lkPJjjrD9AXg&pid=ImgRaw&r=0"
-                    alt=""
-                  />
-                </div>
-                <div className="card_body">
-                  <div className="card_desc">
-                    <p>Master of Software Engineering --- from 2021 - ...</p>
-                  </div>
-                  <div className="card_footer">
-                    <div>
-                      <p>PNU University</p>
-                      <p>Iran, Tehran</p>
-                    </div>
-                    <div>
-                      <button>&rarr;</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
+            <EducationCard
+              title="Bachelor of Computer Engineering"
+              years="2017 - 2021"
+              uniName="ABRU University"
+              uniLocation="Iran, Borujerd"
+              imagePosition="bg-left-bottom dark:bg-left-top"
+              link="https://abru.ac.ir"
+            />
+            <EducationCard
+              title="Master of Software Engineering"
+              years="2021 - ..."
+              uniName="PNU University"
+              uniLocation="Iran, Tehran"
+              imagePosition="bg-right-bottom dark:bg-right-top"
+              link="http://www.pnu.ac.ir/"
+            />
           </div>
         </section>
       </div>
