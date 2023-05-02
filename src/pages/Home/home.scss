@@ -4,13 +4,13 @@
     .section_title {
       @apply flex flex-col items-center justify-center;
       .tip {
-        @apply text-customGray text-center mb-8 font-bold text-xs;
+        @apply text-center mb-8 font-bold text-xs;
         letter-spacing: 5px;
       }
       div {
         @apply relative flex items-center justify-center text-xl rounded-full w-10 h-10 text-white dark:text-black mt-24;
         &::before {
-          @apply content-[""] h-24 w-0.5 absolute bottom-10 bg-gradient-to-b from-black;
+          @apply content-[""] h-24 w-0.5 absolute bottom-10 bg-gradient-to-b from-white dark:from-black;
         }
         &.bg_blue_grad::before {
           @apply via-blueGradStart to-blueGradEnd;
@@ -23,16 +23,16 @@
         }
       }
       h2 {
-        @apply text-3xl my-8;
+        @apply text-3xl mt-5 mb-2;
         font-family: "Inter-ExtraBold";
       }
       h3 {
-        @apply text-5xl text-gray-200 text-center;
+        @apply text-5xl text-center;
         font-family: "Inter-ExtraBold";
       }
     }
     .description {
-      @apply w-full md:w-[50%] text-customGray text-xl text-justify lg:text-center my-8 leading-8;
+      @apply w-full md:w-[50%] text-xl text-justify lg:text-center my-8 leading-8;
     }
   }
   #first_section {
@@ -43,8 +43,8 @@
         font-family: "Inter-ExtraBold";
         @apply relative text-6xl xl:text-7xl 2xl:text-8xl font-extrabold inline-block;
         &::before {
-          @apply content-[attr(title)] absolute top-0 left-0 w-full h-full opacity-100 text-gray-200 text-center;
-          transition: all 3s;
+          @apply content-[attr(title)] absolute top-0 left-0 w-full h-full opacity-100 text-secondary-dark-100 dark:text-gray-200 text-center;
+          transition: opacity 3s;
         }
         &.active::before {
           @apply opacity-0;
@@ -52,30 +52,46 @@
       }
     }
     .buttons {
-      @apply w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center gap-10 mt-4;
-      #glowing_button {
-        @apply rounded-md w-full lg:w-fit;
-        transition: all 2s;
-        button {
-          @apply border-none;
-        }
+      @apply w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center gap-10 mt-7;
+      .glowing_button {
         $blueGradEnd: #00dfd885;
         $purpleGradEnd: #ff008085;
         $orangeGradEnd: #f9cb2885;
-        &.active0 {
-          filter: drop-shadow(2px 2px 20px $blueGradEnd)
-            drop-shadow(-2px -2px 10px $blueGradEnd);
-          border: 2px solid $blueGradEnd;
+        @apply relative w-full lg:w-fit flex items-center justify-center bg-gradient-to-r p-[1px] rounded-md text-black dark:text-white;
+        transition: all 2s;
+        span {
+          @apply absolute w-full h-full top-0 left-0 rounded-md opacity-0;
+          transition: all 2s;
         }
-        &.active1 {
-          filter: drop-shadow(2px 2px 20px $purpleGradEnd)
-            drop-shadow(-2px -2px 10px $purpleGradEnd);
-          border: 2px solid $purpleGradEnd;
+
+        &.active_0 {
+          filter: drop-shadow(2px 2px 20px $blueGradEnd);
+          .bg_blue_grad {
+            @apply opacity-100;
+          }
         }
-        &.active2 {
-          filter: drop-shadow(2px 2px 20px $orangeGradEnd)
-            drop-shadow(-2px -2px 10px $orangeGradEnd);
-          border: 2px solid $orangeGradEnd;
+        &.active_1 {
+          filter: drop-shadow(2px 2px 20px $purpleGradEnd);
+          .bg_purple_grad {
+            @apply opacity-100;
+          }
+        }
+        &.active_2 {
+          filter: drop-shadow(2px 2px 20px $orangeGradEnd);
+          .bg_orange_grad {
+            @apply opacity-100;
+          }
+        }
+        > div {
+          @apply relative bg-white dark:bg-black rounded-md transition-all 
+          text-transparent py-3 px-6 text-black dark:text-white hover:text-white;
+          &:after {
+            @apply content-[attr(title)] absolute w-full h-full top-1/2 
+            left-1/2 -translate-x-1/2 -translate-y-1/4;
+          }
+        }
+        &:hover > div {
+          @apply bg-transparent;
         }
       }
     }
@@ -84,7 +100,7 @@
     @apply relative flex flex-col gap-24 lg:gap-0 items-center lg:items-end justify-center mt-36 lg:mt-12;
     &::before {
       @apply content-[""] absolute w-0.5 h-24 
-      bg-gradient-to-b from-black to-gray-600 rounded-full 
+      bg-gradient-to-b from-white dark:from-black to-gray-600 rounded-full 
       right-1/2 lg:translate-x-[2px] -top-36 lg:-top-12 z-20;
     }
     &::after {
@@ -105,19 +121,13 @@
         }
       }
       .icon {
-        @apply text-2xl p-2 rounded-lg bg-gray-700 text-gray-300 w-fit;
+        @apply text-2xl p-2 rounded-lg bg-secondary-light-200 dark:bg-secondary-dark-300 text-gray-400 dark:text-gray-300 w-fit;
       }
       h5 {
         @apply text-2xl mb-2;
       }
-      h6 {
-        @apply text-gray-200;
-      }
       span {
-        @apply text-sm text-customGray font-bold;
-      }
-      p {
-        @apply text-customGray;
+        @apply text-sm font-bold;
       }
     }
   }

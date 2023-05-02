@@ -6,7 +6,6 @@ import { THEMES } from "~/utils/enums";
 
 const ThemeSelector = () => {
   const { currentTheme, setCurrentTheme } = useContext(ThemeContext);
-  console.log({ currentTheme });
   return (
     <div className="theme_selector">
       <button

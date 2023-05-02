@@ -1,10 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { THEMES } from "~/utils/enums";
 
-export const ThemeContext = createContext<{
-  currentTheme: THEMES | null;
-  setCurrentTheme: Function;
-} | null>(null);
+export const ThemeContext = createContext<any>(null);
 
 const ThemeContextProvider = ({ children }: { children: any }) => {
   const [currentTheme, setCurrentTheme] = useState<THEMES | null>(null);

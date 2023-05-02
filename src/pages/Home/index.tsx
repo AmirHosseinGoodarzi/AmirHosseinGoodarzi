@@ -58,9 +58,12 @@ const Home = () => {
           </div>
           <div className="buttons">
             <Button icon={<Files />}>Donwload CV</Button>
-            <div id="glowing_button" className={`active${activedTitleIndex}`}>
-              <Button type={ButtonTypes.Outline}>Get in touch.</Button>
-            </div>
+            <button className={`glowing_button active_${activedTitleIndex}`}>
+              <span className="bg_blue_grad"></span>
+              <span className="bg_purple_grad"></span>
+              <span className="bg_orange_grad"></span>
+              <div title="Get in touch.">Get in touch.</div>
+            </button>
           </div>
         </section>
         <section>
@@ -68,7 +71,7 @@ const Home = () => {
             <p className="tip">EXPLORE MY WAY</p>
             <div className="bg_blue_grad">1</div>
             <h2 className="text_blue_grad">About Me</h2>
-            <h3>I'm doing my best</h3>
+            <h3 className="text_simple_grad">I'm doing my best</h3>
           </div>
           <div className="description">
             <p>
@@ -83,7 +86,7 @@ const Home = () => {
           <div className="section_title">
             <div className="bg_purple_grad">2</div>
             <h2 className="text_purple_grad">Expriences</h2>
-            <h3>... Building my hopes up</h3>
+            <h3 className="text_simple_grad">... Building my hopes up</h3>
           </div>
           <div className="description">
             <p>
@@ -129,7 +132,7 @@ const Home = () => {
           <div className="section_title">
             <div className="bg_orange_grad">3</div>
             <h2 className="text_orange_grad">Educations</h2>
-            <h3>... working hard</h3>
+            <h3 className="text_simple_grad">... working hard</h3>
           </div>
           <div className="educations_wrapper">
             <EducationCard

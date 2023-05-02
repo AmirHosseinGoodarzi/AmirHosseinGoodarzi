@@ -1,14 +1,17 @@
-import { ReactComponent as Github } from "~/assets/images/icons/github.svg";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import "./navbar.scss";
 import NavList from "~/data/NavList";
+import { ButtonSizes, THEMES } from "~/utils/enums";
 import Button from "../Button";
-import logoW from "~/assets/images/LogoW.png";
-import { ButtonSizes } from "~/utils/enums";
-import { Link } from "react-router-dom";
 import ThemeSelector from "../ThemeSelector";
+import { ThemeContext } from "~/context/ThemeContext";
+import { Link } from "react-router-dom";
+import { ReactComponent as Github } from "~/assets/images/icons/github.svg";
+import logoW from "~/assets/images/LogoW.png";
+import logoB from "~/assets/images/logoB.png";
 
 const Navbar = () => {
+  const { currentTheme } = useContext(ThemeContext);
   const navRef = useRef<HTMLDivElement | null>(null);
   const [isOpen, setOsOpen] = useState(false);
   const navbarListener = () => {
@@ -31,7 +34,7 @@ const Navbar = () => {
     <nav ref={navRef}>
       <div>
         <div className="logo">
-          <img src={logoW} alt="Logo" />
+          <img src={currentTheme === THEMES.DARK ? logoW : logoB} alt="Logo" />
           <div>mir</div>
         </div>
         <button

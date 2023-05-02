@@ -1,20 +1,18 @@
 nav {
-  $border_color: rgba(255, 255, 255, 0.125);
-  @apply sticky top-0 z-50 transition-all;
-  backdrop-filter: blur(10px) saturate(200%);
-  -webkit-backdrop-filter: blur(10px) saturate(200%);
-  background-color: rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid transparent;
+  @apply sticky top-0 py-3 z-50 transition-all border-b border-transparent 
+  bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.7)] text-sm;
+  backdrop-filter: blur(5px) saturate(180%);
+  -webkit-backdrop-filter: blur(5px) saturate(180%);
   > div {
-    @apply w-[90%] xl:w-[70%] flex items-center justify-between gap-24 py-5 mx-auto;
+    @apply w-[90%] xl:w-[70%] flex items-center justify-between mx-auto;
   }
   &.isSticky {
-    border-color: $border_color;
+    @apply border-secondary-light-100 dark:border-secondary-dark-200;
   }
   .logo {
-    @apply flex items-center justify-center;
+    @apply flex items-center justify-center text-black dark:text-white;
     img {
-      @apply w-10 h-auto -mr-2 -mt-2;
+      @apply w-12 h-auto -mr-2;
     }
     div {
       @apply text-xl font-bold;
@@ -24,15 +22,18 @@ nav {
     @apply lg:hidden text-4xl;
   }
   .menu {
-    @apply hidden lg:flex items-center justify-center gap-8;
+    @apply hidden lg:flex items-center justify-center gap-3;
     a {
-      @apply px-2 py-1 text-customGray hover:text-gray-200 transition-all cursor-pointer;
+      @apply px-2 py-1 hover:text-gray-200 transition-all cursor-pointer;
     }
   }
   @media (max-width: 1024px) {
     .menu.isOpen {
-      @apply fixed flex flex-col w-full left-0 top-16 h-[calc(100vh-4rem)] p-5 bg-black;
+      @apply fixed flex flex-col w-full left-0 top-16 
+      h-[calc(100vh-4rem)] p-5 bg-black;
       background-color: rgba(0, 0, 0, 0.96);
+      backdrop-filter: blur(5px) saturate(180%);
+      -webkit-backdrop-filter: blur(5px) saturate(180%);
       li {
         @apply border-b border-gray-500 py-2;
       }
@@ -40,12 +41,13 @@ nav {
   }
 
   .theme_selector {
-    @apply flex gap-2 border-2 rounded-full p-1;
-    border-color: $border_color;
+    @apply flex gap-2 border border-secondary-light-100 
+    dark:border-secondary-dark-300 rounded-full p-0.5;
     > button {
-      @apply p-1;
+      @apply p-1.5 text-[#929292] dark:text-[#888];
       &.active {
-        @apply bg-[#333] rounded-full;
+        @apply bg-secondary-light-100 dark:bg-secondary-dark-300 
+        rounded-full text-black dark:text-white;
       }
     }
   }

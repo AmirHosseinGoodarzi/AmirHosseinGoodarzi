@@ -17,7 +17,18 @@ export default {
         purpleGradEnd: "#FF0080",
         orangeGradStart: "#FF4D4D",
         orangeGradEnd: "#F9CB28",
-        customGray: "#888"
+        secondary: {
+          light: {
+            100: "#eaeaea",
+            200: "#fafafa"
+          },
+          dark: {
+            100: "#111",
+            200: "#222",
+            300: "#333",
+            400: "#444",
+          }
+        }
       },
     },
   },

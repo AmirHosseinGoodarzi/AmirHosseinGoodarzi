@@ -21,30 +21,15 @@ html {
   direction: ltr;
   scroll-behavior: smooth;
 }
-.scroll_styles {
-  &::-webkit-scrollbar {
-    @apply w-3.5 h-3.5;
-    color-scheme: dark;
-  }
-  &::-webkit-scrollbar-track {
-    @apply bg-[#424242];
-  }
-  &::-webkit-scrollbar-thumb {
-    @apply bg-[#686868];
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    @apply bg-[#7B7B7B];
-  }
-  &::-webkit-scrollbar-thumb:active {
-    @apply bg-[#A1A1A1];
-  }
-}
 body {
-  @extend .scroll_styles;
-  @apply bg-white text-black dark:bg-black dark:text-white;
+  @apply bg-white text-[#666] dark:bg-black dark:text-[#888];
   font-family: "Inter";
 }
 
+.text_simple_grad {
+  @apply text-transparent bg-clip-text py-2;
+  background-image: linear-gradient(180deg, #000000cc, #000);
+}
 .bg_blue_grad {
   @apply bg-gradient-to-r from-blueGradStart to-blueGradEnd;
 }
@@ -65,4 +50,10 @@ body {
 .text_orange_grad {
   @extend .bg_orange_grad;
   @apply text-transparent bg-clip-text;
+}
+
+html.dark {
+  .text_simple_grad {
+    background-image: linear-gradient(180deg, #fff, #ffffffbf);
+  }
 }
