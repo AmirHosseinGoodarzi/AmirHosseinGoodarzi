@@ -1,0 +1,52 @@
+.portfolio_wrapper {
+  @apply flex flex-col items-center min-h-screen p-10;
+  .section_title {
+    @apply flex flex-col items-center justify-center my-10;
+    h1 {
+      @apply text-center relative text-4xl xl:text-6xl 2xl:text-7xl;
+      font-family: "Inter-ExtraBold";
+    }
+    .description {
+      @apply w-full lg:w-[80%] text-xl text-justify lg:text-center leading-8;
+    }
+  }
+  .projects_wrapper {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-5;
+    .portfo_card {
+      @apply bg-white dark:bg-black rounded-md border border-secondary-light-100 dark:border-secondary-dark-200;
+      .card_thumbnail {
+        @apply h-[220px] overflow-hidden transition-all bg-secondary-light-200 dark:bg-secondary-dark-100;
+      }
+      .card_body {
+        @apply h-[80px] flex flex-col flex-1 overflow-hidden p-5 transition-all;
+        > div:nth-child(1) {
+          @apply flex gap-2 items-center text-black dark:text-white;
+          > div:nth-child(1) {
+            @apply flex justify-center items-center w-10 h-10 text-xl border
+             border-secondary-dark-400 rounded-full transition-all;
+          }
+        }
+        .card_desc {
+          @apply flex-1 flex flex-col justify-between text-sm text-justify max-h-0 opacity-0 transition-all;
+          footer {
+            @apply text-xs self-end text-white;
+          }
+        }
+      }
+      &:hover {
+        .card_thumbnail {
+          @apply h-[50px];
+        }
+        .card_body {
+          @apply h-[250px];
+          > div:nth-child(1) > div:nth-child(1) {
+            @apply bg-secondary-light-100 dark:bg-secondary-dark-100 -rotate-45;
+          }
+          .card_desc {
+            @apply opacity-100 max-h-fit mt-5;
+          }
+        }
+      }
+    }
+  }
+}

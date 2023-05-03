@@ -36,7 +36,7 @@
     }
   }
   #first_section {
-    @apply justify-center -mt-16;
+    @apply justify-center -mt-16 relative;
     .titles {
       @apply flex flex-col md:flex-row items-center justify-center gap-2;
       > div {
@@ -52,7 +52,7 @@
       }
     }
     .buttons {
-      @apply w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center gap-10 mt-7;
+      @apply w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center gap-10 p-7 pb-0;
       .glowing_button {
         $blueGradEnd: #00dfd885;
         $purpleGradEnd: #ff008085;
@@ -82,11 +82,34 @@
           }
         }
         > div {
-          @apply relative bg-white dark:bg-black rounded-md transition-all 
+          @apply w-full text-center relative bg-white dark:bg-black rounded-md transition-all 
           text-transparent py-3 px-6 text-black dark:text-white hover:text-white;
         }
         &:hover > div {
           @apply bg-transparent;
+        }
+      }
+    }
+    .mouse {
+      @apply flex mt-5 border-2 border-black dark:border-white;
+      width: 23px;
+      height: 40px;
+      border-radius: 20px;
+      .mouse_wheel {
+        @apply block m-auto rounded-full bg-black dark:bg-white;
+        width: 2px;
+        height: 7px;
+        animation: move-wheel 1.7s linear infinite;
+        @keyframes move-wheel {
+          0% {
+            transform: translateY(-1.6rem);
+          }
+          50% {
+            transform: translateY(-.6rem);
+          }
+          100% {
+            transform: translateY(-1.6rem);
+          }
         }
       }
     }

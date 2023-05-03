@@ -68,6 +68,11 @@ const Home = () => {
               <div>Get in touch.</div>
             </Link>
           </div>
+          <div className="absolute bottom-10 lg:bottom-20">
+            <span className="mouse">
+              <span className="mouse_wheel"></span>
+            </span>
+          </div>
         </section>
         <section>
           <div className="section_title">
