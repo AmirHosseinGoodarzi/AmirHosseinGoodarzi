@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import "./home.scss";
 import Button from "~/components/Button";
-import { ButtonTypes } from "~/utils/enums";
+import EduCard from "./EduCard";
+import { ReactComponent as Files } from "~/assets/images/icons/files.svg";
+import ExpRoadMap from "./ExpRoadMap";
 import { Link } from "react-router-dom";
 import ROUTES_OBJECT from "~/routes/RoutesObject";
-import EducationCard from "./educationCard";
-import { ReactComponent as Files } from "~/assets/images/icons/files.svg";
 
 const Home = () => {
   const [activedTitleIndex, setActivedTitleIndex] = useState(0);
@@ -58,12 +58,15 @@ const Home = () => {
           </div>
           <div className="buttons">
             <Button icon={<Files />}>Donwload CV</Button>
-            <button className={`glowing_button active_${activedTitleIndex}`}>
+            <Link
+              to={ROUTES_OBJECT.contact}
+              className={`glowing_button active_${activedTitleIndex}`}
+            >
               <span className="bg_blue_grad"></span>
               <span className="bg_purple_grad"></span>
               <span className="bg_orange_grad"></span>
-              <div title="Get in touch.">Get in touch.</div>
-            </button>
+              <div>Get in touch.</div>
+            </Link>
           </div>
         </section>
         <section>
@@ -85,7 +88,7 @@ const Home = () => {
         <section>
           <div className="section_title">
             <div className="bg_purple_grad">2</div>
-            <h2 className="text_purple_grad">Expriences</h2>
+            <h2 className="text_purple_grad">Experiences</h2>
             <h3 className="text_simple_grad">... Building my hopes up</h3>
           </div>
           <div className="description">
@@ -94,39 +97,7 @@ const Home = () => {
               teamwork and collaboration.
             </p>
           </div>
-          <div className="exp_road_map">
-            <div className="exp_card">
-              <div className="icon">icon</div>
-              <h5>Junior FrontEnd Developer</h5>
-              <h6>Freelancer</h6>
-              <span>2019 - 2021</span>
-              <p>
-                Collaborating with talented people and Create web products for
-                both business and consumer use.
-              </p>
-            </div>
-            <div className="exp_card reversed">
-              <div className="icon">icon</div>
-              <h5>Mid-Level FrontEnd Dev</h5>
-              <h6>Kahkeshan Group of Companies</h6>
-              <span>2021 - ...</span>
-              <p>
-                Creating successful responsive websites that are fast, easy to
-                use, and built with best practices.
-              </p>
-            </div>
-            <div className="exp_card">
-              <div className="icon">icon</div>
-              <h5>Junior FrontEnd Dev</h5>
-              <span className="!text-purpleGradEnd">Now Available</span>
-              <Link
-                to={ROUTES_OBJECT.contact}
-                className="w-fit bg-slate-900 rounded-full text-white hover:text-purpleGradEnd transition-all py-1 px-5 text-sm"
-              >
-                let's create something special &rarr;
-              </Link>
-            </div>
-          </div>
+          <ExpRoadMap />
         </section>
         <section>
           <div className="section_title">
@@ -135,7 +106,7 @@ const Home = () => {
             <h3 className="text_simple_grad">... working hard</h3>
           </div>
           <div className="educations_wrapper">
-            <EducationCard
+            <EduCard
               title="Bachelor of Computer Engineering"
               years="2017 - 2021"
               uniName="ABRU University"
@@ -143,7 +114,7 @@ const Home = () => {
               imagePosition="bg-left-bottom dark:bg-left-top"
               link="https://abru.ac.ir"
             />
-            <EducationCard
+            <EduCard
               title="Master of Software Engineering"
               years="2021 - ..."
               uniName="PNU University"

@@ -1,4 +1,4 @@
-import "./educationCard.scss";
+import "./eduCard.scss";
 
 type Props = {
   title: string;
@@ -8,7 +8,7 @@ type Props = {
   imagePosition: string;
   link: string;
 };
-const EducationCard = ({
+const EduCard = ({
   title,
   years,
   uniName,
@@ -42,4 +42,4 @@ const EducationCard = ({
   );
 };
 
-export default EducationCard;
+export default EduCard;
