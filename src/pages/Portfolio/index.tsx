@@ -14,8 +14,8 @@ const Portfolio = () => {
           </p>
         </div>
         <div className="projects_wrapper">
-          {data.map((item) => {
-            return <PortfoCard key={item.id} {...item} />;
+          {data.map((item,index) => {
+            return <PortfoCard key={index} {...item} />;
           })}
         </div>
       </div>

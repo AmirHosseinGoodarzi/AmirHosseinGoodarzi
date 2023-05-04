@@ -1,39 +1,59 @@
-import { Link } from "react-router-dom";
 import { ReactComponent as Desktop } from "~/assets/images/icons/desktop.svg";
 import { ReactComponent as Mobile } from "~/assets/images/icons/mobile.svg";
-import ROUTES_OBJECT from "~/routes/RoutesObject";
 
 type Props = {
-  id: number;
   title: string;
   image: string;
   desc: string;
   teamMembers: number;
+  year: number;
   projectDurationDays: number;
   myRole: string;
   link: string;
   technologies: string[];
   type: string;
 };
-const PortfoCard = ({ id, title, image, desc, type }: Props) => {
+const PortfoCard = ({
+  title,
+  image,
+  desc,
+  teamMembers,
+  year,
+  projectDurationDays,
+  myRole,
+  link,
+  technologies,
+  type,
+}: Props) => {
   return (
-    <Link to={ROUTES_OBJECT.portfolio + "/" + id}>
-      <div className="portfo_card">
-        <div className="card_thumbnail">
-          <img src={image} alt={title} />
+    <a href={link} target="_blank">
+      <article className="portfo_card">
+        <header className="card_thumbnail">
+          <img src={image} />
+        </header>
+        <div className="card_icon bg_blue_grad">
+          {type === "mobile" ? <Mobile /> : <Desktop />}
         </div>
         <div className="card_body">
-          <div>
-            <div>{type === "mobile" ? <Mobile /> : <Desktop />}</div>
-            <h6>{title}</h6>
-          </div>
+          <div className="category bg_blue_grad">{year}</div>
+          <h2 className="title text_blue_grad">{title}</h2>
+          <div className="text-sm">{desc}</div>
           <div className="card_desc">
-            <p>{desc}</p>
-            <footer>Click to see More &rarr;</footer>
+            <ul className="text-xs flex flex-col gap-2">
+              <li>Role: {myRole}</li>
+              <li>Duration: {projectDurationDays} days</li>
+              <li>Team: {teamMembers} people</li>
+              <li className="flex flex-wrap gap-2">
+                {technologies.map((item) => (
+                  <span className="tech_item">{item}</span>
+                ))}
+              </li>
+            </ul>
           </div>
+          {/* <p>Click to see More &rarr;</p> */}
         </div>
-      </div>
-    </Link>
+      </article>
+    </a>
   );
 };
 
