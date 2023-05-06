@@ -27,10 +27,14 @@
           .card_desc {
             @apply delay-[0.1s] translate-y-0 opacity-100;
           }
+          .subtitle {
+            @apply opacity-0;
+          }
         }
       }
       .card_thumbnail {
-        @apply h-[200px] bg-secondary-light-200 dark:bg-secondary-dark-100 overflow-hidden transition-all;
+        @apply h-[180px] flex items-center justify-center bg-secondary-light-200
+         dark:bg-secondary-dark-100 overflow-hidden transition-all;
         transition: height 300ms;
         img {
           @apply block opacity-100 scale-100;
@@ -41,7 +45,7 @@
         @apply text-white rounded-full p-3 absolute top-2 right-2 text-lg;
       }
       .card_body {
-        @apply relative h-[130px] p-5;
+        @apply relative h-[150px] p-5;
         transition: height 300ms;
         .category {
           @apply absolute -top-[25px] h-[25px] flex justify-center items-center
@@ -49,6 +53,9 @@
         }
         .title {
           @apply text-xl text-black dark:text-white font-bold m-0 pt-0 pb-2.5;
+        }
+        .subtitle {
+          @apply text-sm;
         }
         .card_desc {
           @apply absolute text-sm leading-7 opacity-0
