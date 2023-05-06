@@ -8,7 +8,7 @@ import { ThemeContext } from "~/context/ThemeContext";
 import { Link } from "react-router-dom";
 import { ReactComponent as Github } from "~/assets/images/icons/github.svg";
 import logoW from "~/assets/images/LogoW.png";
-import logoB from "~/assets/images/logoB.png";
+import logoB from "~/assets/images/LogoB.png";
 
 const Navbar = () => {
   const { currentTheme } = useContext(ThemeContext);
