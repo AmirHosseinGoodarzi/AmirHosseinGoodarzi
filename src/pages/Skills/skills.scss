@@ -1,0 +1,26 @@
+.skills_wrapper {
+  @apply flex flex-col items-center min-h-screen p-10;
+  .section_title {
+    @apply flex flex-col items-center justify-center my-10;
+    h1 {
+      @apply text-center relative text-4xl xl:text-6xl 2xl:text-7xl;
+      font-family: "Inter-ExtraBold";
+    }
+  }
+  .content_wrapper {
+    @apply w-full flex flex-col-reverse lg:flex-row justify-center items-center gap-10;
+    .clouder_wrapper {
+      @apply w-full lg:w-1/2;
+      #clouder {
+        @apply relative m-auto w-[300px] h-[300px] 
+        lg:w-[400px] lg:h-[400px] text-black dark:text-white;
+        img {
+          @apply absolute w-[40px] h-[40px] lg:w-[55px] lg:h-[55px];
+        }
+      }
+    }
+    .description {
+      @apply w-full lg:w-1/2 lg:pr-10 2xl:pr-36;
+    }
+  }
+}
