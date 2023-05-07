@@ -5,12 +5,15 @@ import { ButtonSizes, THEMES } from "~/utils/enums";
 import Button from "../Button";
 import ThemeSelector from "../ThemeSelector";
 import { ThemeContext } from "~/context/ThemeContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as Github } from "~/assets/images/icons/github.svg";
+import { ReactComponent as Menu } from "~/assets/images/icons/menu.svg";
+import { ReactComponent as CloseMenu } from "~/assets/images/icons/closeMenu.svg";
 import logoW from "~/assets/images/LogoW.png";
 import logoB from "~/assets/images/LogoB.png";
 
 const Navbar = () => {
+  const location = useLocation();
   const { currentTheme } = useContext(ThemeContext);
   const navRef = useRef<HTMLDivElement | null>(null);
   const [isOpen, setOsOpen] = useState(false);
@@ -43,7 +46,7 @@ const Navbar = () => {
             setOsOpen(!isOpen);
           }}
         >
-          MMenu
+          {isOpen ? <CloseMenu />  : <Menu />}
         </button>
         <div className={`menu ${isOpen ? "isOpen" : ""}`}>
           {NavList.map((menu_item, index) => {
@@ -51,6 +54,7 @@ const Navbar = () => {
               <Link
                 key={index}
                 to={menu_item.to}
+                className={location.pathname === menu_item.to ? "active" : ""}
                 onClick={() => {
                   setOsOpen(false);
                 }}
