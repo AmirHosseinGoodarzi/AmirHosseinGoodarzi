@@ -1,6 +1,7 @@
 .Home_warpper {
+  @apply relative isolate;
   section {
-    @apply flex flex-col items-center min-h-screen p-10;
+    @apply relative flex flex-col items-center min-h-screen p-10;
     .section_title {
       @apply flex flex-col items-center justify-center;
       .tip {
@@ -105,7 +106,7 @@
             transform: translateY(-1.6rem);
           }
           50% {
-            transform: translateY(-.6rem);
+            transform: translateY(-0.6rem);
           }
           100% {
             transform: translateY(-1.6rem);

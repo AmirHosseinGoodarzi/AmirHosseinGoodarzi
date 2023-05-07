@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import "./skills.scss";
 import data from "~/data/skills";
 import { Clouder } from "~/utils/Clouder";
+import AbsoluteShape from "~/components/AbsoluteShape";
 
 const Skills = () => {
   const cloaderRef = useRef<HTMLDivElement | null>(null);
@@ -17,6 +18,9 @@ const Skills = () => {
   }, []);
   return (
     <div className="container">
+      <AbsoluteShape
+        position="top_right"
+      />
       <div className="skills_wrapper">
         <div className="section_title">
           <h1 className="text_simple_grad">Skills</h1>

@@ -1,0 +1,36 @@
+.absolute_shape {
+  @apply absolute inset-x-0  -z-10 transform-gpu overflow-hidden blur-3xl;
+  > div {
+    @apply relative aspect-[1155/678] w-[36.125rem] rotate-[30deg] bg-gradient-to-tr opacity-30 sm:w-[72.1875rem] -translate-x-1/2;
+  }
+  &.top_left {
+    @apply -top-40 sm:-top-80;
+    > div {
+      @apply left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)];
+    }
+  }
+  &.top_right {
+    @apply -top-40 sm:-top-80;
+    > div {
+      @apply left-[75%];
+    }
+  }
+  &.bottom {
+    @apply -bottom-52;
+    > div {
+      @apply left-1/2;
+    }
+  }
+  &.bottom_left {
+    @apply -bottom-48;
+    > div {
+      @apply left-[13%];
+    }
+  }
+  &.bottom_right {
+    @apply -bottom-40;
+    > div {
+      @apply left-[75%];
+    }
+  }
+}

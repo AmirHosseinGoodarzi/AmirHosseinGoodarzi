@@ -6,6 +6,7 @@ import { ReactComponent as Files } from "~/assets/images/icons/files.svg";
 import ExpRoadMap from "./ExpRoadMap";
 import { Link } from "react-router-dom";
 import ROUTES_OBJECT from "~/routes/RoutesObject";
+import AbsoluteShape from "~/components/AbsoluteShape";
 
 const Home = () => {
   const [activedTitleIndex, setActivedTitleIndex] = useState(0);
@@ -23,6 +24,7 @@ const Home = () => {
     <div className="Home_warpper">
       <div className="container">
         <section id="first_section">
+          <AbsoluteShape position="top_left" />
           <div className="titles">
             <div
               className={`text_blue_grad ${
@@ -83,12 +85,13 @@ const Home = () => {
           </div>
           <div className="description">
             <p>
-              I enjoy creating user-friendly interfaces, writing clean and
-              maintainable code, and solving complex problems. I am looking for
-              a challenging and rewarding position where I can apply my skills
-              and grow as a developer.
+              My name is Amirhossein. I'm I enjoy creating user-friendly
+              interfaces, writing clean and maintainable code, and solving
+              complex problems. I am looking for a challenging and rewarding
+              position where I can apply my skills and grow as a developer.
             </p>
           </div>
+          <AbsoluteShape position="bottom_right" />
         </section>
         <section>
           <div className="section_title">
@@ -103,6 +106,7 @@ const Home = () => {
             </p>
           </div>
           <ExpRoadMap />
+          <AbsoluteShape position="bottom_left" />
         </section>
         <section>
           <div className="section_title">
@@ -130,6 +134,10 @@ const Home = () => {
           </div>
         </section>
       </div>
+      <footer className="absolute bottom-0 left-0 w-full py-7 text-center text-black dark:text-white">
+        &copy; Made with <span className="text-lg text-red-500">&#10084;</span> by
+        AmirHossein Goodarzi
+      </footer>
     </div>
   );
 };

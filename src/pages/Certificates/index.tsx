@@ -8,10 +8,15 @@ import tehran from "~/assets/images/certificates/tehran.png";
 import jsAlgorithms from "~/assets/images/certificates/jsAlgorithms.png";
 import responsive from "~/assets/images/certificates/responsive.png";
 import meta from "~/assets/images/certificates/meta-frontEnd-intro.jpg";
+import AbsoluteShape from "~/components/AbsoluteShape";
 
 const Certificates = () => {
   return (
     <div className="container">
+      <AbsoluteShape
+        position="top_left"
+        colors="from-orangeGradEnd via-purpleGradStart to-blueGradStart"
+      />
       <div className="certificates_wrapper">
         <div className="section_title">
           <h1 className="text_simple_grad">Certificates</h1>
