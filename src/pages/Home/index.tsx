@@ -85,10 +85,11 @@ const Home = () => {
           </div>
           <div className="description">
             <p>
-              My name is Amirhossein. I'm I enjoy creating user-friendly
-              interfaces, writing clean and maintainable code, and solving
-              complex problems. I am looking for a challenging and rewarding
-              position where I can apply my skills and grow as a developer.
+              My name is Amirhossein. I'm 24 and living in Iran,Tehran. I enjoy
+              creating user-friendly interfaces, writing clean and maintainable
+              code, and solving complex problems. I am looking for a challenging
+              and rewarding position where I can apply my skills and grow as a
+              developer.
             </p>
           </div>
           <AbsoluteShape position="bottom_right" />
@@ -135,8 +136,8 @@ const Home = () => {
         </section>
       </div>
       <footer className="absolute bottom-0 left-0 w-full py-7 text-center text-black dark:text-white">
-        &copy; Made with <span className="text-lg text-red-500">&#10084;</span> by
-        AmirHossein Goodarzi
+        &copy; Made with <span className="text-lg text-red-500">&#10084;</span>{" "}
+        by AmirHossein Goodarzi
       </footer>
     </div>
   );
