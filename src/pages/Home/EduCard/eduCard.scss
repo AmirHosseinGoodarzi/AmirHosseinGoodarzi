@@ -1,6 +1,7 @@
 .education_card {
   @apply mx-auto h-[350px] border bg-secondary-light-200 dark:bg-secondary-dark-100
-  border-secondary-light-100 dark:border-secondary-dark-200 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all;
+  border-secondary-light-100 dark:border-secondary-dark-200 rounded-lg 
+  overflow-hidden shadow-xl hover:shadow-2xl transition-all;
   width: 320px;
   @media (max-width: 380px) {
     width: 100%;
