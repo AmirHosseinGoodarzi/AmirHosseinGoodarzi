@@ -1,0 +1,33 @@
+.contact_wrapper {
+  @apply flex flex-col items-center min-h-screen px-10;
+  .section_title {
+    @apply w-full flex flex-col items-center justify-center my-10;
+    h1 {
+      @apply text-center relative text-4xl xl:text-6xl 2xl:text-7xl;
+      font-family: "Inter-ExtraBold";
+    }
+    .description {
+      @apply w-full lg:w-[80%] text-xl text-justify lg:text-center leading-8;
+    }
+    ul {
+      @apply w-full my-8 flex items-center justify-center flex-wrap gap-6 text-3xl;
+       li{
+        @apply transition-all hover:-translate-y-1 text-black dark:text-white;
+       }
+    }
+  }
+  .form_wrapper {
+    @apply grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2;
+    .form_label {
+      @apply block text-sm font-semibold text-black dark:text-white mb-2.5;
+    }
+    .form_input {
+      @apply block w-full rounded-md px-3.5 py-2 shadow-sm sm:text-sm
+      bg-transparent focus:outline-none border border-gray-300 
+      dark:border-secondary-dark-300;
+    }
+    textarea {
+      resize: none;
+    }
+  }
+}
