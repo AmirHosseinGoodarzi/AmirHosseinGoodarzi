@@ -10,8 +10,8 @@
       border-gray-600 lg:translate-x-[2px] rounded-full right-1/2 -top-7 -z-10;
   }
   .exp_card {
-    @apply relative w-full lg:w-1/2 flex flex-col gap-2 py-10 lg:px-10 
-      lg:border-l lg:border-dashed lg:border-gray-600 z-10;
+    @apply relative w-full lg:w-1/2 flex flex-col gap-2 py-10 lg:px-10 lg:border-l 
+    lg:border-dashed lg:border-gray-600 z-10 bg-white dark:bg-black lg:bg-transparent;
     &::before {
       @apply content-[""] absolute w-5 lg:w-3 h-5 lg:h-3 bg-white dark:bg-black rounded-full 
         -top-12 lg:top-12 left-1/2 lg:left-0 -translate-x-1/2 border-2 border-gray-600;

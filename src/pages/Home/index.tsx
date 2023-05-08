@@ -76,7 +76,7 @@ const Home = () => {
             </span>
           </div>
         </section>
-        <section>
+        <section className="!min-h-[auto]">
           <div className="section_title">
             <p className="tip">EXPLORE MY WAY</p>
             <div className="bg_blue_grad">1</div>

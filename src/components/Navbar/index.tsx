@@ -34,7 +34,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav ref={navRef}>
+    <nav ref={navRef} className={isOpen ? "isOpen" : ""}>
       <div>
         <div className="logo">
           <img src={currentTheme === THEMES.DARK ? logoW : logoB} alt="Logo" />
@@ -48,7 +48,7 @@ const Navbar = () => {
         >
           {isOpen ? <CloseMenu />  : <Menu />}
         </button>
-        <div className={`menu ${isOpen ? "isOpen" : ""}`}>
+        <div className="menu">
           {NavList.map((menu_item, index) => {
             return (
               <Link
