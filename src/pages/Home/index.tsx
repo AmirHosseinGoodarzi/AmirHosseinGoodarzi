@@ -2,11 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import "./home.scss";
 import Button from "~/components/Button";
 import EduCard from "./EduCard";
-import { ReactComponent as Files } from "~/assets/images/icons/files.svg";
 import ExpRoadMap from "./ExpRoadMap";
 import { Link } from "react-router-dom";
 import ROUTES_OBJECT from "~/routes/RoutesObject";
 import AbsoluteShape from "~/components/AbsoluteShape";
+import { ReactComponent as Files } from "~/assets/images/icons/files.svg";
+import resumeFile from "~/assets/files/Resume - AmirhosseinGoodarzi.pdf";
 
 const Home = () => {
   const [activedTitleIndex, setActivedTitleIndex] = useState(0);
@@ -59,7 +60,9 @@ const Home = () => {
             </p>
           </div>
           <div className="buttons">
-            <Button icon={<Files />}>Donwload CV</Button>
+            <a href={resumeFile} download={true}>
+              <Button icon={<Files />}>Donwload CV</Button>
+            </a>
             <Link
               to={ROUTES_OBJECT.contact}
               className={`glowing_button active_${activedTitleIndex}`}
