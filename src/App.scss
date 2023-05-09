@@ -51,7 +51,16 @@ body {
   @extend .bg_orange_grad;
   @apply text-transparent bg-clip-text;
 }
-
+.page_title {
+  @apply flex flex-col items-center justify-center my-10;
+  h1 {
+    @apply text-center relative text-4xl sm:text-5xl xl:text-6xl 2xl:text-7xl;
+    font-family: "Inter-ExtraBold";
+  }
+  .description {
+    @apply w-full lg:w-[80%] text-base lg:text-xl text-justify lg:text-center leading-8;
+  }
+}
 html.dark {
   color-scheme: dark;
   .text_simple_grad {

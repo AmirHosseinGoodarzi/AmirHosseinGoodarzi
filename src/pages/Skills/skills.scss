@@ -1,12 +1,5 @@
 .skills_wrapper {
-  @apply flex flex-col items-center justify-center min-h-screen p-10  -mt-[61px];
-  .section_title {
-    @apply flex flex-col items-center justify-center my-10;
-    h1 {
-      @apply text-center relative text-4xl xl:text-6xl 2xl:text-7xl;
-      font-family: "Inter-ExtraBold";
-    }
-  }
+  @apply flex flex-col items-center justify-center min-h-screen p-10 -mt-[61px];
   .content_wrapper {
     @apply w-full flex flex-col-reverse lg:flex-row justify-center items-center gap-10;
     .clouder_wrapper {
@@ -20,7 +13,7 @@
       }
     }
     .description {
-      @apply w-full lg:w-1/2 lg:pr-10 2xl:pr-36 text-xl text-justify;
+      @apply w-full lg:w-1/2 lg:pr-10 2xl:pr-36 text-base lg:text-xl text-justify;
     }
   }
 }

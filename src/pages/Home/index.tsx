@@ -60,7 +60,7 @@ const Home = () => {
             </p>
           </div>
           <div className="buttons">
-            <a href={resumeFile} download={true}>
+            <a className="w-full lg:w-fit" href={resumeFile} download={true}>
               <Button icon={<Files />}>Donwload CV</Button>
             </a>
             <Link

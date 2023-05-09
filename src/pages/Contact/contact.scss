@@ -1,13 +1,9 @@
 .contact_wrapper {
   @apply flex flex-col items-center justify-center min-h-screen p-10 -mt-[61px];
-  .section_title {
+  .page_title {
     @apply w-full flex flex-col items-center justify-center my-10;
-    h1 {
-      @apply text-center relative text-4xl xl:text-6xl 2xl:text-7xl;
-      font-family: "Inter-ExtraBold";
-    }
     .description {
-      @apply w-full lg:w-[80%] text-xl text-justify lg:text-center leading-8;
+      @apply text-center;
     }
     ul {
       @apply w-full my-8 flex items-center justify-center flex-wrap gap-6 text-3xl;

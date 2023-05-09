@@ -1,15 +1,5 @@
 .portfolio_wrapper {
-  @apply flex flex-col items-center min-h-screen px-10;
-  .section_title {
-    @apply flex flex-col items-center justify-center my-10;
-    h1 {
-      @apply text-center relative text-4xl xl:text-6xl 2xl:text-7xl;
-      font-family: "Inter-ExtraBold";
-    }
-    .description {
-      @apply w-full lg:w-[80%] text-xl text-justify lg:text-center leading-8;
-    }
-  }
+  @apply flex flex-col items-center justify-center min-h-screen p-10;
   .projects_wrapper {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5;
     .portfo_card {

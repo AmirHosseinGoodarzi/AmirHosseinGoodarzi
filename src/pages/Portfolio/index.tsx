@@ -11,7 +11,7 @@ const Portfolio = () => {
         colors="from-blueGradStart to-blueGradEnd"
       />
       <div className="portfolio_wrapper">
-        <div className="section_title">
+        <div className="page_title">
           <h1 className="text_simple_grad">Portfolio</h1>
           <p className="description">
             Over the past 3 years as a front-end developer, I've worked on

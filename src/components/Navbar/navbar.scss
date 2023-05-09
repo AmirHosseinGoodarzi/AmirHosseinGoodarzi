@@ -1,5 +1,5 @@
 nav {
-  @apply sticky top-0 py-3 z-50 transition-all border-b border-transparent bg-transparent text-sm;
+  @apply sticky top-0 py-3 z-50 transition-all border-b border-transparent bg-transparent text-lg lg:text-sm;
   > div {
     @apply w-[90%] xl:w-[70%] flex items-center justify-between mx-auto;
   }
@@ -21,7 +21,7 @@ nav {
     @apply lg:hidden text-4xl;
   }
   .menu {
-    @apply hidden lg:flex items-center justify-center gap-3;
+    @apply hidden lg:flex items-center justify-center gap-6 lg:gap-3;
     a {
       @apply px-2 py-1 hover:text-black dark:hover:text-gray-200 transition-all cursor-pointer;
       &.active {

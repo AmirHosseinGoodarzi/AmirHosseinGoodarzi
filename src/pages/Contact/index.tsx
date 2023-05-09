@@ -25,7 +25,7 @@ const Contact = () => {
         colors="from-orangeGradStart to-orangeGradEnd"
       />
       <div className="contact_wrapper relative overflow-hidden">
-        <div className="section_title">
+        <div className="page_title">
           <h1 className="text_simple_grad">Contact Me</h1>
           <p className="description">You can find me on social media</p>
           <ul>

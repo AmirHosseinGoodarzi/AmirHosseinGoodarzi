@@ -22,7 +22,7 @@ const Skills = () => {
         position="top_right"
       />
       <div className="skills_wrapper">
-        <div className="section_title">
+        <div className="page_title">
           <h1 className="text_simple_grad">Skills</h1>
         </div>
         <div className="content_wrapper">

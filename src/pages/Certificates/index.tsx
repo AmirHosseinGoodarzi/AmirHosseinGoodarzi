@@ -18,7 +18,7 @@ const Certificates = () => {
         colors="from-orangeGradEnd via-purpleGradStart to-blueGradStart"
       />
       <div className="certificates_wrapper">
-        <div className="section_title">
+        <div className="page_title">
           <h1 className="text_simple_grad">Certificates</h1>
           <p className="description">
             I have completed several online courses on web front-end development and

@@ -28,12 +28,12 @@
         font-family: "Inter-ExtraBold";
       }
       h3 {
-        @apply text-5xl text-center;
+        @apply text-3xl sm:text-5xl text-center;
         font-family: "Inter-ExtraBold";
       }
     }
     .description {
-      @apply w-full md:w-[50%] text-xl text-justify lg:text-center my-8 leading-8;
+      @apply w-full md:w-[50%] text-base lg:text-xl text-justify lg:text-center my-8 leading-8;
     }
   }
   #first_section {
@@ -42,7 +42,7 @@
       @apply flex flex-col md:flex-row items-center justify-center gap-2;
       > div {
         font-family: "Inter-ExtraBold";
-        @apply relative text-6xl xl:text-7xl 2xl:text-8xl font-extrabold inline-block;
+        @apply relative text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl font-extrabold inline-block;
         &::before {
           @apply content-[attr(title)] absolute top-0 left-0 w-full h-full opacity-100 text-secondary-dark-100 dark:text-gray-200 text-center;
           transition: opacity 3s;
@@ -53,7 +53,7 @@
       }
     }
     .buttons {
-      @apply w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center gap-10 p-7 pb-0;
+      @apply w-full md:w-1/2 mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 p-7 pb-0;
       .glowing_button {
         $blueGradEnd: #00dfd885;
         $purpleGradEnd: #ff008085;

@@ -1,29 +1,22 @@
 .certificates_wrapper {
-  @apply flex flex-col items-center min-h-screen p-10;
-  .section_title {
-    @apply flex flex-col items-center justify-center my-10;
-    h1 {
-      @apply text-center relative text-4xl xl:text-6xl 2xl:text-7xl;
-      font-family: "Inter-ExtraBold";
-    }
-    .description {
-      @apply w-full lg:w-[80%] text-xl text-justify lg:text-center leading-8;
-    }
-  }
+  @apply flex flex-col items-center justify-center min-h-screen p-10;
   .cert_cards_wrapper {
     #gallery {
       @apply grid grid-cols-6 grid-rows-6 h-screen gap-5;
-      @media (max-width: 1024px) {
-        @apply flex items-start flex-wrap justify-center h-auto;
-      }
       > div {
-        @apply w-full md:w-2/3 lg:w-auto overflow-hidden relative shadow-lg flex items-start justify-center;
+        @apply w-auto overflow-hidden relative shadow-lg flex items-start justify-center;
         &:nth-child(6n + 1) {
           grid-column: span 2;
           grid-row: span 2;
         }
         & > img {
           @apply w-full h-auto min-h-full;
+        }
+      }
+      @media (max-width: 1025px) {
+        @apply flex items-start flex-wrap justify-center h-auto;
+        > div {
+          @apply w-full sm:w-2/3 md:w-1/2;
         }
       }
     }
