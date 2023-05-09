@@ -18,20 +18,26 @@ const Contact = () => {
     <div className="container">
       <AbsoluteShape
         position="top_right"
-        colors="from-blueGradStart via-orangeGradEnd to-blueGradEnd"
+        colors="from-orangeGradStart to-orangeGradEnd"
       />
-      <div className="contact_wrapper">
+      <div className="contact_wrapper relative overflow-hidden">
         <div className="section_title">
           <h1 className="text_simple_grad">Contact Me</h1>
           <p className="description">You can find me on social media</p>
           <ul>
             <li>
-              <a href="https://www.linkedin.com/in/amir-hossein-goodarzi/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/amir-hossein-goodarzi/"
+                target="_blank"
+              >
                 <Linkedin />
               </a>
             </li>
             <li>
-              <a href="https://stackoverflow.com/users/13922873/sektowr" target="_blank">
+              <a
+                href="https://stackoverflow.com/users/13922873/sektowr"
+                target="_blank"
+              >
                 <StackOverFlow />
               </a>
             </li>
@@ -41,7 +47,7 @@ const Contact = () => {
               </a>
             </li>
           </ul>
-          <p className="description">Or you can send me a message.</p>
+          <p className="description">Or Send me a message.</p>
         </div>
         <div className="form_wrapper">
           <div>

@@ -1,5 +1,5 @@
 .contact_wrapper {
-  @apply flex flex-col items-center min-h-screen px-10;
+  @apply flex flex-col items-center justify-center min-h-screen p-10 -mt-[61px];
   .section_title {
     @apply w-full flex flex-col items-center justify-center my-10;
     h1 {
