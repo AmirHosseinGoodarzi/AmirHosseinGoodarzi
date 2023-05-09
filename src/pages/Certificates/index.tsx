@@ -21,8 +21,8 @@ const Certificates = () => {
         <div className="section_title">
           <h1 className="text_simple_grad">Certificates</h1>
           <p className="description">
-            Here you can see my certificates Here you can see my certificates
-            Here you can see my projects
+            I have completed several online courses on web front-end development and
+            programming languages.
           </p>
         </div>
         <div className="cert_cards_wrapper">

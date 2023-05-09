@@ -14,8 +14,8 @@ const Portfolio = () => {
         <div className="section_title">
           <h1 className="text_simple_grad">Portfolio</h1>
           <p className="description">
-            Here you can see my projects Here you can see my projects Here you
-            can see my projects
+            Over the past 3 years as a front-end developer, I've worked on
+            projects ranging from company websites to mobile applications.
           </p>
         </div>
         <div className="projects_wrapper">
