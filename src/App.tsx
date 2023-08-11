@@ -1,7 +1,6 @@
 import "./App.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { PublicRoutes } from "~/routes/index";
-import Err404 from "~/pages/Err404";
+import { BrowserRouter as Router } from "react-router-dom";
+import AllRoutes from "~/routes";
 import ThemeContextProvider from "./context/ThemeContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/Navbar";
@@ -11,19 +10,10 @@ function App() {
     <div className="App">
       <ErrorBoundary>
         <ThemeContextProvider>
-          <BrowserRouter>
+          <Router>
             <Navbar />
-            <Routes>
-              {PublicRoutes.map((route) => (
-                <Route
-                  key={route.path}
-                  path={route.path}
-                  element={route.element}
-                />
-              ))}
-              <Route path="*" element={<Err404 />} />
-            </Routes>
-          </BrowserRouter>
+            <AllRoutes />
+          </Router>
         </ThemeContextProvider>
       </ErrorBoundary>
     </div>
