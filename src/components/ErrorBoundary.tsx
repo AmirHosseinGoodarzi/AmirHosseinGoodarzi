@@ -1,5 +1,7 @@
 import React from "react";
-import ROUTES_OBJECT from "~/routes/RoutesObject";
+import BrokenImage from "~/assets/images/broken.png";
+import Button from "./Button";
+
 class ErrorBoundary extends React.Component<
   { children: any },
   { hasError: boolean; errorMessage: string }
@@ -24,22 +26,21 @@ class ErrorBoundary extends React.Component<
   render() {
     if (this.state.hasError) {
       return (
-        <div className="h-screen w-full set_row_middle">
+        <div className="h-screen w-full flex items-center justify-center">
           <div className="container">
-            <div className="set_row_middle flex-wrap">
-              <div className="w-3/4 lg:w-1/2 set_col_middle">da sfasdad</div>
-              <div className="w-full lg:w-1/2 set_col_middle">
+            <div className="flex items-center justify-center flex-wrap">
+              <div className="w-3/4 lg:w-1/2 flex flex-col items-center justify-center">
+                <img src={BrokenImage} alt="error :(" />
+              </div>
+              <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
                 <h1 className="text-red-500 text-[6rem] lg:text-[8rem] drop-shadow-2xl">
                   Error
                 </h1>
-                <h2 className="font-bold text-2xl my-2">
-                  با عرض پوزش، خطایی رخ داده است
+                <h2 className="font-bold text-xl my-2">
+                  Something went wrong!
                 </h2>
-                <p className="text-gray-700 text-lg my-5 text-center">
-                  {this.state.errorMessage}
-                </p>
-
-                <a href={ROUTES_OBJECT.home}>بازگشت به صفحه اصلی</a>
+                <br />
+                <Button>Back to home</Button>
               </div>
             </div>
           </div>
