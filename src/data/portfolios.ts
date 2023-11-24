@@ -1,4 +1,6 @@
 import KNExam1 from "~/assets/images/portfolios/knexam.png";
+import Defacement from "~/assets/images/portfolios/defacement.jpg";
+import DSPM from "~/assets/images/portfolios/dspm_webDrive.jpg";
 import DanaIntel1 from "~/assets/images/portfolios/danaintel.png";
 import GreIelelts5 from "~/assets/images/portfolios/greitelts.png";
 import Kahkeshan1 from "~/assets/images/portfolios/kahkeshan.png";
@@ -12,17 +14,37 @@ import iliateb from "~/assets/images/portfolios/iliateb.png";
 
 export default [
   {
-    title: "DSTV3",
-    cover: "",
-    desc: "A platform to secure the transfer of files in banks and organizations",
+    title: "Defacement",
+    cover: Defacement,
+    desc: "A platform for report defaced websites and attackers with smart crawlers",
+    teamMembers: 6,
+    year: 2023,
+    projectDurationDays: 7,
+    myRole: "FrontEnd (React)",
+    link: "https://v2.defacement.ir",
+    technologies: [
+      "react",
+      ".Net core 6",
+      "sass",
+      "tailwind",
+      "@tanstack/react-query",
+      "Chakra-UI",
+      "vite",
+    ],
+    type: "desktop",
+  },
+  {
+    title: "DSPM",
+    cover: DSPM,
+    desc: "A platform to secure the transfer of files in organizations",
     teamMembers: 8,
     year: 2023,
-    projectDurationDays: 70,
+    projectDurationDays: 150,
     myRole: "FrontEnd (React)",
     link: "https://exam.kahkeshan.com",
     technologies: [
       "react",
-      ".Net core",
+      ".Net core 6",
       "sass",
       "tailwind",
       "@tanstack/react-query",
@@ -43,7 +65,7 @@ export default [
     link: "https://exam.kahkeshan.com",
     technologies: [
       "react",
-      ".Net core",
+      ".Net core 6",
       "sass",
       "tailwind",
       "@tanstack/react-query",
@@ -55,7 +77,7 @@ export default [
     type: "desktop",
   },
   {
-    title: "ibtil Gre & Ielts",
+    title: "Ibtil Gre & Ielts",
     cover: GreIelelts5,
     desc: "Two websites for taking online Ielts and Gre exams",
     teamMembers: 2,
