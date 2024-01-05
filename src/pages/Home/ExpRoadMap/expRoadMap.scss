@@ -17,7 +17,7 @@
         -top-12 lg:top-12 left-1/2 lg:left-0 -translate-x-1/2 border-2 border-gray-600;
     }
     &.reversed {
-      @apply lg:self-start lg:border-l-0 lg:border-r lg:translate-x-[1px];
+      @apply lg:self-start lg:border-l-0 lg:border-r;
       &::before {
         @apply lg:left-[unset] lg:-right-3;
       }

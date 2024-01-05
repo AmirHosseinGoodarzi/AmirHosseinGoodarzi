@@ -15,9 +15,10 @@ const EduCard = ({
   uniLocation,
   imagePosition,
   link,
+  ...otherProps
 }: Props) => {
   return (
-    <a href={link} target="_blank">
+    <a href={link} target="_blank" {...otherProps}>
       <div className="education_card">
         <div className="card_thumbnail">
           <div className={`image ${imagePosition}`}></div>

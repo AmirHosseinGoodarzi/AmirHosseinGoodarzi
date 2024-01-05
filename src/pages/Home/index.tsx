@@ -26,7 +26,7 @@ const Home = () => {
       <div className="container">
         <section id="first_section">
           <AbsoluteShape position="top_left" />
-          <div className="titles">
+          <div className="titles" data-aos="fade-up">
             <div
               className={`text_blue_grad ${
                 activedTitleIndex === 0 ? "active" : ""
@@ -52,7 +52,7 @@ const Home = () => {
               Developer.
             </div>
           </div>
-          <div className="description">
+          <div className="description" data-aos="fade-down">
             <p>
               Hello. I'm Amirhossein Goodarzi. If you’re looking for a skilled
               and motivated JavaScript developer, you’ve come to the right place
@@ -80,13 +80,13 @@ const Home = () => {
           </div>
         </section>
         <section className="!min-h-[auto]">
-          <div className="section_title">
+          <div className="section_title" data-aos="fade-up">
             <p className="tip">EXPLORE MY WAY</p>
             <div className="bg_blue_grad">1</div>
             <h2 className="text_blue_grad">About Me</h2>
             <h3 className="text_simple_grad">I'm doing my best</h3>
           </div>
-          <div className="description">
+          <div className="description" data-aos="fade-down">
             <p>
               My name is Amirhossein. I'm 24 and living in Iran,Tehran. I enjoy
               creating user-friendly interfaces, writing clean and maintainable
@@ -98,12 +98,12 @@ const Home = () => {
           <AbsoluteShape position="bottom_right" />
         </section>
         <section>
-          <div className="section_title">
+          <div className="section_title" data-aos="fade-up">
             <div className="bg_purple_grad">2</div>
             <h2 className="text_purple_grad">Experiences</h2>
             <h3 className="text_simple_grad">... Building my hopes up</h3>
           </div>
-          <div className="description">
+          <div className="description" data-aos="fade-down">
             <p>
               I am always eager to learn new skills and tools, and I value
               teamwork and collaboration.
@@ -113,13 +113,14 @@ const Home = () => {
           <AbsoluteShape position="bottom_left" />
         </section>
         <section>
-          <div className="section_title">
+          <div className="section_title" data-aos="fade-up">
             <div className="bg_orange_grad">3</div>
             <h2 className="text_orange_grad">Educations</h2>
             <h3 className="text_simple_grad">... working hard</h3>
           </div>
           <div className="educations_wrapper">
             <EduCard
+              data-aos="fade-up-right"
               title="Bachelor of Computer Engineering"
               years="2017 - 2021"
               uniName="ABRU University"
@@ -128,6 +129,7 @@ const Home = () => {
               link="https://abru.ac.ir"
             />
             <EduCard
+              data-aos="fade-up-left"
               title="Master of Software Engineering"
               years="2021 - ..."
               uniName="PNU University"

@@ -8,8 +8,10 @@ import { ReactComponent as Wifi } from "~/assets/images/icons/wifi.svg";
 const ExpRoadMap = () => {
   return (
     <div className="exp_road_map">
-      <div className="exp_card">
-        <div className="icon"><Activity /></div>
+      <div className="exp_card" data-aos="fade-up">
+        <div className="icon">
+          <Activity />
+        </div>
         <h5>Junior FrontEnd Developer</h5>
         <h6>Freelancer</h6>
         <span>2019 - 2021</span>
@@ -18,8 +20,10 @@ const ExpRoadMap = () => {
           business and consumer use.
         </p>
       </div>
-      <div className="exp_card reversed">
-        <div className="icon"><Users /></div>
+      <div className="exp_card reversed" data-aos="fade-up">
+        <div className="icon">
+          <Users />
+        </div>
         <h5>Mid-Level FrontEnd Dev</h5>
         <h6>Kahkeshan Group of Companies</h6>
         <span>2021 - ...</span>
@@ -28,8 +32,10 @@ const ExpRoadMap = () => {
           and built with best practices.
         </p>
       </div>
-      <div className="exp_card">
-        <div className="icon"><Wifi /></div>
+      <div className="exp_card" data-aos="fade-up">
+        <div className="icon">
+          <Wifi />
+        </div>
         <h5>Full-stack Developer</h5>
         <span className="!text-purpleGradEnd">Now Available</span>
         <Link to={ROUTES_OBJECT.contact} className="featured_link">
