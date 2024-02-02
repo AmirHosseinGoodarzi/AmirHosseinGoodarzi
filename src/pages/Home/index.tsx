@@ -31,9 +31,9 @@ const Home = () => {
               className={`text_blue_grad ${
                 activedTitleIndex === 0 ? "active" : ""
               }`}
-              title="Fullstack."
+              title="React."
             >
-              Fullstack.
+              React.
             </div>
             <div
               className={`text_purple_grad ${
@@ -55,8 +55,7 @@ const Home = () => {
           <div className="description" data-aos="fade-down">
             <p>
               Hello. I'm Amirhossein Goodarzi. If you’re looking for a skilled
-              and motivated JavaScript developer, you’ve come to the right place
-              !
+              and motivated developer, you’ve come to the right place !
             </p>
           </div>
           <div className="buttons">
@@ -86,13 +85,18 @@ const Home = () => {
             <h2 className="text_blue_grad">About Me</h2>
             <h3 className="text_simple_grad">I'm doing my best</h3>
           </div>
-          <div className="description" data-aos="fade-down">
+          <div className="w-full description" data-aos="fade-down">
             <p>
-              My name is Amirhossein. I'm 24 and living in Iran,Tehran. I enjoy
-              creating user-friendly interfaces, writing clean and maintainable
-              code, and solving complex problems. I am looking for a challenging
-              and rewarding position where I can apply my skills and grow as a
-              developer.
+              I am a passionate and creative frontend developer with four years
+              of experience in building user-friendly and responsive web
+              applications using React.js. I also have a solid understanding of
+              web development fundamentals and some familiarities to backend
+              development using Node.js and databases, which enables me to
+              collaborate effectively with backend developers and integrate
+              frontend and backend functionalities. I am always eager to learn
+              new skills and technologies, and currently I am exploring Python
+              and machine learning concepts to enhance my professional growth
+              and expand my horizons.
             </p>
           </div>
           <AbsoluteShape position="bottom_right" />

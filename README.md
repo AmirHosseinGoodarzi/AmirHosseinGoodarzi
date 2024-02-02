@@ -8,7 +8,7 @@
 
 </div>
 
-> I enjoy creating user-friendly interfaces, writing clean and maintainable code, and solving complex problems. I am looking for a challenging and rewarding position where I can apply my skills and grow as a developer. If you’re looking for a skilled and motivated JavaScript developer, you’ve come to the right place.
+> I am a passionate and creative frontend developer with four years of experience in building user-friendly and responsive web applications using React.js. I also have a solid understanding of web development fundamentals and some familiarities to backend development using Node.js and databases, which enables me to collaborate effectively with backend developers and integrate frontend and backend functionalities. I am always eager to learn new skills and technologies, and currently I am exploring Python and machine learning concepts to enhance my professional growth and expand my horizons.
 
 <div>
   

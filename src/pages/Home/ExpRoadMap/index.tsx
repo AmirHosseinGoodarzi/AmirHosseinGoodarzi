@@ -24,7 +24,7 @@ const ExpRoadMap = () => {
         <div className="icon">
           <Users />
         </div>
-        <h5>Mid-Level FrontEnd Dev</h5>
+        <h5>Mid-Level React Dev</h5>
         <h6>Kahkeshan Group of Companies</h6>
         <span>2021 - ...</span>
         <p>
@@ -36,7 +36,7 @@ const ExpRoadMap = () => {
         <div className="icon">
           <Wifi />
         </div>
-        <h5>Full-stack Developer</h5>
+        <h5>A motivate developer</h5>
         <span className="!text-purpleGradEnd">Now Available</span>
         <Link to={ROUTES_OBJECT.contact} className="featured_link">
           let's create something special &rarr;
