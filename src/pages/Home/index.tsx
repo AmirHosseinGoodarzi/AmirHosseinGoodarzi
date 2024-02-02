@@ -85,7 +85,7 @@ const Home = () => {
             <h2 className="text_blue_grad">About Me</h2>
             <h3 className="text_simple_grad">I'm doing my best</h3>
           </div>
-          <div className="w-full description" data-aos="fade-down">
+          <div className="w-full description !text-justify" data-aos="fade-down">
             <p>
               I am a passionate and creative frontend developer with four years
               of experience in building user-friendly and responsive web
@@ -93,10 +93,13 @@ const Home = () => {
               web development fundamentals and some familiarities to backend
               development using Node.js and databases, which enables me to
               collaborate effectively with backend developers and integrate
-              frontend and backend functionalities. I am always eager to learn
-              new skills and technologies, and currently I am exploring Python
-              and machine learning concepts to enhance my professional growth
-              and expand my horizons.
+              frontend and backend functionalities.
+            </p>
+            <br />
+            <p>
+              I am always eager to learn new skills and technologies, and
+              currently I am exploring Python and machine learning concepts to
+              enhance my professional growth and expand my horizons.
             </p>
           </div>
           <AbsoluteShape position="bottom_right" />
