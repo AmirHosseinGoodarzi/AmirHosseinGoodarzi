@@ -19,6 +19,8 @@ import wordpress from "~/assets/images/technologies/wordpress.svg";
 import tailwind from "~/assets/images/technologies/tailwind.svg";
 import reactquery from "~/assets/images/technologies/react-query.svg";
 import mongodb from "~/assets/images/technologies/mongodb.svg";
+import jupyternb from "~/assets/images/technologies/jupyternb.svg";
+import python from "~/assets/images/technologies/python.svg";
 
 export default [
   { text: html, id: "1", weight: 1 },
@@ -72,6 +74,16 @@ export default [
   {
     text: mongodb,
     id: "19",
+    weight: 1,
+  },
+  {
+    text: jupyternb,
+    id: "20",
+    weight: 1,
+  },
+  {
+    text: python,
+    id: "21",
     weight: 1,
   },
 ];

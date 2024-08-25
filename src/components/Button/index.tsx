@@ -1,9 +1,10 @@
+import { ReactNode } from "react";
 import { ButtonTypes, ButtonSizes } from "~/utils/enums";
 import "./button.scss";
 
 type Props = {
-  children: any;
-  icon?: any;
+  children: ReactNode;
+  icon?: ReactNode;
   className?: string;
   type?: ButtonTypes;
   size?: ButtonSizes;
