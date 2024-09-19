@@ -29,7 +29,7 @@ deliver results, and foster strong relationships within my team.
 
 <div>
   
-<a href="http://localhost:5173/src/assets/files/AmirhosseinGoodarzi-Front-end-developer-Resume.pdf">![DownloadCV](https://img.shields.io/static/v1?logo=bookstack&label=&message=DownloadCV&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
+<a href="https://amirhosseingoodarzi.vercel.app/assets/AmirhosseinGoodarzi-Front-end-developer-Resume-1b3b2817.pdf">![DownloadCV](https://img.shields.io/static/v1?logo=bookstack&label=&message=DownloadCV&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
 <a href="https://amirhosseingoodarzi.vercel.app">![Website](https://img.shields.io/static/v1?logo=bookstack&label=&message=Website&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
 <a href="https://www.linkedin.com/in/amir-hossein-goodarzi/">![Linkedin](https://img.shields.io/static/v1?logo=linkedin&label=&message=Linkedin&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
 
