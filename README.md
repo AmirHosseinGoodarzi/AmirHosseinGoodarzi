@@ -8,16 +8,29 @@
 
 </div>
 
->  Imagine a world without computers and programmers ! 
->— it’s hard to fathom, right?
+Imagine a world where user interfaces are not just functional, but
+a delightful experience. Now, imagine having a front-end developer
+on your team who can craft these experiences with precision and
+creativity. That’s me. With 4 years of experience in building
+responsive and user-friendly web applications using React.js, I
+bring a blend of technical expertise and a keen eye for design to
+every project.
 
->As a passionate and creative frontend developer with four years of experience, I thrive on bringing user-friendly and responsive web applications to life using React.js.
->My solid understanding of web development fundamentals, coupled with my exposure to backend development, enables me to collaborate effectively with my teammates.
-> So If you’re looking for a motivated person, that’s me. I’m alway eager to learn new skills and technologies. Currently, I’m diving into Python and machine learning concepts to enhance my professional growth.
+My journey in web development has also given me exposure to
+back-end and mobile development, enabling seamless collaboration
+with my teammates. Currently, I am expanding my skill set by
+learning Python and diving into the fascinating world of machine
+learning.
+
+I don’t just build interfaces; I create engaging user experiences
+that drive user satisfaction and business growth. Beyond my
+technical skills, I excel in effective communication, consistently
+deliver results, and foster strong relationships within my team.
 
 <div>
   
-<a href="https://amirhosseingoodarzi.vercel.app">![CV](https://img.shields.io/static/v1?logo=bookstack&label=&message=CV&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
+<a href="http://localhost:5173/src/assets/files/AmirhosseinGoodarzi-Front-end-developer-Resume.pdf">![DownloadCV](https://img.shields.io/static/v1?logo=bookstack&label=&message=DownloadCV&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
+<a href="https://amirhosseingoodarzi.vercel.app">![Website](https://img.shields.io/static/v1?logo=bookstack&label=&message=Website&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
 <a href="https://www.linkedin.com/in/amir-hossein-goodarzi/">![Linkedin](https://img.shields.io/static/v1?logo=linkedin&label=&message=Linkedin&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
 
 </div>

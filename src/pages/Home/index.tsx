@@ -31,20 +31,20 @@ const Home = () => {
               className={`text_blue_grad ${
                 activedTitleIndex === 0 ? "active" : ""
               }`}
-              title="React."
+              title="Front-"
             >
-              React.
+              Front-
             </div>
             <div
               className={`text_purple_grad ${
                 activedTitleIndex === 1 ? "active" : ""
               }`}
-              title="JS."
+              title="end"
             >
-              JS.
+              end
             </div>
             <div
-              className={`text_orange_grad ${
+              className={`lg:ms-5 text_orange_grad ${
                 activedTitleIndex === 2 ? "active" : ""
               }`}
               title="Developer."
@@ -54,8 +54,10 @@ const Home = () => {
           </div>
           <div className="description" data-aos="fade-down">
             <p>
-              Hello. I'm Amirhossein Goodarzi. If you’re looking for a skilled
-              and motivated developer, you’ve come to the right place !
+              Hello. I'm Amirhossein Goodarzi.
+              <br />
+              If you’re looking for a skilled and motivated developer, you’ve
+              come to the right place !
             </p>
           </div>
           <div className="buttons">
@@ -86,28 +88,35 @@ const Home = () => {
             <h3 className="text_simple_grad">I'm doing my best</h3>
           </div>
           <div
-            className="w-full description !text-justify"
+            className="w-full description !text-justify space-y-3"
             data-aos="fade-down"
           >
-            <p className="italic text-base mb-5">
-              Imagine a world without computers and programmers !
-              <br />— it’s hard to fathom, right?
+            <p>
+              Imagine a world where user interfaces are not just functional, but
+              a delightful experience. Now, imagine having a{" "}
+              <i className="text-black dark:text-white">front-end developer</i>{" "}
+              on your team who can craft these experiences with precision and
+              creativity. That’s me. With{" "}
+              <i className="text-black dark:text-white">
+                4 years of experience
+              </i>{" "}
+              in building responsive and user-friendly web applications using
+              React.js, I bring a blend of technical expertise and a keen eye
+              for design to every project.
             </p>
             <p>
-              As a passionate and creative frontend developer with four years of
-              experience, I thrive on bringing user-friendly and responsive web
-              applications to life using React.js.
-              <br />
-              My solid understanding of web development fundamentals, coupled
-              with my exposure to backend development, enables me to collaborate
-              effectively with my teammates.
+              My journey in web development has also given me exposure to{" "}
+              <i className="text-black dark:text-white">back-end</i> and{" "}
+              <i className="text-black dark:text-white">mobile development</i>,
+              enabling seamless collaboration with my teammates. Currently, I am
+              expanding my skill set by learning <i className="text-black dark:text-white">Python</i> and diving into the
+              fascinating world of <i className="text-black dark:text-white">machine learning</i>.
             </p>
-            <br />
             <p>
-              So If you’re looking for a motivated person, that’s me. I’m always
-              eager to learn new skills and technologies. Currently, I’m diving
-              into Python and machine learning concepts to enhance my
-              professional growth.
+              I don’t just build interfaces; I create engaging user experiences
+              that drive user satisfaction and business growth. Beyond my
+              technical skills, I excel in effective communication, consistently
+              deliver results, and foster strong relationships within my team.
             </p>
           </div>
           <AbsoluteShape position="bottom_right" />
