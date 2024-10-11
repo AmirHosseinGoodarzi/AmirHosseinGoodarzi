@@ -1,5 +1,5 @@
 .Button_wrapper {
-  @apply w-full lg:w-fit flex items-center justify-center transition-all;
+  @apply w-full lg:w-fit flex items-center justify-center transition-all whitespace-nowrap;
   &.Small{
     @apply py-1 px-4 gap-2 rounded-sm text-sm;
   }

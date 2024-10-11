@@ -1,5 +1,5 @@
 nav {
-  @apply sticky top-0 py-3 z-50 transition-all border-b border-transparent bg-transparent text-lg lg:text-sm;
+  @apply sticky top-0 py-3 z-50 transition-all border-b border-transparent bg-transparent text-lg lg:text-base;
   > div {
     @apply w-[90%] xl:w-[70%] flex items-center justify-between mx-auto;
   }

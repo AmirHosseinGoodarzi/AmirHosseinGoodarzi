@@ -71,7 +71,7 @@ deliver results, and foster strong relationships within my team.
 
 <div>
 
-## MOBILE SKILLS
+## MOBILE FAMILIARITIES
 
 ![React-Native](https://img.shields.io/static/v1?logo=react&label=&message=React-Native&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 ![Expo](https://img.shields.io/static/v1?logo=expo&label=&message=Expo&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)

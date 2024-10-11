@@ -31,9 +31,9 @@ const Home = () => {
               className={`text_blue_grad ${
                 activedTitleIndex === 0 ? "active" : ""
               }`}
-              title="Front-"
+              title="Front"
             >
-              Front-
+              Front
             </div>
             <div
               className={`text_purple_grad ${
@@ -88,7 +88,7 @@ const Home = () => {
             <h3 className="text_simple_grad">I'm doing my best</h3>
           </div>
           <div
-            className="w-full description !text-justify space-y-3"
+            className="w-full description !text-start space-y-3"
             data-aos="fade-down"
           >
             <p>

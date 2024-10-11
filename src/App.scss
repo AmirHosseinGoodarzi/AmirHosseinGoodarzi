@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("./assets/fonts/Inter-Medium.ttf") format("truetype");
+  src: url("./assets/fonts/Inter-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Inter-ExtraBold";
@@ -22,7 +22,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  @apply bg-white text-[#666] dark:bg-black dark:text-[#888];
+  @apply bg-white text-[#666] dark:bg-black dark:text-[#888] overflow-x-hidden;
   font-family: "Inter";
 }
 
@@ -58,7 +58,7 @@ body {
     font-family: "Inter-ExtraBold";
   }
   .description {
-    @apply w-full lg:w-[80%] text-base lg:text-xl text-justify lg:text-center leading-8;
+    @apply w-full lg:w-[80%] text-base lg:text-xl lg:text-center leading-8 lg:leading-9;
   }
 }
 html.dark {
