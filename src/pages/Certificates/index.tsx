@@ -12,7 +12,7 @@ import AbsoluteShape from "~/components/AbsoluteShape";
 
 const Certificates = () => {
   return (
-    <div className="container">
+    <div className="container" data-aos="fade-up">
       <AbsoluteShape
         position="top_left"
         colors="from-orangeGradEnd via-purpleGradStart to-blueGradStart"

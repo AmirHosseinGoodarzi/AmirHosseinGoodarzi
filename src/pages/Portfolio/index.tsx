@@ -5,7 +5,7 @@ import data from "~/data/portfolios";
 
 const Portfolio = () => {
   return (
-    <div className="container">
+    <div className="container" data-aos="fade-up">
       <AbsoluteShape
         position="top_right"
         colors="from-blueGradStart to-blueGradEnd"

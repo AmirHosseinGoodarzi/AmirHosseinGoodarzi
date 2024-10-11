@@ -116,6 +116,6 @@
     }
   }
   .educations_wrapper {
-    @apply flex flex-col lg:flex-row items-center justify-center gap-16 py-16 overflow-x-hidden;
+    @apply flex flex-col lg:flex-row items-center justify-center gap-16 py-16 overflow-hidden;
   }
 }

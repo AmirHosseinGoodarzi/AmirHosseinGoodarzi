@@ -19,7 +19,7 @@ const Contact = () => {
     aTag.click();
   });
   return (
-    <div className="container">
+    <div className="container" data-aos="fade-up">
       <AbsoluteShape
         position="top_right"
         colors="from-orangeGradStart to-orangeGradEnd"
