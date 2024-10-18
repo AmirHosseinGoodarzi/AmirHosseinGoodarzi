@@ -20,7 +20,6 @@ const Home = () => {
       clearInterval(animationIntervalRef.current);
     };
   }, []);
-
   return (
     <div className="Home_warpper">
       <div className="container">
@@ -109,8 +108,10 @@ const Home = () => {
               <i className="text-black dark:text-white">back-end</i> and{" "}
               <i className="text-black dark:text-white">mobile development</i>,
               enabling seamless collaboration with my teammates. Currently, I am
-              expanding my skill set by learning <i className="text-black dark:text-white">Python</i> and diving into the
-              fascinating world of <i className="text-black dark:text-white">machine learning</i>.
+              expanding my skill set by learning{" "}
+              <i className="text-black dark:text-white">Python</i> and diving
+              into the fascinating world of{" "}
+              <i className="text-black dark:text-white">machine learning</i>.
             </p>
             <p>
               I don’t just build interfaces; I create engaging user experiences
