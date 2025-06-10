@@ -1,9 +1,16 @@
+import Navbar from "@/components/Navbar";
+import Files from "@/components/svgr-icons/files.svg";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import ROUTES_OBJECT from "@/utils/RoutesObject";
+
 export default function Home() {
   return (
     <div>
-      <section className="h-screen flex flex-col items-center justify-center p-5">
+      <Navbar />
+      <section className="relative h-screen flex flex-col items-center justify-center p-5">
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          <svg className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)] dark:opacity-10">
+          <svg className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)] opacity-10">
             <defs>
               <pattern
                 id="e813992c-7d03-4cc4-a2bd-151760b470a0"
@@ -30,7 +37,7 @@ export default function Home() {
             ></rect>
           </svg>
         </div>
-        <h1 className="title">Front end Developer.</h1>
+        <h1 className="title text-center">Front end Developer.</h1>
         <br />
         <p className="text-[#888888] text-xl max-w-xl text-center leading-8">
           Hello. I&apos;m{" "}
@@ -38,6 +45,125 @@ export default function Home() {
           looking for a skilled and motivated{" "}
           <span className="text-white">developer</span>, you’ve come to the
           right place !
+        </p>
+        <br />
+        <div className="flex items-center gap-5 mt-3">
+          <a
+            className="w-full lg:w-fit"
+            href="/assets/files/AmirhosseinGoodarzi-Front-end-developer-Resume.pdf"
+            download={true}
+          >
+            <Button size="lg">
+              <Files /> Donwload CV
+            </Button>
+          </a>
+          <Link href={ROUTES_OBJECT.contact}>
+            <Button size="lg" variant="outline">
+              Get in touch.
+            </Button>
+          </Link>
+        </div>
+      </section>
+      <section>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ea
+          deleniti possimus assumenda quia est similique iusto, esse repellat,
+          quo maxime eius tenetur debitis iste cum excepturi ullam odit autem.
         </p>
       </section>
     </div>
