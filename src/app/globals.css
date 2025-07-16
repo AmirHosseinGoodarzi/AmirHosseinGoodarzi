@@ -12,8 +12,7 @@
 }
 @font-face {
   font-family: Geist;
-  src: url("/assets/fonts/Geist/Geist-ExtraLight.ttf")
-    format("truetype");
+  src: url("/assets/fonts/Geist/Geist-ExtraLight.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -27,24 +26,21 @@
 }
 @font-face {
   font-family: Geist;
-  src: url("/assets/fonts/Geist/Geist-Regular.ttf")
-    format("truetype");
+  src: url("/assets/fonts/Geist/Geist-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: Geist;
-  src: url("/assets/fonts/Geist/Geist-Medium.ttf")
-    format("truetype");
+  src: url("/assets/fonts/Geist/Geist-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: Geist;
-  src: url("/assets/fonts/Geist/Geist-SemiBold.ttf")
-    format("truetype");
+  src: url("/assets/fonts/Geist/Geist-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -58,8 +54,7 @@
 }
 @font-face {
   font-family: Geist;
-  src: url("/assets/fonts/Geist/Geist-ExtraBold.ttf")
-    format("truetype");
+  src: url("/assets/fonts/Geist/Geist-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -74,7 +69,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.1 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -144,19 +139,6 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
-.title {
-  background: var(--text-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  font-size: max(48px, min(5vw, 76px));
-  line-height: 1;
-  letter-spacing: -0.05em;
-  padding: 24px;
-  position: relative;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -166,4 +148,21 @@
     @apply bg-background text-foreground;
     font-family: Geist, Arial, Helvetica, sans-serif;
   }
+}
+.title {
+  background: var(--text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  padding: 24px;
+  position: relative;
+}
+h1.title {
+  font-size: max(48px, min(5vw, 76px));
+}
+h2.title {
+  font-size: max(48px, min(5vw, 60px));
 }
