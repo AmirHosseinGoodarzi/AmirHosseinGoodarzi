@@ -113,12 +113,12 @@ export const DATA = {
       href: "https://kahkeshan.ir/",
       badges: [],
       location: "Tehran, Iran",
-      title: "Front-End team lead",
+      title: "Front-End Team Lead",
       logoUrl: "/kahkeshan.png",
       start: "May 2021",
       end: "May 2026",
       description:
-        "Developing scalable web applications with a strong focus on front-end engineering using React, Next.js, and TypeScript. Building fast, responsive, and maintainable user interfaces while collaborating with backend teams to deliver production-grade products. Contributing to architecture decisions, improving code quality, and ensuring performance and usability across multiple internal and client-facing systems.",
+        "Leading the front-end development team and overseeing 15+ diverse web applications, ranging from high-security platforms and banking systems to large-scale ERP solutions. As a Front-End Code Reviewer, I ensure high code quality, performance, and maintainability across all projects. I collaborate with cross-functional teams to architect scalable solutions using React, Next.js, and TypeScript, while mentoring junior developers and driving technical excellence in enterprise-grade products.",
     },
     {
       company: "Salona",
@@ -130,7 +130,19 @@ export const DATA = {
       start: "Nov 2024",
       end: "Jul 2025",
       description:
-        "Developed and maintained multiple production-grade web applications for a salon management platform, including booking systems, digital business cards, reporting tools, and marketing features. Collaborated with a team of 10+ developers, contributed to code reviews across multiple projects, and helped deliver scalable and responsive interfaces used by real businesses.",
+        "Architected and developed a comprehensive salon management platform from the ground up, featuring an end-to-end online appointment system, digital business cards, and advanced reporting tools. Implemented the platform as a PWA (Progressive Web App) and TWA (Trusted Web Activity) to provide a seamless mobile experience for thousands of active users. Managed the full lifecycle of salon and user management modules while collaborating with a team of 10+ developers and conducting code reviews to ensure scalability and high-performance delivery.",
+    },
+    {
+      company: "Borzabadi Language Center",
+      href: "https://new.ibtil.org/",
+      badges: ["Contract"],
+      location: "Tehran, Iran (Remote)",
+      title: "Front-End Developer",
+      logoUrl: "/borzabadi.png",
+      start: "2023",
+      end: "2023",
+      description:
+        "Developed a specialized online GRE examination platform, simulating the official testing environment. Engineered complex front-end logic to handle all GRE question types, including interactive verbal and quantitative sections, while ensuring high performance and real-time response handling for students.",
     },
     {
       company: "Freelancer",
