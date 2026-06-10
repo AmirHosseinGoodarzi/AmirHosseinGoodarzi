@@ -228,6 +228,24 @@ export const DATA = {
       video: "",
     },
     {
+      title: "Danawiz (Interactive Presentation Platform)",
+      href: "https://danawiz.ir",
+      dates: "2025",
+      active: true,
+      description:
+        "Developed an interactive presentation platform with real-time audience engagement features, including live polls, Q&A, and instant feedback collection using WebSocket-based communication.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Socket.io",
+        "TailwindCSS",
+        "Zustand",
+      ],
+      links: [],
+      image: "/portfolios/danawiz.png",
+      video: "",
+    },
+    {
       title: "DDSS Secure File Transfer",
       href: "https://gitex2023.kahkeshandana.com/",
       dates: "2023",
