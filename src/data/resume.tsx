@@ -1,12 +1,11 @@
 import { Icons } from "@/components/icons";
-import { Docker } from "@/components/ui/svgs/docker";
-import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
-import { Nodejs } from "@/components/ui/svgs/nodejs";
-import { Postgresql } from "@/components/ui/svgs/postgresql";
-import { Python } from "@/components/ui/svgs/python";
-import { ReactLight } from "@/components/ui/svgs/reactLight";
-import { Typescript } from "@/components/ui/svgs/typescript";
-import { EyeIcon, HomeIcon, NotebookIcon } from "lucide-react";
+import {
+  EyeIcon,
+  GlobeIcon,
+  HomeIcon,
+  MailIcon,
+  NotebookIcon,
+} from "lucide-react";
 
 export const DATA = {
   name: "Amirhossein Goodarzi",
@@ -20,28 +19,24 @@ export const DATA = {
     "Full-Stack Developer with 5+ years of experience, primarily focused on front-end development. I build fast, scalable, and user-focused web applications using React, Next.js, and TypeScript, while also working with Node.js on the back end. I adapt quickly to new technologies and leverage modern tools—including AI-assisted development—to accelerate workflows and deliver high-quality products.",
   avatarUrl: "/me.png",
   skills: [
-    { name: "React", icon: ReactLight },
-    { name: "Next.js", icon: NextjsIconDark },
-    { name: "TypeScript", icon: Typescript },
-
-    { name: "Shadcn/ui", icon: ReactLight }, //Shadcn
-    { name: "Tailwind CSS", icon: ReactLight }, //Tailwind
-    { name: "Chakra UI", icon: ReactLight }, //Chakra
-    { name: "Bootstrap", icon: ReactLight }, //Bootstrap
-    { name: "SASS", icon: ReactLight }, //Sass
-
-    { name: "Node.js", icon: Nodejs },
-    { name: "Express", icon: ReactLight },
-    { name: "Postgres", icon: Postgresql },
-    { name: "Mongo", icon: ReactLight },
-    { name: "Docker", icon: Docker },
-
-    { name: "React Native", icon: ReactLight }, //ReactNative
-
-    { name: "Vitest", icon: ReactLight }, //Vitest
-    { name: "React Testing Library", icon: ReactLight }, //TestingLibrary
-
-    { name: "Python", icon: Python },
+    { name: "React", icon: Icons.react },
+    { name: "Next.js", icon: Icons.nextjs },
+    { name: "TypeScript", icon: Icons.typescript },
+    { name: "Shadcn/ui", icon: Icons.shadcn },
+    { name: "Tanstack Query", icon: Icons.rquery },
+    { name: "Tailwind CSS", icon: Icons.tailwindcss },
+    { name: "Chakra UI", icon: Icons.chakra },
+    { name: "Bootstrap", icon: Icons.bootstrap },
+    { name: "SASS", icon: Icons.sass },
+    { name: "Node.js", icon: Icons.node },
+    { name: "Express", icon: Icons.express },
+    { name: "Postgre SQL", icon: Icons.postgre },
+    { name: "Mongo DB", icon: Icons.mongodb },
+    { name: "Docker", icon: Icons.docker },
+    { name: "React Native", icon: Icons.react },
+    { name: "Vitest", icon: Icons.vitest },
+    { name: "React Testing Library", icon: Icons.vitest },
+    { name: "Python", icon: Icons.python },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -75,10 +70,16 @@ export const DATA = {
         icon: Icons.telegram,
         navbar: true,
       },
+      Whatsapp: {
+        name: "Whatsapp",
+        url: "https://wa.me/+989056325077",
+        icon: Icons.whatsapp,
+        navbar: true,
+      },
       email: {
         name: "Send Email",
         url: "mailto:amirgoodarzi.web@gmail.com",
-        icon: Icons.email,
+        icon: MailIcon,
         navbar: false,
       },
     },
@@ -182,7 +183,7 @@ export const DATA = {
       dates: "2024 - Present",
       active: true,
       description:
-        "Developing a full‑stack business platform including internal dashboards, admin panels, and the company website for Sama Partners. Focused on scalable architecture and modern front‑end development to support internal workflows and business operations.",
+        "Developing a full-stack business platform including internal dashboards, admin panels, and the company website for Sama Partners. Focused on scalable architecture and modern front‑end development to support internal workflows and business operations.",
       technologies: [
         "Next.js",
         "React",
@@ -195,7 +196,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://sama.partners",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/sama.png",
@@ -220,7 +221,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://behrangmusic.com",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/behrang.png",
@@ -247,7 +248,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://gitex2023.kahkeshandana.com/",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/dspm_webDrive.jpg",
@@ -273,7 +274,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://v2.defacement.ir",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/defacement.jpg",
@@ -300,7 +301,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://exam.kahkeshan.com",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/knexam.png",
@@ -326,7 +327,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://new.ibtil.org",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/greitelts.png",
@@ -352,7 +353,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://panel.danaintel.ir",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/danaintel.png",
@@ -370,7 +371,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://kahkeshan.com",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/kahkeshan.png",
@@ -394,7 +395,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://inspectionservice.ir",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/msepi.png",
@@ -418,7 +419,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://sanjify.ir",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/sanjify.png",
@@ -442,7 +443,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://namapardaz.com",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/namapardaz.png",
@@ -460,7 +461,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://danawan.ir",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/danawan.png",
@@ -478,7 +479,7 @@ export const DATA = {
         {
           type: "Mobile App",
           href: "https://playkon.ir/",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/playkon.png",
@@ -514,7 +515,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://iliateb.com",
-          icon: <Icons.globe className="size-3" />,
+          icon: <GlobeIcon className="size-3" />,
         },
       ],
       image: "/portfolios/iliateb.png",
@@ -535,7 +536,7 @@ export const DATA = {
         },
         {
           title: "Sharif university of technology",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://www.sharif.ir/",
         },
       ],
@@ -553,7 +554,7 @@ export const DATA = {
         },
         {
           title: "Tehran university",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://ut.ac.ir/",
         },
       ],
@@ -571,7 +572,7 @@ export const DATA = {
         },
         {
           title: "Meta",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://www.meta.com",
         },
       ],
@@ -589,7 +590,7 @@ export const DATA = {
         },
         {
           title: "Free Code Camp",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://www.freecodecamp.org/certification/AmirHosseinGoodarzi/javascript-algorithms-and-data-structures",
         },
       ],
@@ -607,7 +608,7 @@ export const DATA = {
         },
         {
           title: "Free Code Camp",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://www.freecodecamp.org/certification/AmirHosseinGoodarzi/javascript-algorithms-and-data-structures",
         },
       ],
@@ -625,7 +626,7 @@ export const DATA = {
         },
         {
           title: "Solo learn academy",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://www.sololearn.com/",
         },
       ],
@@ -643,7 +644,7 @@ export const DATA = {
         },
         {
           title: "Solo learn academy",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://www.sololearn.com/",
         },
       ],
@@ -661,7 +662,7 @@ export const DATA = {
         },
         {
           title: "Solo learn academy",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://www.sololearn.com/",
         },
       ],
@@ -679,7 +680,7 @@ export const DATA = {
         },
         {
           title: "Solo learn academy",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <GlobeIcon className="h-4 w-4" />,
           href: "https://www.sololearn.com/",
         },
       ],
