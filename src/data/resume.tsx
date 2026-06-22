@@ -550,7 +550,7 @@ export const DATA = {
         {
           title: "View certificate",
           icon: <EyeIcon className="h-4 w-4" />,
-          href: "/certificates/sharif.jpg",
+          href: "/certificates/sharif.png",
         },
         {
           title: "Sharif university of technology",
@@ -561,7 +561,7 @@ export const DATA = {
     },
     {
       title: "Front-end development",
-      dates: "September 2nd, 2022",
+      dates: "July 11, 2019",
       location: "",
       image: "/tehran-uni.svg",
       links: [
@@ -614,7 +614,7 @@ export const DATA = {
       ],
     },
     {
-      title: "Responsive web deisgn",
+      title: "Responsive web design",
       dates: "September 24th, 2022",
       location: "",
       image: "/fcc.jpg",
