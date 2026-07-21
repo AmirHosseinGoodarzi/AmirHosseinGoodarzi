@@ -1,45 +1,33 @@
-
-![header](https://raw.githubusercontent.com/AmirHosseinGoodarzi/AmirHosseinGoodarzi/main/public/readmeHeader.png)
-
 <div>
 
-[![](https://visitcount.itsvg.in/api?id=AmirHosseinGoodarzi&label=Profile%20Views&color=12&icon=4&pretty=false)](https://visitcount.itsvg.in)
+[![](https://visitcount.itsvg.in/api?id=AmirGoodarzi&label=Profile%20Views&color=12&icon=4&pretty=false)](https://visitcount.itsvg.in)
+
 ## Hi there 👋, I'm Amirhossein!
 
 </div>
 
-Imagine a world where user interfaces are not just functional, but
-a delightful experience. Now, imagine having a front-end developer
-on your team who can craft these experiences with precision and
-creativity. That’s me. With 4 years of experience in building
-responsive and user-friendly web applications using React.js, I
-bring a blend of technical expertise and a keen eye for design to
-every project.
-
-My journey in web development has also given me exposure to
-back-end and mobile development, enabling seamless collaboration
-with my teammates. Currently, I am expanding my skill set by
-learning Python and diving into the fascinating world of machine
-learning.
-
-I don’t just build interfaces; I create engaging user experiences
-that drive user satisfaction and business growth. Beyond my
-technical skills, I excel in effective communication, consistently
-deliver results, and foster strong relationships within my team.
+I am a Senior Frontend Engineer with 5+ years of experience who specializes in building scalable,
+high-performance systems with Next.js and a full-stack mindset. I go beyond just writing code to
+architect robust, maintainable infrastructure that bridges the gap between front-end and back-end,
+ensuring your product is stable and ready to grow.
 
 <div>
 
-<a href="https://amirhosseingoodarzi.vercel.app/assets/AmirhosseinGoodarzi-Front-end-developer-Resume-1b3b2817.pdf">![DownloadCV](https://img.shields.io/static/v1?logo=bookstack&label=&message=DownloadCV&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
-<a href="https://amirhosseingoodarzi.vercel.app">![Website](https://img.shields.io/static/v1?logo=bookstack&label=&message=Website&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
+<a href="https://amirgoodarzi.vercel.app/AmirhosseinGoodarzi-developer-Resume.pdf">![DownloadCV](https://img.shields.io/static/v1?logo=bookstack&label=&message=DownloadCV&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
+<a href="https://amirgoodarzi.vercel.app">![Website](https://img.shields.io/static/v1?logo=bookstack&label=&message=Website&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
 <a href="https://www.linkedin.com/in/amir-hossein-goodarzi">![Linkedin](https://img.shields.io/static/v1?logo=linkedin&label=&message=Linkedin&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)</a>
 
-</div>
+## </div>
+
+---
+
+![Separator](https://xbccmcszhnybxzlirjgk.supabase.co/storage/v1/object/public/wallpaper/dark/10237.jpg)
 
 ---
 
 <div>
 
-## FRONTEND SKILLS
+## FRONTEND
 
 ![HTML](https://img.shields.io/static/v1?logo=HTML5&label=&message=HTML&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 ![CSS](https://img.shields.io/static/v1?logo=CSS3&label=&message=CSS&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
@@ -54,24 +42,22 @@ deliver results, and foster strong relationships within my team.
 ![ChackraUI](https://img.shields.io/static/v1?logo=chakraui&label=&message=Chackra-ui&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 ![ReactQuery](https://img.shields.io/static/v1?logo=reactquery&label=&message=React-Query&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 
-
 </div>
 
 <div>
 
-## BACKEND FAMILIARITIES
+## BACKEND
 
 ![Nodejs](https://img.shields.io/static/v1?logo=nodedotjs&label=&message=NodeJS&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 ![Express](https://img.shields.io/static/v1?logo=Express&label=&message=Express&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 ![Mongodb](https://img.shields.io/static/v1?logo=mongodb&label=&message=MongoDB&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 ![MySQL](https://img.shields.io/static/v1?logo=mysql&label=&message=MySQL&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 
-
 </div>
 
 <div>
 
-## MOBILE FAMILIARITIES
+## MOBILE
 
 ![React-Native](https://img.shields.io/static/v1?logo=react&label=&message=React-Native&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 ![Expo](https://img.shields.io/static/v1?logo=expo&label=&message=Expo&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
@@ -81,7 +67,7 @@ deliver results, and foster strong relationships within my team.
 
 <div>
 
-## SHARED SKILLS
+## OTHER SKILLS
 
 ![typescript](https://img.shields.io/static/v1?logo=typescript&label=&message=Typescript&color=2D333B&logoWidth=20&logoColor=EEE&style=flat-square)
 
