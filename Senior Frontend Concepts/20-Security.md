@@ -1,82 +1,93 @@
-## Security
+# Security — Cheat Sheet
 
-- [ ] XSS
-  - [ ] stored
-  - [ ] reflected
-  - [ ] DOM-based
-  - [ ] escaping/sanitization basics
-  - [ ] React default protections and limits
+## Web Attack Surfaces
 
-- [ ] CSRF
-  - [ ] cookie-based auth risk
-  - [ ] anti-CSRF tokens
-  - [ ] SameSite protections
-  - [ ] custom header patterns
+### XSS (Cross-Site Scripting)
+- **Quick Summary:** تزریق اسکریپت: Stored، Reflected، DOM-based؛ با escape/sanitize مهار می‌شود.
+- **Senior Insight:** React متن را escape می‌کند؛ `dangerouslySetInnerHTML`، URL/`javascript:`، و DOM دستی حفره‌اند.
 
-- [ ] Clickjacking
-  - [ ] iframe embedding abuse
-  - [ ] `X-Frame-Options`
-  - [ ] CSP `frame-ancestors`
+| نوع | ورودی معمول | نکته |
+|---|---|---|
+| Stored | DB/comment | هر viewer آسیب می‌بیند |
+| Reflected | Query/URL | فیشینگ لینک |
+| DOM-based | `innerHTML`/location | بدون roundtrip سرور |
 
-- [ ] CSP
-  - [ ] content source restrictions
-  - [ ] nonces
-  - [ ] hashes
-  - [ ] inline script mitigation
+### CSRF (Cross-Site Request Forgery)
+- **Quick Summary:** مرورگر درخواست authenticated با cookie به سایت قربانی می‌فرستد بدون قصد کاربر.
+- **Senior Insight:** Anti-CSRF token، `SameSite` cookies، و custom header (نه فقط cookie) دفاع لایه‌ای‌اند.
 
-- [ ] CORS
-  - [ ] browser enforcement
-  - [ ] preflight
-  - [ ] credentials restrictions
-  - [ ] frontend debugging
+### Clickjacking
+- **Quick Summary:** صفحه را در iframe شفاف می‌گذارند تا کلیک کاربر دزدیده شود.
+- **Senior Insight:** `X-Frame-Options: DENY/SAMEORIGIN` یا CSP `frame-ancestors` را تنظیم کن.
 
-- [ ] Token storage tradeoffs
-  - [ ] in-memory
-  - [ ] cookies
-  - [ ] localStorage
-  - [ ] XSS/CSRF balance
+### CSP (Content Security Policy)
+- **Quick Summary:** محدودیت منبع content/script؛ کاهش XSS با block اسکریپت غیرمجاز.
+- **Senior Insight:** Nonce/hash برای inline؛ `'unsafe-inline'` تقریباً CSP را بی‌اثر می‌کند.
 
-- [ ] Cookie security flags
-  - [ ] `HttpOnly`
-  - [ ] `Secure`
-  - [ ] `SameSite`
-  - [ ] `Domain`
-  - [ ] `Path`
+```http
+Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-abc123'
+```
 
-- [ ] Input sanitization
-  - [ ] user-generated HTML
-  - [ ] rich text/editor scenarios
-  - [ ] backend vs frontend responsibility
+### CORS (Cross-Origin Resource Sharing)
+- **Quick Summary:** مرورگر دسترسی cross-origin را enforce می‌کند؛ preflight برای درخواست‌های غیرساده.
+- **Senior Insight:** CORS امنیت سرور نیست — UI gate است؛ credentials نیاز به `Allow-Credentials` + origin دقیق.
 
-- [ ] Output escaping
-  - [ ] HTML context
-  - [ ] URL context
-  - [ ] attribute context
-  - [ ] template injection basics
+---
 
-- [ ] Auth flow security
-  - [ ] login
-  - [ ] refresh tokens
-  - [ ] logout invalidation
-  - [ ] session expiry UX
+## Tokens, Cookies & I/O
 
-- [ ] Secret leakage in frontend
-  - [ ] build-time env exposure
-  - [ ] public vs server-only vars
-  - [ ] source map risk awareness
+### Token Storage Tradeoffs
+- **Quick Summary:** In-memory امن‌تر از XSS؛ cookie با پرچم‌ها؛ `localStorage` در برابر XSS ضعیف.
+- **Senior Insight:** Access کوتاه‌عمر + refresh در `HttpOnly` cookie تعادل XSS/CSRF رایج است.
 
-- [ ] Dependency vulnerabilities
-  - [ ] audit tools
-  - [ ] transitive dependencies
-  - [ ] patching strategy
+| محل | XSS risk | CSRF risk |
+|---|---|---|
+| Memory | پایین‌تر | پایین |
+| `HttpOnly` cookie | پایین | بالاتر (نیاز SameSite/CSRF) |
+| `localStorage` | بالا | پایین |
 
-- [ ] Supply chain risks
-  - [ ] malicious packages
-  - [ ] typosquatting
-  - [ ] lockfiles
-  - [ ] package pinning awareness
+### Cookie Security Flags
+- **Quick Summary:** `HttpOnly`، `Secure`، `SameSite`، `Domain`، `Path` سطح دسترسی cookie را محدود می‌کنند.
+- **Senior Insight:** Session بدون `HttpOnly`+`Secure`+`SameSite` در production قرمز است.
 
-- [ ] SRI basics
-  - [ ] subresource integrity hashes
-  - [ ] CDN script protection
-  - [ ] limitations with dynamic content
+### Input Sanitization
+- **Quick Summary:** پاکسازی HTML کاربر (rich text/editor)؛ مسئولیت اصلی اغلب backend + lib معتبر.
+- **Senior Insight:** Sanitize سمت کلاینت UX است؛ اعتماد امنیتی فقط به server/policy.
+
+### Output Escaping
+- **Quick Summary:** Escape متناسب context: HTML، attribute، URL؛ جلوگیری از template injection.
+- **Senior Insight:** Escape یک‌بار در context اشتباه ≠ امن؛ URL را جدا encode کن.
+
+---
+
+## Auth & Secrets
+
+### Auth Flow Security
+- **Quick Summary:** login امن، refresh rotation، logout invalidation، UX انقضای session.
+- **Senior Insight:** Refresh را در storage قابل‌خواندن JS نگذار؛ revoke سمت سرور اجباری است.
+
+### Secret Leakage in Frontend
+- **Quick Summary:** env در build عمومی می‌شود؛ فقط non-secret با `NEXT_PUBLIC_`/`VITE_`.
+- **Senior Insight:** Source map در prod می‌تواند کد/مسیر داخلی لو بدهد — دسترسی را محدود کن.
+
+---
+
+## Supply Chain
+
+### Dependency Vulnerabilities
+- **Quick Summary:** `npm audit`/OSV؛ وابستگی‌های transitive؛ استراتژی patch/upgrade.
+- **Senior Insight:** Critical را فوری؛ automated Dependabot + CI fail روی severity مشخص.
+
+### Supply Chain Risks
+- **Quick Summary:** پکیج مخرب، typosquatting، lockfile، pinning آگاهانه نسخه.
+- **Senior Insight:** Lockfile commit اجباری؛ نصب با `--ignore-scripts` در CI حساس را بسنج.
+
+### SRI (Subresource Integrity)
+- **Quick Summary:** hash برای اسکریپت/استایل CDN؛ تغییر غیرمجاز → block بارگذاری.
+- **Senior Insight:** برای URL ثابت عالی؛ محتوای dynamic/CDN چرخان hash را می‌شکند — به‌روز نگه دار.
+
+```html
+<script src="https://cdn.example/lib.js"
+  integrity="sha384-..."
+  crossorigin="anonymous"></script>
+```

@@ -1,87 +1,93 @@
-## Design Patterns
+# Design Patterns — Cheat Sheet
 
-- [ ] Singleton
-  - [ ] one instance concept
-  - [ ] pitfalls in tests/global state
-  - [ ] practical frontend examples
+## Classic GoF-style (Frontend Lens)
 
-- [ ] Factory
-  - [ ] object creation abstraction
-  - [ ] configuration-based instantiation
-  - [ ] use cases
+### Singleton
+- **Quick Summary:** یک instance سراسری (store، client، config).
+- **Senior Insight:** تست و global state را سخت می‌کند؛ در SSR مواظب leakage بین requestها باش.
 
-- [ ] Strategy
-  - [ ] interchangeable algorithms
-  - [ ] conditional complexity reduction
-  - [ ] UI/business rule examples
+### Factory
+- **Quick Summary:** انتزاع ساخت object بر اساس config/type بدون `new` پراکنده.
+- **Senior Insight:** برای mapperها، chart/series builders، و چند پیاده‌سازی یک قرارداد.
 
-- [ ] Adapter
-  - [ ] interface translation
-  - [ ] third-party integration use cases
-  - [ ] DTO adaptation
+```ts
+function createClient(env: 'mock' | 'live'): ApiClient {
+  return env === 'mock' ? new MockClient() : new HttpClient();
+}
+```
 
-- [ ] Observer
-  - [ ] subscription model
-  - [ ] event-driven updates
-  - [ ] store/event emitter relation
+### Strategy
+- **Quick Summary:** الگوریتم‌های قابل‌تعویض به‌جای شاخه‌های شرطی تو در تو.
+- **Senior Insight:** قوانین قیمت‌گذاری، validation، و render strategy را pluggable نگه دار.
 
-- [ ] Pub/Sub
-  - [ ] decoupled messaging
-  - [ ] event bus basics
-  - [ ] overuse risks
+### Adapter
+- **Quick Summary:** ترجمهٔ interface خارجی به قرارداد داخلی (DTO/third-party SDK).
+- **Senior Insight:** SDK عوض شد فقط Adapter می‌شکند — UI دست‌نخورده می‌ماند.
 
-- [ ] Decorator
-  - [ ] behavior extension without modifying core
-  - [ ] higher-order function/class parallels
+### Observer
+- **Quick Summary:** مدل subscription؛ subject تغییر را به observers خبر می‌دهد.
+- **Senior Insight:** پایهٔ storeها و EventTarget؛ unsubscribe فراموش = memory leak.
 
-- [ ] Facade
-  - [ ] simplified API surface
-  - [ ] wrapper around complex subsystems
+### Pub/Sub
+- **Quick Summary:** messaging جدا از هم از طریق event bus؛ ناشر مشترک را نمی‌شناسد.
+- **Senior Insight:** Overuse = جریان مبهم و debug سخت؛ برای cross-cutting محدود استفاده کن.
 
-- [ ] Command
-  - [ ] encapsulating actions
-  - [ ] undo/redo mental model
-  - [ ] task dispatching
+### Decorator
+- **Quick Summary:** افزودن رفتار بدون تغییر هسته (HOF، wrapper class، middleware).
+- **Senior Insight:** لایه‌های زیاد = stack opaque؛ ترتیب decoratorها معنادار است.
 
-- [ ] State pattern
-  - [ ] behavior by current state
-  - [ ] finite-state workflows
-  - [ ] UI wizard examples
+### Facade
+- **Quick Summary:** سطح API ساده روی چند subsystem پیچیده.
+- **Senior Insight:** نقطهٔ ورود تیم/feature؛ جزئیات infra را پشت facade پنهان کن.
 
-- [ ] Dependency injection
-  - [ ] invert construction
-  - [ ] testability benefits
-  - [ ] frontend service injection patterns
+### Command
+- **Quick Summary:** کپسوله‌سازی action به‌عنوان object؛ مناسب dispatch و undo/redo.
+- **Senior Insight:** editorها، queues، و analytics intent را command کن.
 
-- [ ] Repository pattern
-  - [ ] data access abstraction
-  - [ ] API/storage swapping
-  - [ ] domain-oriented access
+### State Pattern
+- **Quick Summary:** رفتار وابسته به state جاری؛ workflow متناهی (wizard، payment).
+- **Senior Insight:** بهتر از boolean flags متعدد؛ با XState/reducer رسمی‌تر می‌شود.
 
-- [ ] Composition pattern
-  - [ ] composing behavior/parts
-  - [ ] React-first relevance
-  - [ ] flexibility vs inheritance
+---
 
-- [ ] Render props
-  - [ ] function child pattern
-  - [ ] cross-cutting behavior reuse
-  - [ ] verbosity tradeoff
+## Data & DI
 
-- [ ] Higher-order components
-  - [ ] wrapper enhancement pattern
-  - [ ] legacy reuse strategy
-  - [ ] composition cost
+### Dependency Injection
+- **Quick Summary:** ساخت وابستگی را invert کن؛ از بیرون تزریق کن نه hardcode داخل.
+- **Senior Insight:** تست‌پذیری بالا؛ در فرانت با context، params، یا factory سبک رایج است.
 
-- [ ] Compound components
-  - [ ] coordinated child components
-  - [ ] expressive APIs
-  - [ ] context-driven internals
+### Repository Pattern
+- **Quick Summary:** انتزاع دسترسی داده؛ تعویض API/storage پشت یک قرارداد دامنه.
+- **Senior Insight:** UI به HTTP جزئیات وابسته نباشد؛ repository زبان دامنه صحبت کند.
 
-- [ ] Provider pattern
-  - [ ] context provider abstraction
-  - [ ] app-wide dependency exposure
+---
 
-- [ ] Hooks as behavior composition
-  - [ ] reusable stateful logic
-  - [ ] replacing mixins/HOCs/render props in many cases
+## React-centric Patterns
+
+### Composition Pattern
+- **Quick Summary:** ترکیب parts/behavior به‌جای inheritance؛ الگوی اول React.
+- **Senior Insight:** انعطاف و reuse بالاتر از class hierarchy عمیق.
+
+### Render Props
+- **Quick Summary:** child به‌صورت function برای اشتراک منطق cross-cutting.
+- **Senior Insight:** verbose و nesting تلخ؛ در کد جدید اغلب hook جایگزین می‌شود.
+
+```tsx
+<Mouse>{({ x, y }) => <Cursor x={x} y={y} />}</Mouse>
+```
+
+### Higher-Order Components (HOC)
+- **Quick Summary:** wrapper برای enhance کردن component؛ استراتژی reuse قدیمی.
+- **Senior Insight:** هزینه composition، نام‌گذاری، و static type؛ ترجیح hooks مگر legacy.
+
+### Compound Components
+- **Quick Summary:** فرزندان هماهنگ با context داخلی؛ API بیانی (`Select.Item`).
+- **Senior Insight:** DX عالی برای primitives؛ قرارداد children را مستند و type-safe کن.
+
+### Provider Pattern
+- **Quick Summary:** Context Provider برای افشای dependency/state در زیر‌درخت.
+- **Senior Insight:** Provider تودرتوی زیاد = «wrapper hell»؛ scope را حداقل نگه دار.
+
+### Hooks as Behavior Composition
+- **Quick Summary:** منطق stateful قابل‌reuse؛ جایگزین رایج mixin/HOC/render props.
+- **Senior Insight:** Hook را pure از UI نگه دار؛ قوانین hooks و تست‌پذیری را رعایت کن.

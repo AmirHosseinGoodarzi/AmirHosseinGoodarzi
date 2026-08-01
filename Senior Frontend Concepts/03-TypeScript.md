@@ -1,166 +1,158 @@
-## TypeScript
+# TypeScript — Cheat Sheet
 
-- [ ] Type inference
-  - [ ] variable inference
-  - [ ] function return inference
-  - [ ] contextual typing
-  - [ ] when to annotate explicitly
+## Core Types & Inference
 
-- [ ] `any` vs `unknown` vs `never`
-  - [ ] escape hatch risks of `any`
-  - [ ] safe narrowing with `unknown`
-  - [ ] impossible states with `never`
+### Type Inference
+- **Quick Summary:** TS نوع متغیر/return را حدس می‌زند؛ contextual typing در callback/jsx.
+- **Senior Insight:** Annotate مرزهای عمومی (exports، params پیچیده)؛ داخل تابع زیاد annotate نکن.
 
-- [ ] Union / intersection types
-  - [ ] union modeling
-  - [ ] intersections for composition
-  - [ ] common pitfalls
+### `any` vs `unknown` vs `never`
+- **Quick Summary:** `any` سیستم نوع را خاموش؛ `unknown` باید narrow شود؛ `never` حالت غیرممکن.
+- **Senior Insight:** External data را `unknown` بگیر نه `any`؛ exhaustive switch با `never` چک کن.
 
-- [ ] Literal types
-  - [ ] string literals
-  - [ ] numeric literals
-  - [ ] boolean literals
-  - [ ] discriminated unions
+### Union / Intersection
+- **Quick Summary:** `|` یکی از چند شکل؛ `&` ترکیب همزمان خواص.
+- **Senior Insight:** `A & B` متناقض → `never`؛ برای UI state ترجیح discriminated union.
 
-- [ ] Type narrowing
-  - [ ] `typeof`
-  - [ ] `instanceof`
-  - [ ] `in`
-  - [ ] control flow analysis
+### Literal Types / Discriminated Unions
+- **Quick Summary:** `'idle' | 'loading'`؛ با فیلد `type`/`kind` مشترک برای narrow امن.
+- **Senior Insight:** مدل state ماشین با union بهتر از booleanهای پراکنده است.
 
-- [ ] Type guards
-  - [ ] built-in guards
-  - [ ] custom predicates
-  - [ ] assertion functions basics
+```ts
+type State =
+  | { status: "idle" }
+  | { status: "error"; message: string };
+```
 
-- [ ] Generics
-  - [ ] generic functions
-  - [ ] generic interfaces
-  - [ ] constraints
-  - [ ] inference vs explicit generic args
+---
 
-- [ ] Utility types
-  - [ ] `Partial`
-  - [ ] `Required`
-  - [ ] `Pick`
-  - [ ] `Omit`
-  - [ ] `Record`
-  - [ ] `ReturnType`
+## Narrowing & Guards
 
-- [ ] `keyof`
-  - [ ] key unions
-  - [ ] object key constraints
-  - [ ] common generic usage
+### Type Narrowing (`typeof` / `instanceof` / `in` / CFA)
+- **Quick Summary:** Control flow نوع را در شاخه‌ها باریک می‌کند.
+- **Senior Insight:** بعد از guard، IDE باید فیلدهای اختصاصی را نشان دهد — وگرنه مدل غلط است.
 
-- [ ] `typeof`
-  - [ ] value-to-type extraction
-  - [ ] constants and inferred types
-  - [ ] `as const` synergy
+### Type Guards / Assertion Functions
+- **Quick Summary:** Predicate `x is T`؛ `asserts x is T` برای پرتاب خطا و باریک‌سازی.
+- **Senior Insight:** Guard دروغین = bug در runtime با خیال compile-safe.
 
-- [ ] Indexed access types
-  - [ ] `T[K]`
-  - [ ] property value extraction
-  - [ ] array element access types
+```ts
+function isStr(x: unknown): x is string {
+  return typeof x === "string";
+}
+```
 
-- [ ] Mapped types
-  - [ ] transforming object types
-  - [ ] key remapping basics
-  - [ ] readonly/optional modifiers
+---
 
-- [ ] Conditional types
-  - [ ] `T extends U ? X : Y`
-  - [ ] distributive behavior
-  - [ ] practical use cases
+## Generics & Type Operators
 
-- [ ] `extends`
-  - [ ] generic constraints
-  - [ ] inheritance vs assignability semantics
-  - [ ] conditional type branch trigger
+### Generics
+- **Quick Summary:** پارامتر نوع برای توابع/interfaceها؛ `extends` محدودیت؛ inference معمولاً بهتر از آرگومان صریح.
+- **Senior Insight:** Generic زیاد بدون نیاز = ناخوانا؛ وقتی رابطه بین ورودی/خروجی هست استفاده کن.
 
-- [ ] `infer`
-  - [ ] extracting nested types
-  - [ ] return type extraction
-  - [ ] array/promise unwrapping
+### Utility Types (`Partial` / `Required` / `Pick` / `Omit` / `Record` / `ReturnType`)
+- **Quick Summary:** تبدیل سریع شکل‌ها؛ `ReturnType<typeof fn>` از پیاده‌سازی نوع می‌کشد.
+- **Senior Insight:** Omit/Pick زنجیره‌ای طولانی = بوی مدل دامنه ضعیف.
 
-- [ ] Function overloads
-  - [ ] overload signatures
-  - [ ] implementation signature
-  - [ ] when unions are simpler
+### `keyof` / `typeof` / Indexed Access
+- **Quick Summary:** `keyof T` اتحاد کلیدها؛ `typeof` value→type؛ `T[K]` نوع مقدار خاصیت.
+- **Senior Insight:** `as const` + `typeof` برای union از object ثابت عالی است.
 
-- [ ] Interface vs type
-  - [ ] extension
-  - [ ] declaration merging
-  - [ ] unions support
-  - [ ] practical team conventions
+### Mapped Types
+- **Quick Summary:** `{ [K in keyof T]: ... }` با `-?`/`+readonly` و key remapping `as`.
+- **Senior Insight:** پایه ساخت utilityهای سفارشی design-system/API.
 
-- [ ] Declaration merging
-  - [ ] interface merging
-  - [ ] namespace merging basics
-  - [ ] augmentation scenarios
+### Conditional Types / `extends` / `infer`
+- **Quick Summary:** `T extends U ? X : Y`؛ روی union توزیع می‌شود؛ `infer` نوع داخلی را می‌کشد.
+- **Senior Insight:** Unwrap: `T extends Promise<infer U> ? U : T`.
 
-- [ ] `readonly`
-  - [ ] readonly properties
-  - [ ] readonly arrays
-  - [ ] compile-time only limitation
+```ts
+type Elem<T> = T extends (infer U)[] ? U : T;
+```
 
-- [ ] Enums vs union literals
-  - [ ] runtime output
-  - [ ] ergonomics
-  - [ ] bundle implications
-  - [ ] preferred patterns
+---
 
-- [ ] Branded types
-  - [ ] nominal typing simulation
-  - [ ] domain safety use cases
-  - [ ] IDs and validated values
+## Functions, Interfaces, Mutability
 
-- [ ] Module augmentation
-  - [ ] extending third-party types
-  - [ ] declaration files basics
-  - [ ] common pitfalls
+### Function Overloads
+- **Quick Summary:** چند signature عمومی + یک implementation signature وسیع‌تر.
+- **Senior Insight:** اگر union ساده کافی است overload ننویس — هزینه نگهداری.
 
-- [ ] React typings
-  - [ ] component props typing
-  - [ ] children typing
-  - [ ] event types
-  - [ ] intrinsic element props
+### Interface vs `type`
+- **Quick Summary:** هر دو شکل object؛ interface extend/merge؛ type برای union/tuple قوی‌تر.
+- **Senior Insight:** تیم: props/object → interface یا type یکدست؛ union حتماً `type`.
 
-- [ ] Typing hooks
-  - [ ] `useState`
-  - [ ] `useReducer`
-  - [ ] custom hooks return types
-  - [ ] generic hooks
+### Declaration Merging
+- **Quick Summary:** Interfaceهای هم‌نام ادغام می‌شوند؛ برای augment کتابخانه مفید.
+- **Senior Insight:** Merge تصادفی = باگ نوع پنهان؛ فایل ambient را کنترل کن.
 
-- [ ] Typing refs
-  - [ ] DOM refs
-  - [ ] `forwardRef`
-  - [ ] nullable refs
-  - [ ] imperative handles
+### `readonly`
+- **Quick Summary:** خاصیت/آرایه فقط‌خواندنی در compile-time؛ runtime enforce نمی‌کند.
+- **Senior Insight:** props و shared config را readonly کن؛ با `as const` عمیق‌تر می‌شود.
 
-- [ ] API response typing
-  - [ ] DTO shapes
-  - [ ] discriminated union for states
-  - [ ] runtime validation gap
-  - [ ] error typing
+### Enums vs Union Literals
+- **Quick Summary:** Enum خروجی runtime دارد؛ union/`as const` معمولاً سبک‌تر و tree-shakeable.
+- **Senior Insight:** در FE مدرن اغلب union string ترجیح؛ const enum محدودیت bundler دارد.
 
-- [ ] Zod + TypeScript integration
-  - [ ] schema definition
-  - [ ] `z.infer`
-  - [ ] parsing unknown data
-  - [ ] form validation integration
+### Branded Types
+- **Quick Summary:** شبیه‌سازی nominal: `type UserId = string & { __brand: "UserId" }`.
+- **Senior Insight:** جلوگیری از جابه‌جایی تصادفی IDها/مقدار validate‌شده.
 
-- [ ] Strict mode configs
-  - [ ] `strict`
-  - [ ] `noImplicitAny`
-  - [ ] `strictNullChecks`
-  - [ ] `noUncheckedIndexedAccess`
-  - [ ] migration tradeoffs
+---
 
-- [ ] `tsconfig` essentials
-  - [ ] `target`
-  - [ ] `module`
-  - [ ] `moduleResolution`
-  - [ ] `jsx`
-  - [ ] `baseUrl` / `paths`
-  - [ ] `isolatedModules`
-  - [ ] `skipLibCheck`
+## Modules & Augmentation
+
+### Module Augmentation / Declaration Files
+- **Quick Summary:** گسترش نوع پکیج third-party با `declare module`؛ `.d.ts` برای JS بدون نوع.
+- **Senior Insight:** Augment غلط کل پروژه را آلوده می‌کند؛ نسخه پکیج را هم‌تراز کن.
+
+---
+
+## React + TypeScript
+
+### Component Props / Children / Events / Intrinsics
+- **Quick Summary:** `type Props = {...}`؛ `React.ReactNode` برای children؛ `React.ChangeEvent<HTMLInputElement>`.
+- **Senior Insight:** از intrinsicها قرض بگیر: `ButtonHTMLAttributes<HTMLButtonElement>`.
+
+```ts
+type BtnProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: "primary" | "ghost";
+};
+```
+
+### Typing Hooks (`useState` / `useReducer` / Custom / Generic)
+- **Quick Summary:** Inference از initial؛ بدون initial صریح annotate کن؛ reducer با typed actions.
+- **Senior Insight:** Custom hook: نوع برگشتی را پایدار و کم‌عریض نگه دار.
+
+### Typing Refs (`DOM` / `forwardRef` / Nullable / Imperative Handle)
+- **Quick Summary:** `useRef<HTMLDivElement>(null)`؛ current قبل از mount `null`؛ `forwardRef`+generics.
+- **Senior Insight:** `useImperativeHandle` فقط API محدود والد؛ escape hatch نه state عمومی.
+
+---
+
+## Data at the Boundary
+
+### API Response Typing
+- **Quick Summary:** DTO جدا از UI model؛ state با discriminated union؛ خطا typed.
+- **Senior Insight:** TypeScript runtime validate نمی‌کند — فرض `as Resp` خطرناک است.
+
+### Zod + TypeScript
+- **Quick Summary:** Schema منبع حقیقت؛ `z.infer<typeof schema>`؛ `parse`/`safeParse` روی unknown.
+- **Senior Insight:** مرز شبکه/فرم را با Zod ببند؛ نوع و validate یکجا می‌مانند.
+
+```ts
+const User = z.object({ id: z.string(), email: z.string().email() });
+type User = z.infer<typeof User>;
+```
+
+---
+
+## Tooling Config
+
+### Strict Mode Flags
+- **Quick Summary:** `strict` بسته کامل؛ شامل `noImplicitAny` و `strictNullChecks`.
+- **Senior Insight:** `noUncheckedIndexedAccess` سخت ولی باگ index را می‌گیرد — مهاجرت تدریجی.
+
+### `tsconfig` Essentials
+- **Quick Summary:** `target`/`module`/`moduleResolution`/`jsx`/`baseUrl`+`paths`/`isolatedModules`/`skipLibCheck`.
+- **Senior Insight:** `paths` با bundler sync باشد؛ `skipLibCheck` سرعت می‌دهد ولی باگ `.d.ts` را پنهان می‌کند؛ `isolatedModules` برای transpile تک‌فایلی (Babel/SWC) لازم.
