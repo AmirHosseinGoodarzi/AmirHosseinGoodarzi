@@ -180,7 +180,7 @@ export const DATA = {
     {
       title: "Sama Partners Platform",
       href: "https://sama.partners",
-      dates: "2024 - Present",
+      dates: "May 2026 - Jul 2026",
       active: true,
       description:
         "Developing a full-stack business platform including internal dashboards, admin panels, and the company website for Sama Partners. Focused on scalable architecture and modern front‑end development to support internal workflows and business operations.",
@@ -205,7 +205,7 @@ export const DATA = {
     {
       title: "Behrang Music Academy Platform",
       href: "https://behrangmusic.com",
-      dates: "2025 - Present",
+      dates: "Apr 2026 – Present",
       active: true,
       description:
         "Building a large-scale online music education platform including the main academy website, learning system, and management tools for courses and students with a modern scalable architecture.",
@@ -248,7 +248,7 @@ export const DATA = {
     {
       title: "DDSS Secure File Transfer",
       href: "https://gitex2023.kahkeshandana.com/",
-      dates: "2023",
+      dates: "2024",
       active: false,
       description:
         "Enterprise platform for secure file transfer inside organizations with advanced access control and monitoring capabilities.",
@@ -275,7 +275,7 @@ export const DATA = {
     {
       title: "Defacement Monitoring Platform",
       href: "https://v2.defacement.ir",
-      dates: "2023",
+      dates: "2024",
       active: false,
       description:
         "Platform for reporting and monitoring defaced websites and tracking attackers using automated crawlers and security analysis tools.",
@@ -296,6 +296,130 @@ export const DATA = {
         },
       ],
       image: "/portfolios/defacement.jpg",
+      video: "",
+    },
+    {
+      title: "Namapardaz Systems",
+      href: "https://namapardaz.com",
+      dates: "2023-2024",
+      active: false,
+      description:
+        "Development of multiple internal enterprise systems including automation, ticketing, task management, and HR modules.",
+      technologies: [
+        "React",
+        "TailwindCSS",
+        "Axios",
+        "React Query",
+        ".NET Core",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://namapardaz.com",
+          icon: <GlobeIcon className="size-3" />,
+        },
+      ],
+      image: "/portfolios/namapardaz.png",
+      video: "",
+    },
+    {
+      title: "Sanjify Exam Platform",
+      href: "https://sanjify.ir",
+      dates: "2021-2024",
+      active: false,
+      description:
+        "Large scale online exam platform with monitoring tools and management dashboards for educational institutions.",
+      technologies: [
+        "React",
+        "TailwindCSS",
+        "React Query",
+        "Axios",
+        ".NET Core",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://sanjify.ir",
+          icon: <GlobeIcon className="size-3" />,
+        },
+      ],
+      image: "/portfolios/sanjify.png",
+      video: "",
+    },
+    {
+      title: "Dana-intel Risk Management Platform",
+      href: "https://panel.danaintel.ir",
+      dates: "2023-2023",
+      active: false,
+      description:
+        "AI-powered enterprise risk management platform designed to help organizations monitor threats, analyze risks, and manage security workflows.",
+      technologies: [
+        "Next.js",
+        "React",
+        "TailwindCSS",
+        "React Query",
+        "React Hook Form",
+        "Axios",
+        ".NET Core",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://panel.danaintel.ir",
+          icon: <GlobeIcon className="size-3" />,
+        },
+      ],
+      image: "/portfolios/danaintel.png",
+      video: "",
+    },
+    {
+      title: "Ibtil GRE & IELTS",
+      href: "https://new.ibtil.org",
+      dates: "2023",
+      active: false,
+      description:
+        "Online examination platform for GRE and IELTS preparation with interactive testing environments and analytics.",
+      technologies: [
+        "React",
+        "SASS",
+        "TailwindCSS",
+        "React Query",
+        "React Hook Form",
+        "Axios",
+        "Vite",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://new.ibtil.org",
+          icon: <GlobeIcon className="size-3" />,
+        },
+      ],
+      image: "/portfolios/greitelts.png",
+      video: "",
+    },
+    {
+      title: "Inspection Service System",
+      href: "https://inspectionservice.ir",
+      dates: "2023",
+      active: false,
+      description:
+        "Platform designed for managing inspection services, requests, reports, and operational workflows.",
+      technologies: [
+        "React",
+        "TailwindCSS",
+        "Axios",
+        "React Query",
+        ".NET Core",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://inspectionservice.ir",
+          icon: <GlobeIcon className="size-3" />,
+        },
+      ],
+      image: "/portfolios/msepi.png",
       video: "",
     },
     {
@@ -326,151 +450,9 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Ibtil GRE & IELTS",
-      href: "https://new.ibtil.org",
-      dates: "2022",
-      active: false,
-      description:
-        "Online examination platform for GRE and IELTS preparation with interactive testing environments and analytics.",
-      technologies: [
-        "React",
-        "SASS",
-        "TailwindCSS",
-        "React Query",
-        "React Hook Form",
-        "Axios",
-        "Vite",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://new.ibtil.org",
-          icon: <GlobeIcon className="size-3" />,
-        },
-      ],
-      image: "/portfolios/greitelts.png",
-      video: "",
-    },
-    {
-      title: "DanaIntel Risk Management Platform",
-      href: "https://panel.danaintel.ir",
-      dates: "2022",
-      active: false,
-      description:
-        "AI-powered enterprise risk management platform designed to help organizations monitor threats, analyze risks, and manage security workflows.",
-      technologies: [
-        "Next.js",
-        "React",
-        "TailwindCSS",
-        "React Query",
-        "React Hook Form",
-        "Axios",
-        ".NET Core",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://panel.danaintel.ir",
-          icon: <GlobeIcon className="size-3" />,
-        },
-      ],
-      image: "/portfolios/danaintel.png",
-      video: "",
-    },
-    {
-      title: "Kahkeshan Company Website",
-      href: "https://kahkeshan.com",
-      dates: "2021",
-      active: false,
-      description:
-        "Corporate website built to introduce Kahkeshan Group services, products, and organizational structure.",
-      technologies: ["React", "SASS", "TailwindCSS"],
-      links: [
-        {
-          type: "Website",
-          href: "https://kahkeshan.com",
-          icon: <GlobeIcon className="size-3" />,
-        },
-      ],
-      image: "/portfolios/kahkeshan.png",
-      video: "",
-    },
-    {
-      title: "Inspection Service System",
-      href: "https://inspectionservice.ir",
-      dates: "2023",
-      active: false,
-      description:
-        "Platform designed for managing inspection services, requests, reports, and operational workflows.",
-      technologies: [
-        "React",
-        "TailwindCSS",
-        "Axios",
-        "React Query",
-        ".NET Core",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://inspectionservice.ir",
-          icon: <GlobeIcon className="size-3" />,
-        },
-      ],
-      image: "/portfolios/msepi.png",
-      video: "",
-    },
-    {
-      title: "Sanjify Exam Platform",
-      href: "https://sanjify.ir",
-      dates: "2024",
-      active: false,
-      description:
-        "Large scale online exam platform with monitoring tools and management dashboards for educational institutions.",
-      technologies: [
-        "React",
-        "TailwindCSS",
-        "React Query",
-        "Axios",
-        ".NET Core",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://sanjify.ir",
-          icon: <GlobeIcon className="size-3" />,
-        },
-      ],
-      image: "/portfolios/sanjify.png",
-      video: "",
-    },
-    {
-      title: "Namapardaz Systems",
-      href: "https://namapardaz.com",
-      dates: "2024",
-      active: false,
-      description:
-        "Development of multiple internal enterprise systems including automation, ticketing, task management, and HR modules.",
-      technologies: [
-        "React",
-        "TailwindCSS",
-        "Axios",
-        "React Query",
-        ".NET Core",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://namapardaz.com",
-          icon: <GlobeIcon className="size-3" />,
-        },
-      ],
-      image: "/portfolios/namapardaz.png",
-      video: "",
-    },
-    {
-      title: "Danawan Company Website",
+      title: "Danawan",
       href: "https://danawan.ir",
-      dates: "2021",
+      dates: "2022",
       active: false,
       description:
         "Corporate website for Danawan focused on presenting company products, services, and technical capabilities.",
@@ -486,9 +468,27 @@ export const DATA = {
       video: "",
     },
     {
+      title: "Kahkeshan Group",
+      href: "https://kahkeshan.com",
+      dates: "2022",
+      active: false,
+      description:
+        "Corporate website built to introduce Kahkeshan Group services, products, and organizational structure.",
+      technologies: ["React", "SASS", "TailwindCSS"],
+      links: [
+        {
+          type: "Website",
+          href: "https://kahkeshan.com",
+          icon: <GlobeIcon className="size-3" />,
+        },
+      ],
+      image: "/portfolios/kahkeshan.png",
+      video: "",
+    },
+    {
       title: "Playkon Mobile Application",
       href: "",
-      dates: "2021",
+      dates: "2021-2022",
       active: false,
       description:
         "Mobile gaming platform built with React Native providing a social and interactive environment for players.",
