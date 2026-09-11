@@ -1,229 +1,328 @@
-## Browser & Web Platform
+# Browser & Web Platform — Cheat Sheet
 
-- [ ] DOM
-  - [ ] node tree
-  - [ ] element selection
-  - [ ] manipulation basics
-  - [ ] event attachment
+## DOM
 
-- [ ] BOM
-  - [ ] `window`
-  - [ ] `location`
-  - [ ] `history`
-  - [ ] `navigator`
-  - [ ] dialogs / timers basics
+### DOM / Node Tree
+- **Quick Summary:** درخت زندهٔ HTML/XML؛ Nodeها با روابط parent/child/sibling قابل پیمایش‌اند.
+- **Senior Insight:** درخت عمیق = هزینهٔ selector و mutation بیشتر؛ از DocumentFragment برای batch insert استفاده کن.
 
-- [ ] Render tree
-  - [ ] DOM + CSSOM
-  - [ ] hidden elements impact
-  - [ ] renderable nodes only
+### Element Selection
+- **Quick Summary:** `querySelector(All)`، `getElementById`، `getElementsBy*` برای دسترسی به Nodeها.
+- **Senior Insight:** Live collections (`getElementsBy*`) در loop خطرناک‌اند؛ NodeList ایستا امن‌تر است.
+- **Code:**
+```ts
+const el = document.querySelector<HTMLButtonElement>('#save');
+el?.addEventListener('click', onSave);
+```
 
-- [ ] Reflow / repaint
-  - [ ] layout-triggering changes
-  - [ ] paint-only changes
-  - [ ] performance costs
+### Manipulation Basics
+- **Quick Summary:** تغییر `textContent`/`innerHTML`، attribute، classList، و ساختار درخت با `append`/`remove`.
+- **Senior Insight:** `innerHTML` ریسک XSS دارد؛ برای متن از `textContent` استفاده کن.
 
-- [ ] Browser rendering pipeline
-  - [ ] parse
-  - [ ] style
-  - [ ] layout
-  - [ ] paint
-  - [ ] composite
+### Event Attachment
+- **Quick Summary:** `addEventListener` با capture/bubble؛ delegation روی ancestor برای لیست‌های پویا.
+- **Senior Insight:** همیشه cleanup با `removeEventListener` یا AbortController تا memory leak نگیری.
 
-- [ ] Critical rendering path
-  - [ ] render-blocking CSS
-  - [ ] script blocking
-  - [ ] resource prioritization
-  - [ ] first paint relevance
+## BOM
 
-- [ ] Hydration concept
-  - [ ] SSR markup activation
-  - [ ] event listener attachment
-  - [ ] mismatch causes
-  - [ ] performance cost
+### `window`
+- **Quick Summary:** Global object مرورگر؛ دسترسی به DOM، timers، storage و Web APIها.
+- **Senior Insight:** وابستگی مستقیم به `window` تست و SSR را سخت می‌کند؛ پشت abstraction بگذار.
 
-- [ ] Web APIs
-  - [ ] timers
-  - [ ] fetch
-  - [ ] storage
-  - [ ] observers
-  - [ ] media / device APIs
+### `location`
+- **Quick Summary:** URL فعلی؛ خواندن/نوشتن `href`، `pathname`، `search`، `hash`.
+- **Senior Insight:** `location.assign` history می‌سازد؛ `replace` برای redirect بدون back-entry.
 
-- [ ] `localStorage`
-  - [ ] persistence
-  - [ ] sync API cost
-  - [ ] string-only values
-  - [ ] security caveats
+### `history`
+- **Quick Summary:** کنترل stack ناوبری؛ پایهٔ SPA routing با History API.
+- **Senior Insight:** دستکاری نادرست بدون sync کردن state UI باعث mismatch مسیر و محتوا می‌شود.
 
-- [ ] `sessionStorage`
-  - [ ] tab-scoped lifetime
-  - [ ] differences from localStorage
-  - [ ] practical use cases
+### `navigator`
+- **Quick Summary:** اطلاعات محیط: userAgent، language، online، permissions، serviceWorker.
+- **Senior Insight:** به userAgent sniffing تکیه نکن؛ feature detection بهتر است.
 
-- [ ] Cookies
-  - [ ] request/response behavior
-  - [ ] browser storage model
-  - [ ] security attributes
-  - [ ] size limitations
+### Dialogs / Timers Basics
+- **Quick Summary:** `alert`/`confirm`/`prompt` همگام و مسدودکننده؛ `setTimeout`/`setInterval` async.
+- **Senior Insight:** Dialog بومی UX را می‌کشد؛ timers را clear کن تا leak و race نماند.
 
-- [ ] IndexedDB
-  - [ ] structured client storage
-  - [ ] async API
-  - [ ] offline data use cases
-  - [ ] complexity tradeoffs
+## Render Tree
 
-- [ ] Cache Storage
-  - [ ] Request/Response caching
-  - [ ] Service Worker integration
-  - [ ] offline strategies
+### DOM + CSSOM → Render Tree
+- **Quick Summary:** Render tree فقط Nodeهای قابل‌نمایش از ترکیب DOM و CSSOM است.
+- **Senior Insight:** CSS/JS مسدودکننده ساخت Render tree را عقب می‌اندازد → First Paint دیرتر.
 
-- [ ] Service Worker
-  - [ ] registration lifecycle
-  - [ ] install / activate
-  - [ ] fetch interception
-  - [ ] offline caching patterns
+### Hidden Elements Impact
+- **Quick Summary:** `display:none` از Render tree حذف می‌شود؛ `visibility:hidden`/`opacity:0` می‌مانند.
+- **Senior Insight:** مخفی‌کردن اشتباهی هنوز layout/paint هزینه می‌دهد؛ انتخاب property مهم است.
 
-- [ ] Web Workers
-  - [ ] background threads
-  - [ ] message passing
-  - [ ] CPU-heavy tasks
-  - [ ] DOM access limitation
+### Renderable Nodes Only
+- **Quick Summary:** `<head>`، meta، script و عناصر کاملاً مخفی معمولاً در Render tree نیستند.
+- **Senior Insight:** کمتر بودن Nodeهای renderable = کار کمتر در layout/paint.
 
-- [ ] Shared Workers
-  - [ ] multi-tab shared context
-  - [ ] communication basics
-  - [ ] practical rarity
+## Reflow / Repaint
 
-- [ ] BroadcastChannel
-  - [ ] cross-tab communication
-  - [ ] auth/logout sync
-  - [ ] state sync basics
+### Layout-Triggering Changes (Reflow)
+- **Quick Summary:** تغییر هندسه (width، height، font، DOM structure) باعث recalculate layout می‌شود.
+- **Senior Insight:** خواندن layout بعد از write = thrashing؛ batch read سپس write.
 
-- [ ] `postMessage`
-  - [ ] window-to-window messaging
-  - [ ] worker communication
-  - [ ] origin validation
+### Paint-Only Changes
+- **Quick Summary:** رنگ، shadow، outline معمولاً فقط paint می‌خواهند نه layout کامل.
+- **Senior Insight:** ترجیح transform/opacity برای انیمیشن تا روی Composite بماند.
 
-- [ ] CORS
-  - [ ] same-origin restriction
-  - [ ] preflight requests
-  - [ ] credentials
-  - [ ] common frontend debugging
+### Performance Costs
+- **Quick Summary:** Reflow گران‌تر از Repaint؛ هر دو Main thread را مشغول می‌کنند.
+- **Senior Insight:** اندازه‌گیری با Performance panel قبل از بهینه‌سازی حدسی.
 
-- [ ] Same-origin policy
-  - [ ] protocol/host/port
-  - [ ] restricted interactions
-  - [ ] exceptions and controlled relaxations
+## Browser Rendering Pipeline
 
-- [ ] CSP
-  - [ ] `script-src`
-  - [ ] `style-src`
-  - [ ] nonces / hashes basics
-  - [ ] XSS mitigation role
+### Parse → Style → Layout → Paint → Composite
+- **Quick Summary:** HTML/CSS parse → computed style → هندسه → پیکسل‌ها → لایه‌ها روی GPU.
+- **Senior Insight:** هدف انیمیشن روان: تغییرات را در Composite نگه دار (transform/opacity).
 
-- [ ] XSS / CSRF basics
-  - [ ] stored/reflected/DOM XSS
-  - [ ] anti-CSRF tokens
-  - [ ] SameSite cookies
-  - [ ] output escaping relevance
+| Stage | کار اصلی | تریگر رایج |
+|-------|----------|------------|
+| Parse | DOM/CSSOM | HTML/CSS جدید |
+| Style | Computed styles | class/CSS change |
+| Layout | هندسه | size/position |
+| Paint | پیکسل | color/image |
+| Composite | لایه‌ها | transform/opacity |
 
-- [ ] JWT storage tradeoffs
-  - [ ] memory
-  - [ ] `localStorage`
-  - [ ] cookies
-  - [ ] XSS vs CSRF tradeoffs
+## Critical Rendering Path
 
-- [ ] Authentication flow in browser
-  - [ ] login request
-  - [ ] token/cookie storage
-  - [ ] session refresh
-  - [ ] logout flow
+### Render-Blocking CSS
+- **Quick Summary:** CSS در `<head>` معمولاً First Paint را block می‌کند تا CSSOM آماده شود.
+- **Senior Insight:** Critical CSS اینلاین؛ non-critical را defer/media-split کن.
 
-- [ ] Authorization concepts
-  - [ ] authentication vs authorization
-  - [ ] roles vs permissions
-  - [ ] frontend-only auth limitations
+### Script Blocking
+- **Quick Summary:** `<script>` بدون `async`/`defer` parser را متوقف می‌کند.
+- **Senior Insight:** `defer` برای وابسته‌به‌DOM؛ `async` برای مستقل؛ ماژول‌ها defer-like‌اند.
 
-- [ ] File API
-  - [ ] file input handling
-  - [ ] file metadata
-  - [ ] previews
-  - [ ] drag and drop basics
+### Resource Prioritization
+- **Quick Summary:** مرورگر اولویت preload/preconnect/priority hints را برای منابع حیاتی اعمال می‌کند.
+- **Senior Insight:** preload زیاد = رقابت bandwidth؛ فقط LCP/critical را هدف بگیر.
 
-- [ ] Blob / ArrayBuffer / Stream basics
-  - [ ] binary data representations
-  - [ ] file downloads
-  - [ ] streaming data concepts
+### First Paint Relevance
+- **Quick Summary:** کوتاه کردن CRP = FP/FCP سریع‌تر و حس پاسخ‌گویی بهتر.
+- **Senior Insight:** FP زود ≠ تجربه خوب؛ LCP/INP را هم اندازه بگیر.
 
-- [ ] WebSocket basics
-  - [ ] persistent connection
-  - [ ] bidirectional messaging
-  - [ ] reconnect strategies basics
+## Hydration
 
-- [ ] SSE basics
-  - [ ] server-to-client stream
-  - [ ] one-way updates
-  - [ ] comparison with WebSocket
+### SSR Markup Activation
+- **Quick Summary:** کلاینت JS روی HTML سرور attach می‌شود تا اپ interactive شود.
+- **Senior Insight:** Hydration کل درخت می‌تواند TTI را بکشد؛ partial/selective را در نظر بگیر.
 
-- [ ] History API
-  - [ ] `pushState`
-  - [ ] `replaceState`
-  - [ ] `popstate`
-  - [ ] SPA routing relevance
+### Event Listener Attachment
+- **Quick Summary:** در hydration، listenerها و state به DOM موجود وصل می‌شوند نه recreate کامل.
+- **Senior Insight:** تأخیر تا attach = UI قابل‌دیدن ولی مرده (uncanny valley).
 
-- [ ] URL / URLSearchParams
-  - [ ] parsing URLs
-  - [ ] query param read/write
-  - [ ] encoding basics
+### Mismatch Causes
+- **Quick Summary:** تفاوت HTML سرور/کلاینت (Date، random، locale) باعث warning یا remount می‌شود.
+- **Senior Insight:** خروجی SSR باید deterministic باشد؛ `suppressHydrationWarning` sparingly.
 
-- [ ] IntersectionObserver
-  - [ ] lazy loading
-  - [ ] infinite scroll
-  - [ ] visibility detection
-  - [ ] threshold/root basics
+### Performance Cost
+- **Quick Summary:** دانلود + parse + اجرای JS hydration هزینهٔ اصلی interactivity است.
+- **Senior Insight:** کمتر JS روی مسیر بحرانی = hydration ارزان‌تر.
 
-- [ ] MutationObserver
-  - [ ] DOM mutation tracking
-  - [ ] integration use cases
-  - [ ] cleanup concerns
+## Web APIs
 
-- [ ] ResizeObserver
-  - [ ] element size observation
-  - [ ] responsive components
-  - [ ] layout feedback loop caution
+### Timers / Fetch / Storage / Observers / Media
+- **Quick Summary:** APIهای مرورگر فراتر از DOM: شبکه، ذخیره، مشاهده، دستگاه، رسانه.
+- **Senior Insight:** هر API مدل permission/lifetime خودش را دارد؛ cleanup و feature detect الزامی است.
 
-- [ ] Performance API
-  - [ ] navigation timing basics
-  - [ ] marks / measures
-  - [ ] custom metrics
+## Storage
 
-- [ ] `requestAnimationFrame`
-  - [ ] animation scheduling
-  - [ ] paint-aligned updates
-  - [ ] better than setTimeout for visuals
+### `localStorage`
+- **Quick Summary:** Key-value رشته‌ای، ماندگار per-origin، API همگام.
+- **Senior Insight:** Sync روی Main thread؛ XSS کل داده را می‌خواند — برای token حساس مناسب نیست.
+- **Code:**
+```ts
+localStorage.setItem('theme', JSON.stringify({ mode: 'dark' }));
+const theme = JSON.parse(localStorage.getItem('theme') ?? '{}');
+```
 
-- [ ] `requestIdleCallback`
-  - [ ] background work scheduling
-  - [ ] browser support caveats
-  - [ ] low-priority tasks
+### `sessionStorage`
+- **Quick Summary:** مثل localStorage ولی محدود به tab؛ با بستن tab پاک می‌شود.
+- **Senior Insight:** مناسب wizard/draft موقت؛ بین tabها share نمی‌شود.
 
-- [ ] Clipboard API
-  - [ ] copy text
-  - [ ] permission constraints
-  - [ ] UX feedback
+### Cookies
+- **Quick Summary:** تا ~4KB؛ با هر request (در scope) به سرور می‌روند مگر محدودیت attribute.
+- **Senior Insight:** `HttpOnly`+`Secure`+`SameSite` برای session؛ اندازه را برای perf کنترل کن.
 
-- [ ] Geolocation API
-  - [ ] permission model
-  - [ ] success/error handling
-  - [ ] privacy implications
+### IndexedDB
+- **Quick Summary:** ذخیرهٔ ساخت‌یافتهٔ async در کلاینت؛ مناسب دادهٔ حجیم/آفلاین.
+- **Senior Insight:** API پیچیده؛ از wrapper (idb) استفاده کن؛ schema migration را طراحی کن.
 
-- [ ] Notifications API
-  - [ ] permission request
-  - [ ] notification lifecycle
-  - [ ] browser constraints
+### Cache Storage
+- **Quick Summary:** کش Request/Response؛ معمولاً با Service Worker برای offline.
+- **Senior Insight:** استراتژی cache (cache-first vs network-first) را صریح انتخاب کن.
 
-- [ ] Web Components basics
-  - [ ] custom elements
-  - [ ] shadow DOM
-  - [ ] templates
-  - [ ] interoperability with frameworks
+## Workers & Messaging
+
+### Service Worker
+- **Quick Summary:** Proxy شبکه در پس‌زمینه؛ lifecycle: register → install → activate → fetch.
+- **Senior Insight:** Update/activate اشتباه = کاربر روی نسخهٔ کهنه گیر می‌کند؛ skipWaiting محتاطانه.
+- **Code:**
+```ts
+navigator.serviceWorker.register('/sw.js');
+// sw.js: self.addEventListener('fetch', (e) => { e.respondWith(caches.match(e.request)); });
+```
+
+### Web Workers
+- **Quick Summary:** Thread جدا برای کار CPU-سنگین؛ ارتباط با `postMessage`.
+- **Senior Insight:** به DOM دسترسی ندارند؛ انتقال دادهٔ بزرگ هزینه دارد (structured clone / Transferable).
+
+### Shared Workers
+- **Quick Summary:** یک Worker مشترک بین tabهای هم‌origin.
+- **Senior Insight:** پشتیبانی/دیباگ سخت‌تر؛ در عمل کمتر از BroadcastChannel استفاده می‌شود.
+
+### BroadcastChannel
+- **Quick Summary:** پیام‌رسانی سادهٔ cross-tab هم‌origin (مثلاً logout sync).
+- **Senior Insight:** برای sync سبک عالی؛ state پیچیده را با منبع حقیقت واحد نگه دار.
+- **Code:**
+```ts
+const bc = new BroadcastChannel('auth');
+bc.postMessage({ type: 'logout' });
+bc.onmessage = (e) => { if (e.data.type === 'logout') clearSession(); };
+```
+
+### `postMessage`
+- **Quick Summary:** ارتباط window↔window یا page↔worker با structured clone.
+- **Senior Insight:** همیشه `event.origin` را validate کن؛ پیام بدون چک = XSS vector.
+
+## Security (Browser)
+
+### Same-Origin Policy
+- **Quick Summary:** Origin = scheme + host + port؛ دسترسی متقابل به DOM/storage محدود است.
+- **Senior Insight:** پایه‌ای‌ترین مرز امنیتی مرورگر؛ دور زدنش فقط با مکانیزم‌های صریح (CORS، postMessage).
+
+### CORS
+- **Quick Summary:** سرور با headerها اجازهٔ cross-origin به JS می‌دهد؛ گاهی preflight `OPTIONS`.
+- **Senior Insight:** `credentials` نیاز به `Access-Control-Allow-Credentials` و origin مشخص دارد نه `*`.
+- **Code:**
+```ts
+fetch(url, { credentials: 'include', headers: { Authorization: `Bearer ${token}` } });
+```
+
+### CSP
+- **Quick Summary:** Policy برای محدود کردن منابع (`script-src`، `style-src`) با nonce/hash.
+- **Senior Insight:** قوی‌ترین دفاع XSS در عمق دفاع؛ `unsafe-inline` را تا حد ممکن حذف کن.
+
+### XSS / CSRF Basics
+- **Quick Summary:** XSS اجرای اسکریپت مهاجم؛ CSRF سوءاستفاده از cookie session کاربر.
+- **Senior Insight:** Escape خروجی + CSP برای XSS؛ SameSite/token برای CSRF.
+
+| Attack | بردار اصلی | دفاع کلیدی |
+|--------|------------|------------|
+| Stored/Reflected/DOM XSS | ورودی ناامن در DOM | Escape، CSP، sanitize |
+| CSRF | Request ناخواسته با cookie | SameSite، CSRF token |
+
+### JWT Storage Tradeoffs
+- **Quick Summary:** Memory امن‌تر از XSS؛ localStorage در برابر XSS ضعیف؛ cookie با HttpOnly در برابر XSS قوی‌تر.
+- **Senior Insight:** Cookie → ریسک CSRF؛ localStorage → ریسک XSS؛ انتخاب = مدل تهدید.
+
+### Authentication Flow in Browser
+- **Quick Summary:** Login → ذخیره token/cookie → refresh session → logout و باطل‌سازی.
+- **Senior Insight:** Refresh را rotate کن؛ logout باید سمت سرور و همهٔ tabها sync شود.
+
+### Authorization Concepts
+- **Quick Summary:** AuthN هویت است؛ AuthZ مجوز؛ roles درشت، permissions ریز.
+- **Senior Insight:** چک فقط در UI امنیت نیست؛ سرور باید enforce کند.
+
+## Files & Binary
+
+### File API
+- **Quick Summary:** `<input type="file">` و drag-drop → `File` با name/size/type و preview با `URL.createObjectURL`.
+- **Senior Insight:** Object URL را `revoke` کن؛ اندازه/نوع را قبل از upload اعتبارسنجی کن.
+
+### Blob / ArrayBuffer / Stream
+- **Quick Summary:** Blob دادهٔ خام؛ ArrayBuffer بافر باینری؛ Stream خواندن تکه‌تکه.
+- **Senior Insight:** برای فایل بزرگ از Stream استفاده کن تا memory منفجر نشود؛ download با `URL.createObjectURL(blob)`.
+
+## Realtime
+
+### WebSocket
+- **Quick Summary:** اتصال دوطرفهٔ ماندگار روی یک TCP/TLS connection.
+- **Senior Insight:** Reconnect با backoff + heartbeat؛ auth و message schema را سخت‌گیرانه طراحی کن.
+
+### SSE
+- **Quick Summary:** جریان یک‌طرفهٔ سرور→کلاینت روی HTTP؛ ساده‌تر از WebSocket.
+- **Senior Insight:** برای notification/stream کافی است؛ نیاز دوطرفه = WebSocket/WebTransport.
+
+| | WebSocket | SSE |
+|--|-----------|-----|
+| جهت | Bidirectional | Server → client |
+| پروتکل | WS | HTTP |
+| Reconnect | دستی | خودکار مرورگر |
+
+## Navigation & URL
+
+### History API
+- **Quick Summary:** `pushState`/`replaceState` بدون reload؛ `popstate` برای back/forward.
+- **Senior Insight:** پایهٔ SPA router؛ state را با URL sync نگه دار نه فقط memory.
+- **Code:**
+```ts
+history.pushState({ page: 2 }, '', '/items?page=2');
+window.addEventListener('popstate', (e) => render(e.state));
+```
+
+### URL / URLSearchParams
+- **Quick Summary:** پارس امن URL و خواندن/نوشتن query با encoding درست.
+- **Senior Insight:** دستی string نساز؛ `URLSearchParams` از bugهای encode جلوگیری می‌کند.
+- **Code:**
+```ts
+const url = new URL(location.href);
+url.searchParams.set('q', 'react hooks');
+history.replaceState(null, '', url);
+```
+
+## Observers & Scheduling
+
+### IntersectionObserver
+- **Quick Summary:** تشخیص visibility برای lazy-load، infinite scroll، impression.
+- **Senior Insight:** به‌جای scroll listener؛ `threshold`/`rootMargin` را دقیق تنظیم کن.
+- **Code:**
+```ts
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => { if (e.isIntersecting) load(e.target); });
+}, { rootMargin: '200px' });
+```
+
+### MutationObserver
+- **Quick Summary:** واکنش به تغییر DOM (childList، attributes، subtree).
+- **Senior Insight:** observer را disconnect کن؛ حلقهٔ mutation→write→mutation بساز نکن.
+
+### ResizeObserver
+- **Quick Summary:** مشاهدهٔ تغییر اندازهٔ element برای layout responsive در component.
+- **Senior Insight:** در callback دوباره size را عوض نکن — feedback loop و jank.
+
+### Performance API
+- **Quick Summary:** Navigation Timing، `mark`/`measure` برای متریک سفارشی.
+- **Senior Insight:** متریک business را خودت mark کن؛ فقط Lighthouse کافی نیست.
+
+### `requestAnimationFrame`
+- **Quick Summary:** زمان‌بندی کار بصری قبل از paint بعدی (~60fps).
+- **Senior Insight:** برای انیمیشن بهتر از `setTimeout`؛ در tab مخفی throttle می‌شود.
+
+### `requestIdleCallback`
+- **Quick Summary:** کار کم‌اولویت وقتی مرورگر idle است.
+- **Senior Insight:** پشتیبانی/اولویت محدود؛ کار حیاتی را به آن نسپار؛ timeout بگذار.
+
+## Device & UX APIs
+
+### Clipboard API
+- **Quick Summary:** `navigator.clipboard.writeText/readText` با محدودیت permission و secure context.
+- **Senior Insight:** UX بازخورد کپی بده؛ fallback برای مرورگرهای قدیمی.
+
+### Geolocation API
+- **Quick Summary:** مختصات با permission؛ success/error callback یا Promise wrapper.
+- **Senior Insight:** حریم خصوصی حساس؛ فقط وقتی لازم؛ دقت بالا = باتری بیشتر.
+
+### Notifications API
+- **Quick Summary:** اعلان سیستم بعد از permission؛ معمولاً با Service Worker برای push.
+- **Senior Insight:** Permission را در context مفید بخواه نه در اولین load.
+
+## Web Components
+
+### Custom Elements / Shadow DOM / Templates
+- **Quick Summary:** اجزای بومی با encapsulation (Shadow DOM)، تعریف element، و `<template>`.
+- **Senior Insight:** با React/Vue قابل‌همزیستی است ولی event/style bridging پیچیدگی دارد؛ برای design system بین فریم‌ورک‌ها مفید.
