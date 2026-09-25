@@ -196,7 +196,7 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "DoctorEb Pharmacy Platform",
+      title: "DoctorEb Pharmacy E-commerce",
       href: "https://doctoreb.com/",
       dates: "Sep 2026 - Dec 2026",
       active: true,
@@ -220,7 +220,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Sama Partners Platform",
+      title: "Sama Partners",
       href: "https://sama.partners",
       dates: "May 2026 - July 2026",
       active: false,
@@ -245,7 +245,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Behrang Music Academy Platform",
+      title: "Behrang Music Academy",
       href: "https://behrangmusic.com",
       dates: "April 2026 – August 2026",
       active: false,
@@ -270,7 +270,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Danawiz (Interactive Presentation Platform)",
+      title: "Danawiz (Interactive Presentation)",
       href: "https://danawiz.ir",
       dates: "2025",
       active: true,
@@ -315,7 +315,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Defacement Monitoring Platform",
+      title: "Defacement Monitoring",
       href: "https://v2.defacement.ir",
       dates: "2024",
       active: false,
@@ -365,7 +365,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Sanjify Exam Platform",
+      title: "Sanjify Exam",
       href: "https://sanjify.ir",
       dates: "2021-2024",
       active: false,
@@ -389,7 +389,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Dana-intel Risk Management Platform",
+      title: "Dana-intel Risk Management",
       href: "https://panel.danaintel.ir",
       dates: "2023-2023",
       active: false,
@@ -465,7 +465,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Online Exam Platform",
+      title: "Online Exam",
       href: "https://exam.kahkeshan.com",
       dates: "2023",
       active: false,
